@@ -1,0 +1,123 @@
+{
+  "cycles": 2,
+  "generated_at": "2026-08-23T21:27:04.998593+00:00",
+  "ok": true,
+  "preparation": {
+    "gitlab_removed_conflicts": [],
+    "gitlab_runtime_name": "gitlab-benchmark-canonical",
+    "plane_backup_sha256": {
+      "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+      "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+      "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+    },
+    "plane_restore_adapter_sha256": "b882fc100bbc59fb0a54f412b6835d2ebc35bbaa38711707e97f35826e03839d"
+  },
+  "results": [
+    {
+      "cycle": 1,
+      "fingerprints": {
+        "gitlab": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+        "plane": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627"
+      },
+      "gitlab": {
+        "container_marker": "648d2b39dc5e1a27ee546767e22aa3fd046cee553e2e822b3b1f8c2af23f2308|2026-08-23T21:24:07.793515827Z",
+        "fingerprint": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+        "image_identity": "ghcr.io/theagentcompany/servers-gitlab:1.0.0|sha256:6c61011c225953f3c081eb44e5ba80068489f31289aeb31ccf621c3df024142e",
+        "project_count": 13,
+        "project_paths": [
+          "root/api-server",
+          "root/bustub",
+          "root/colly",
+          "root/doc",
+          "root/janusgraph",
+          "root/llama.cpp",
+          "root/node-red",
+          "root/openhands",
+          "root/opensearch",
+          "root/raft",
+          "root/risingwave",
+          "root/sotopia",
+          "root/streamlit"
+        ],
+        "removed_conflicts": [],
+        "reset_response": {
+          "message": "Reset GitLab command initiated"
+        },
+        "service": "gitlab"
+      },
+      "plane": {
+        "backup_sha256": {
+          "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+          "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+          "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+        },
+        "container_marker": "bc0398a4bc1dd5ce3c4f1f7aad357ca2abceaa24637864e2170d2ea5342b7ff8|2026-08-23T21:25:02.980152013Z",
+        "counts": {
+          "issues_tac": 31,
+          "projects_tac": 10,
+          "workspaces_tac": 1
+        },
+        "fingerprint": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627",
+        "reset_response": {
+          "message": "Reset Plane command initiated"
+        },
+        "service": "plane"
+      }
+    },
+    {
+      "cycle": 2,
+      "fingerprints": {
+        "gitlab": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+        "plane": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627"
+      },
+      "gitlab": {
+        "container_marker": "4d1b06c210be0e486629d58826def4b17afc66831a982818221a1df2eb7dd7e8|2026-08-23T21:25:43.264605907Z",
+        "fingerprint": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+        "image_identity": "ghcr.io/theagentcompany/servers-gitlab:1.0.0|sha256:6c61011c225953f3c081eb44e5ba80068489f31289aeb31ccf621c3df024142e",
+        "project_count": 13,
+        "project_paths": [
+          "root/api-server",
+          "root/bustub",
+          "root/colly",
+          "root/doc",
+          "root/janusgraph",
+          "root/llama.cpp",
+          "root/node-red",
+          "root/openhands",
+          "root/opensearch",
+          "root/raft",
+          "root/risingwave",
+          "root/sotopia",
+          "root/streamlit"
+        ],
+        "removed_conflicts": [],
+        "reset_response": {
+          "message": "Reset GitLab command initiated"
+        },
+        "service": "gitlab"
+      },
+      "plane": {
+        "backup_sha256": {
+          "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+          "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+          "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+        },
+        "container_marker": "51fd9114b7458227de7ab08ea4c23e08bf0682aa4ea531c592a325be2307da75|2026-08-23T21:26:50.119546775Z",
+        "counts": {
+          "issues_tac": 31,
+          "projects_tac": 10,
+          "workspaces_tac": 1
+        },
+        "fingerprint": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627",
+        "reset_response": {
+          "message": "Reset Plane command initiated"
+        },
+        "service": "plane"
+      }
+    }
+  ],
+  "stable_fingerprints": {
+    "gitlab": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+    "plane": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627"
+  }
+}

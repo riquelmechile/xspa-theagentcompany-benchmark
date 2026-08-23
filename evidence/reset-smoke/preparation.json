@@ -1,0 +1,12 @@
+{
+  "gitlab_removed_conflicts": [
+    "gitlab-benchmark-recovery5"
+  ],
+  "ok": true,
+  "plane_backup_sha256": {
+    "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+    "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+    "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+  },
+  "plane_restore_adapter_sha256": "b882fc100bbc59fb0a54f412b6835d2ebc35bbaa38711707e97f35826e03839d"
+}
