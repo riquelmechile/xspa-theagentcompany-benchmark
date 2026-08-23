@@ -1,0 +1,8 @@
+build_bundle.py
+*.trajectory.jsonl
+trajectory.jsonl
+trajectory.log
+*.log
+.env
+*.key
+*.pem

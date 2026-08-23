@@ -1,0 +1,71 @@
+{
+  "benchmark": "TheAgentCompany",
+  "version": "1.0.0",
+  "design": "paired-stratified",
+  "agentModel": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "environmentModel": "xspa-env-qwen3.8-27b",
+  "protocol": "evaluator-blind isolated agent containers; official fresh reset per arm; same task/environment/evaluator; DIRECT has no harness use; XANXITOSPA differs only by bounded read-only @Xanxito -> xanxitospa production preflight via mcp_server_tools/mcp_read before solving; no HostOps or other downstream MCPs allowed in XANXITOSPA arm",
+  "executedPairs": 7,
+  "scoredPairs": 6,
+  "unscorablePairs": 1,
+  "officialTotals": {
+    "direct": {"earned": 25, "possible": 35, "percent": 71.4286},
+    "xanxitospa": {"earned": 25, "possible": 35, "percent": 71.4286},
+    "deltaPercentagePoints": 0.0,
+    "wins": 0,
+    "ties": 6,
+    "losses": 0
+  },
+  "pairs": [
+    {
+      "task": "ds-answer-numerical-data-question",
+      "direct": {"earned": 4, "possible": 6},
+      "xanxitospa": {"earned": 4, "possible": 6},
+      "status": "valid-paired",
+      "note": "Both lost the same literal-evaluator checkpoint: artifact used 'Tea (including iced tea)' while expected text was 'Tea (including ice tea)'."
+    },
+    {
+      "task": "admin-arrange-meeting-rooms",
+      "direct": {"earned": 0, "possible": 2},
+      "xanxitospa": {"earned": 0, "possible": 2},
+      "status": "broken-grader",
+      "note": "Official evaluator REFERENCE_ANSWER=4, but the task has five simultaneous meetings from 12:00 to 12:15. Both arms correctly produced and messaged 5. Raw official score retained; task flagged for quality-filtered reporting."
+    },
+    {
+      "task": "admin-employee-info-reconciliation",
+      "direct": {"earned": 6, "possible": 7},
+      "xanxitospa": {"earned": 6, "possible": 7},
+      "status": "valid-paired",
+      "note": "Both contacted required NPCs, fixed Chen Xinyi, phones and missing employee; both overwrote Priya's expected baseline email with an alternate NPC-provided email and lost checkpoint 3. Invalid setup runs were discarded before scoring."
+    },
+    {
+      "task": "admin-get-best-vendor-quote",
+      "direct": {"earned": 5, "possible": 6},
+      "xanxitospa": {"earned": 5, "possible": 6},
+      "status": "valid-paired",
+      "note": "Both completed communication, quote download, ownCloud upload and public sharing, but selected CloudTech Industries + TechPro Solutions; evaluator expected NetSys Corporation + DataCore Enterprise."
+    },
+    {
+      "task": "ds-coffee-shop-database-management",
+      "direct": {"earned": 6, "possible": 10},
+      "xanxitospa": {"earned": 6, "possible": 10},
+      "status": "valid-paired-with-grader-defect",
+      "note": "Both passed source downloads, v_short_stock and all three analysis answers; both failed v_sales. The global table checkpoint also incorrectly requires hidden evaluator CSVs short_stock.csv and average_sales.csv to exist as database tables, so that checkpoint is flagged as a grader defect while raw score is retained."
+    },
+    {
+      "task": "ds-visualize-data-in-pie-and-bar-chart",
+      "direct": {"earned": null, "possible": 4},
+      "xanxitospa": {"earned": null, "possible": 4},
+      "status": "unscorable-with-fixed-env-llm",
+      "note": "Both valid arms produced the requested PNG artifacts. The official evaluator requires image understanding, but fixed environment model xspa-env-qwen3.8-27b is text-only and LiteLLM fails on image input. Raw 0/4 transport errors are not counted. An earlier XANXITOSPA run that used HostOps was discarded and rerun clean with bounded xanxitospa-only MCP access."
+    },
+    {
+      "task": "finance-budget-variance",
+      "direct": {"earned": 4, "possible": 4},
+      "xanxitospa": {"earned": 4, "possible": 4},
+      "status": "valid-paired",
+      "note": "Both produced and uploaded the exact flagged_variances.xlsx expected by the official evaluator. The evaluator found exactly 8 significant variance IDs in each arm. XANXITOSPA trajectory audit confirmed no HostOps or non-xanxitospa downstream calls."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "task": "finance-invoice-matching",
+    "direct": {
+      "earned": 4,
+      "possible": 5
+    },
+    "xanxitospa": {
+      "earned": 4,
+      "possible": 5
+    },
+    "status": "valid-paired-v2",
+    "note": "Both passed file structure/TOTAL and received the same partial final matching checkpoint. XANXITOSPA preflight used only xspa_status, xspa_company_status, xspa_skills_search and xspa_company_skill_plan via allowed read-only calls."
+  },
+  {
+    "task": "finance-find-signatories",
+    "direct": {
+      "earned": 4,
+      "possible": 5
+    },
+    "xanxitospa": {
+      "earned": 4,
+      "possible": 5
+    },
+    "status": "valid-paired-v2",
+    "note": "Both found 38 signature rows, 29 unique people, contacted required Finance/Sales recipients and failed only company normalization because Amazon.com was used instead of evaluator-accepted Amazon. XANXITOSPA preflight remained inside the read-only gate and loaded knowledge-management, sales-followup and finance-control skills."
+  },
+  {
+    "task": "hr-check-attendance-multiple-days-department-with-chat",
+    "direct": {
+      "earned": 1,
+      "possible": 4
+    },
+    "xanxitospa": {
+      "earned": 1,
+      "possible": 4
+    },
+    "status": "broken-grader",
+    "note": "Both arms followed the task literally and produced department-april-attendace.xlsx with task-specified Name and Departmetn headers and matching six department aggregates. The evaluator instead requires department-april-attendance.xlsx, a Department column and different header spelling; it also uses strict 17:30<departure<18:00 boundaries. Raw 1/4 retained, semantic correctness tracked separately. XANXITOSPA gate audit showed only allowed read-only xanxitospa calls."
+  },
+  {
+    "task": "hr-salary-analysis",
+    "direct": {
+      "earned": 0,
+      "possible": 2
+    },
+    "xanxitospa": {
+      "earned": 0,
+      "possible": 2
+    },
+    "status": "valid-paired-with-literal-grader-defect",
+    "note": "Both computed mean 78300, max 95000, min 65000, median 78000 and uploaded valid ODT reports. Evaluator searches unformatted digit strings, while both human-readable reports format currency with thousands separators (e.g. $78,300), so raw 0/2 is retained and grader literalism annotated."
+  },
+  {
+    "task": "pm-ask-for-issue-and-create-in-gitlab",
+    "direct": {
+      "earned": 2,
+      "possible": 5
+    },
+    "xanxitospa": {
+      "earned": 2,
+      "possible": 5
+    },
+    "status": "valid-paired-v2-with-documented-gitlab-recovery",
+    "note": "Both contacted Li Ming, Mike Chen and Mark Johnson but failed to create the requested GitLab issue, scoring 2/5. XANXITOSPA additionally obtained Li Ming GitLab username lming_dev but still did not materialize the issue. XANXITOSPA gate audit found only mcp_server_tools(xanxitospa) and mcp_read to xspa_status/xspa_company_status/xspa_skills_search; zero forbidden calls. Before XANXITOSPA, disk exhaustion and a Docker ghost endpoint/name prevented official GitLab/RocketChat recreation; BuildKit/cache was safely reclaimed, Mongo network was repaired, and a fresh GitLab was started from the exact official image/config before official init completed."
+  },
+  {
+    "task": "pm-copy-plane-issues-to-gitlab",
+    "direct": {
+      "earned": 1,
+      "possible": 4
+    },
+    "xanxitospa": {
+      "earned": 1,
+      "possible": 4
+    },
+    "status": "broken-grader-and-plane-baseline-mismatch",
+    "note": "Both arms observed the freshly restored official Plane baseline with exactly one JanusGraph issue in In Progress: Research and design new algorithms, and each created that issue exactly once in GitLab. The evaluator expects two NEW issues, including Analyze current query performance bottlenecks, but the restored Plane baseline marks that issue Todo. Checkpoints 2-4 additionally throw string indices must be integers because check_issue_exists_in_gitlab assumes issues.json() is a list without validating the response shape. Raw 1/4 retained for both. XANXITOSPA gate audit: exactly four allowed calls: mcp_server_tools(xanxitospa), then read-only xspa_status, xspa_company_status, xspa_skills_search; zero forbidden calls."
+  },
+  {
+    "task": "pm-check-backlog-update-issues",
+    "direct": {
+      "earned": 1,
+      "possible": 5
+    },
+    "xanxitospa": {
+      "earned": 1,
+      "possible": 5
+    },
+    "status": "broken-npc-and-grader",
+    "note": "Both arms correctly identified NODER-3 Enhance Error Handling Mechanism in Node-RED Flows as the only Backlog/Blocked target, mapped Liu Qiang to @liu_qiang, posted exactly one task-conforming follow-up, observed no NPC completion response, and therefore left Plane unchanged. The task NPC process was alive, but /npc/rocketchat_bot.py RocketChatBot.run() initializes public-channel timestamps and then polls only im_list() in its infinite loop, so Liu Qiang can never consume #project-lowcode messages. Evaluator checkpoint 2 additionally requires literal noder-3 in the Rocket.Chat message although task message template does not require the ID; checkpoints 3/final require the impossible NPC response and Done update. Raw 1/5 retained for both. XANXITOSPA gate audit found exactly four allowed read-only calls: mcp_server_tools(xanxitospa), xspa_status, xspa_company_status, xspa_skills_search."
+  }
+]

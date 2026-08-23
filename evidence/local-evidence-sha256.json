@@ -1,0 +1,508 @@
+{
+  "generatedAt": "2026-08-23T16:05:39.466334+00:00",
+  "sourceRoot": "/home/sebastian/workspace/xspa-benchmark",
+  "policy": "Raw trajectories/artifacts remain local; GitHub contains hashes and sanitized score/evidence summaries only.",
+  "pairs": [
+    {
+      "task": "finance-invoice-matching",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/finance-invoice-matching/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/evaluator_post.py",
+              "sha256": "bfb7b9ed1604efd871454464c20827f09e56401ed32759644031fee348cdd0d2",
+              "sizeBytes": 5940,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/flagged_payments.xlsx",
+              "sha256": "deff51dda552d356749d3d3125f38e2a8a902d480b781241bcfd4b89c79d20f0",
+              "sizeBytes": 3949,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/flagged_payments_uploaded.xlsx",
+              "sha256": "deff51dda552d356749d3d3125f38e2a8a902d480b781241bcfd4b89c79d20f0",
+              "sizeBytes": 3949,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/last-message.txt",
+              "sha256": "9e6a31f3ca0f2e8c5d1424030665760a840144364df6788261d3b8f5d2b3e91c",
+              "sizeBytes": 385,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/reconcile.py",
+              "sha256": "c0b80a71ad339ec9899600b6941593516c81a31d62876f24c2bbc9a8bbcdc7ef",
+              "sizeBytes": 19024,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/reconciliation_analysis.txt",
+              "sha256": "e502408d58aba916eb6d31d3428709dc1d3c872c55aae2489f9d98bbf6ea727f",
+              "sizeBytes": 22222,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/task.md",
+              "sha256": "4f320542f7dd6dce9a529a6ff15df2c1f2943092e5e7f15650223cb349e3abd4",
+              "sizeBytes": 1131,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/trajectory.jsonl",
+              "sha256": "853590488c2e762623790fe12081c9c4d1e8dde0369ccc93ddf9d46b456bc1e1",
+              "sizeBytes": 688022,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/direct-hard-v2/trajectory.log",
+              "sha256": "eb063f096779983dcfd8c795252c693c4ff73fc8864286f1e8eb8f5f99b7a87a",
+              "sizeBytes": 688022,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/finance-invoice-matching/xanxitospa-v2b",
+          "files": [
+            {
+              "path": "pairs/finance-invoice-matching/xanxitospa-v2b/evaluator_post.py",
+              "sha256": "bfb7b9ed1604efd871454464c20827f09e56401ed32759644031fee348cdd0d2",
+              "sizeBytes": 5940,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/xanxitospa-v2b/last-message.txt",
+              "sha256": "fa9aab1d45bc4c154cac3054dd455ef41feace54fb2d47ec7809582829177425",
+              "sizeBytes": 382,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/xanxitospa-v2b/task.md",
+              "sha256": "4f320542f7dd6dce9a529a6ff15df2c1f2943092e5e7f15650223cb349e3abd4",
+              "sizeBytes": 1131,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-invoice-matching/xanxitospa-v2b/trajectory.jsonl",
+              "sha256": "bf089cf8f19650a054247c66ec1bec265ef819a4f9b9506f190a81aaa454833f",
+              "sizeBytes": 220276,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "finance-find-signatories",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/finance-find-signatories/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/finance-find-signatories/direct-hard-v2/evaluator_post.py",
+              "sha256": "15ab8992d415b2e48b6d3d34ca4ee1ecb2db293ac40871abbb50ae9c8b3e9563",
+              "sizeBytes": 3328,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/direct-hard-v2/last-message.txt",
+              "sha256": "755deea94acda117196933d9a4ada8ea78702705e17debaeaa9ee1fb8bf90966",
+              "sizeBytes": 323,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/direct-hard-v2/signatories.csv",
+              "sha256": "15c28933b76633625fc135debaada7ded8cc73efdefd0c9271bfa3cc511ffaea",
+              "sizeBytes": 2509,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/direct-hard-v2/task.md",
+              "sha256": "0d61b70c0bc2a1e876841f426bda8b77089f00f9a649224313106b4ffc8924f4",
+              "sizeBytes": 994,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/direct-hard-v2/trajectory.jsonl",
+              "sha256": "f433c56e2c0d17b1469a2ad38b7feb4602e9891b345c4981d893beb3585ce3f5",
+              "sizeBytes": 284416,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/finance-find-signatories/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/finance-find-signatories/xanxitospa-v2/eval.json",
+              "sha256": "96b85ba94f018cd3667fc08a0845f6e553c141f380679067400897863326e55f",
+              "sizeBytes": 442,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/xanxitospa-v2/last-message.txt",
+              "sha256": "5343345a973f1fbab3bb2daf2c8d9c21f4689625b906b4368a9fab3e1628924d",
+              "sizeBytes": 351,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/xanxitospa-v2/signatories.csv",
+              "sha256": "b4588549d5a2c14c101628f296d063f6da8825999ceedfe600520abab1b391ca",
+              "sizeBytes": 2807,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/xanxitospa-v2/task.md",
+              "sha256": "0d61b70c0bc2a1e876841f426bda8b77089f00f9a649224313106b4ffc8924f4",
+              "sizeBytes": 994,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-find-signatories/xanxitospa-v2/trajectory.jsonl",
+              "sha256": "5faa4659c2649471fde0a521d9fe76ec7a5a266473a38b27b641f3b1b89d79b8",
+              "sizeBytes": 307018,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "hr-check-attendance-multiple-days-department-with-chat",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2/department-april-attendace.xlsx",
+              "sha256": "0c9f29c6b4f5cfbaf71b96474d0e06ae50b380eaf060068719d773762f8b2901",
+              "sizeBytes": 3940,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2/eval.json",
+              "sha256": "d82c76c6ca79fa28fc197e1f657177268a5b4ff375cae55584d21109ada2291d",
+              "sizeBytes": 388,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2/last-message.txt",
+              "sha256": "55f9854bf462e1d9f431d7761cc230d712484af47ad4af0b3bcc4dace9b38249",
+              "sizeBytes": 317,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2/task.md",
+              "sha256": "1505c27a34003d679f9ed0be2405b39abd12c21cf4c0a8be485c8590209b4436",
+              "sizeBytes": 1320,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/direct-hard-v2/trajectory.jsonl",
+              "sha256": "b0af8454fa4e270ebf54067d6940c65344d48ea1e89b7f348da52f549803c41b",
+              "sizeBytes": 89139,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/april-attendance-data.csv",
+              "sha256": "9e82c6d57dbde59cee85afce3f4a79b074520fb4d029702866bb336dac376ffa",
+              "sizeBytes": 6411,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/department-april-attendace.xlsx",
+              "sha256": "82ccd62ae4d33db4738122f521e3800af92702fdd561639522d3ccdc6f64610d",
+              "sizeBytes": 3969,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/eval.json",
+              "sha256": "d82c76c6ca79fa28fc197e1f657177268a5b4ff375cae55584d21109ada2291d",
+              "sizeBytes": 388,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/last-message.txt",
+              "sha256": "a63e4d403d27650349a23fcd0b77bb22d229b59b42e7eb83cd355b023b2c51b2",
+              "sizeBytes": 303,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/task.md",
+              "sha256": "1505c27a34003d679f9ed0be2405b39abd12c21cf4c0a8be485c8590209b4436",
+              "sizeBytes": 1320,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-check-attendance-multiple-days-department-with-chat/xanxitospa-v2/trajectory.jsonl",
+              "sha256": "01ce46b2ab8d5106e9deed2274623f63aea802cedc3cab1ad309d1d6a9ca645c",
+              "sizeBytes": 136765,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "hr-salary-analysis",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/hr-salary-analysis/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/hr-salary-analysis/direct-hard-v2/Salary_Analysis_Report.odt",
+              "sha256": "7f9cbfbc6bbc31adb6cb925c3f2ac42eb2315ce52ca50624f07107f4ba3f7ff6",
+              "sizeBytes": 9166,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/direct-hard-v2/generate_salary_report.py",
+              "sha256": "8d2f33350d6e1db1a32ba51c2917190905d8294780e8d7e84eb0acf2cb917149",
+              "sizeBytes": 43053,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/direct-hard-v2/last-message.txt",
+              "sha256": "e4b2fd88e0e4c5456f7bd6eac9639e42fd6f9b160445e7e1e878d708b77cac01",
+              "sizeBytes": 544,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/direct-hard-v2/task.md",
+              "sha256": "4b7978b66998d58a79da40bd109e00b4afdca8efb24d080f7e702932747b1f36",
+              "sizeBytes": 348,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/direct-hard-v2/trajectory.jsonl",
+              "sha256": "1d8533bbe2e15175753721da9bc7ea9c199842bc7d0ebd8af1bb41edd455a270",
+              "sizeBytes": 42047,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/hr-salary-analysis/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/hr-salary-analysis/xanxitospa-v2/last-message.txt",
+              "sha256": "8b60a784d84a4ececa89213fbee1465c13cb308b629b18774f71eafe0c60977d",
+              "sizeBytes": 603,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/xanxitospa-v2/task.md",
+              "sha256": "4b7978b66998d58a79da40bd109e00b4afdca8efb24d080f7e702932747b1f36",
+              "sizeBytes": 348,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/hr-salary-analysis/xanxitospa-v2/trajectory.jsonl",
+              "sha256": "1971af4ad099875ddfe758a8a3b73e394b6f00b3372fd3571c074f05e830b7c1",
+              "sizeBytes": 149999,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "pm-ask-for-issue-and-create-in-gitlab",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/pm-ask-for-issue-and-create-in-gitlab/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/direct-hard-v2/eval.json",
+              "sha256": "5e41ee62338da4e46c8a119c2f7654836752cca1e69313f88723e656717c9cb3",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/direct-hard-v2/last-message.txt",
+              "sha256": "53883d6b1be30f9c02724e9d20c730f463d6eb35bbed943b2546d81c2f4b582f",
+              "sizeBytes": 399,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/direct-hard-v2/task.md",
+              "sha256": "5860429d2a092149a815e59a50972bfd46341097d7fe7bfd30dfce9dc1495217",
+              "sizeBytes": 511,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/pm-ask-for-issue-and-create-in-gitlab/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/xanxitospa-v2/last-message.txt",
+              "sha256": "1c07603d5b127dc2c27ac515233a70ad6bc4da992c37db0e441b98321ea3eeb9",
+              "sizeBytes": 495,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/xanxitospa-v2/task.md",
+              "sha256": "5860429d2a092149a815e59a50972bfd46341097d7fe7bfd30dfce9dc1495217",
+              "sizeBytes": 511,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-ask-for-issue-and-create-in-gitlab/xanxitospa-v2/trajectory.log",
+              "sha256": "e0b7f8b7e53e96a9c5aefcc8f6543bb6ca29a19530f66b7b98c54a5ec686ffaa",
+              "sizeBytes": 174869,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "pm-copy-plane-issues-to-gitlab",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/pm-copy-plane-issues-to-gitlab/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/direct-hard-v2/eval.json",
+              "sha256": "11756664127dd00e4e9172798cc0e822c27feb5b746dccc3712d57db3b0a017f",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/direct-hard-v2/last-message.txt",
+              "sha256": "991e8f3640f9b6de9ce6f53527f7de39eb46e45ab95013336eb9e7658b347bb1",
+              "sizeBytes": 286,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/direct-hard-v2/task.md",
+              "sha256": "c778b0c121137e8b5d482472a119f5b1e450d026f23ee82ef918492600ab9ca5",
+              "sizeBytes": 387,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/direct-hard-v2/trajectory.jsonl",
+              "sha256": "3dda75ce75ae73ce4c203e0a68c22979d6854260b2f3c69d5ab9c0c8c9d51e9a",
+              "sizeBytes": 338246,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/eval.json",
+              "sha256": "11756664127dd00e4e9172798cc0e822c27feb5b746dccc3712d57db3b0a017f",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/invalid-run.json",
+              "sha256": "f2af6eb616f99df23b532786f96e3a2bb737cc08a8a132a0faf245d222f589c2",
+              "sizeBytes": 165,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/last-message.txt",
+              "sha256": "c81aa1bc20e44a5bc86ad3f6991e5f12008c1873331e63f4ab8189e9adce36f7",
+              "sizeBytes": 554,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/task.md",
+              "sha256": "c778b0c121137e8b5d482472a119f5b1e450d026f23ee82ef918492600ab9ca5",
+              "sizeBytes": 387,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/trajectory-invalid-safety-filter.jsonl",
+              "sha256": "e7a06f438863054280e3ee64ea484bdc238459d7b738bf1c0c1511b3d04387ca",
+              "sizeBytes": 403217,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-copy-plane-issues-to-gitlab/xanxitospa-v2/trajectory.jsonl",
+              "sha256": "91553e0366a5976dbc770c0098ee06bbb0a2d64b8e41a6fcdaced7c91156cd0d",
+              "sizeBytes": 550229,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "pm-check-backlog-update-issues",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/pm-check-backlog-update-issues/direct-hard-v2",
+          "files": [
+            {
+              "path": "pairs/pm-check-backlog-update-issues/direct-hard-v2/eval.json",
+              "sha256": "c5cf6ebeefc1727f5d182068a66df61733632219835636bc7a379713a4a53d79",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/direct-hard-v2/last-message.txt",
+              "sha256": "e0ff5ebac3bd1b44dcbabc071e1908417ccf3ad3676c61c901a78539160029c5",
+              "sizeBytes": 502,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/direct-hard-v2/task.md",
+              "sha256": "820d35877d6861c5c7fa12309d217f854d3b51d33c9ba95cf9194d521c9a2db4",
+              "sizeBytes": 1176,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/direct-hard-v2/trajectory.jsonl",
+              "sha256": "290f0fb0488d923e7b5f1cdd84a40f1c46de336bcc19cceaabd51355874fa9d3",
+              "sizeBytes": 1361336,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/pm-check-backlog-update-issues/xanxitospa-v2",
+          "files": [
+            {
+              "path": "pairs/pm-check-backlog-update-issues/xanxitospa-v2/eval.json",
+              "sha256": "c5cf6ebeefc1727f5d182068a66df61733632219835636bc7a379713a4a53d79",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/xanxitospa-v2/last-message.txt",
+              "sha256": "3226538eb1fe974381209b50bf833937ad142cb2922a9d10b5f555ad76619bd4",
+              "sizeBytes": 493,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/xanxitospa-v2/task.md",
+              "sha256": "820d35877d6861c5c7fa12309d217f854d3b51d33c9ba95cf9194d521c9a2db4",
+              "sizeBytes": 1176,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/pm-check-backlog-update-issues/xanxitospa-v2/trajectory.jsonl",
+              "sha256": "6d3b504d2b0ac3dc1318f87a44b3e36fc7af6d2f3c369d3245d58da9194b9496",
+              "sizeBytes": 216214,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

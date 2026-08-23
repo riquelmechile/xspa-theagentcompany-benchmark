@@ -1,0 +1,204 @@
+{
+  "finance-find-signatories": {
+    "xanxitospa": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 1
+        }
+      ],
+      "final_score": {
+        "total": 5,
+        "result": 4
+      }
+    }
+  },
+  "hr-check-attendance-multiple-days-department-with-chat": {
+    "direct": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": false
+        },
+        {
+          "total": 1,
+          "result": true
+        },
+        {
+          "total": 1,
+          "result": false
+        },
+        {
+          "total": 1,
+          "result": false
+        }
+      ],
+      "final_score": {
+        "total": 4,
+        "result": 1
+      }
+    },
+    "xanxitospa": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": false
+        },
+        {
+          "total": 1,
+          "result": true
+        },
+        {
+          "total": 1,
+          "result": false
+        },
+        {
+          "total": 1,
+          "result": false
+        }
+      ],
+      "final_score": {
+        "total": 4,
+        "result": 1
+      }
+    }
+  },
+  "pm-ask-for-issue-and-create-in-gitlab": {
+    "direct": {
+      "checkpoints": [
+        {
+          "total": 2,
+          "result": 2
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 2,
+          "result": 0
+        }
+      ],
+      "final_score": {
+        "total": 5,
+        "result": 2
+      }
+    }
+  },
+  "pm-copy-plane-issues-to-gitlab": {
+    "direct": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        }
+      ],
+      "final_score": {
+        "total": 4,
+        "result": 1
+      }
+    },
+    "xanxitospa": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        }
+      ],
+      "final_score": {
+        "total": 4,
+        "result": 1
+      }
+    }
+  },
+  "pm-check-backlog-update-issues": {
+    "direct": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 2,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        }
+      ],
+      "final_score": {
+        "total": 5,
+        "result": 1
+      }
+    },
+    "xanxitospa": {
+      "checkpoints": [
+        {
+          "total": 1,
+          "result": 1
+        },
+        {
+          "total": 2,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        },
+        {
+          "total": 1,
+          "result": 0
+        }
+      ],
+      "final_score": {
+        "total": 5,
+        "result": 1
+      }
+    }
+  }
+}
