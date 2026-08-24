@@ -11,14 +11,32 @@ This is the user-requested architecture where **this ChatGPT session is the agen
 - Completed v3 pairs: **16/16** of the previously remaining tasks.
 - DIRECT raw official: **69/95 = 72.6316%**.
 - XANXITOSPA raw official: **68/95 = 71.5789%**.
-- Raw delta: **-1.0526 percentage points**.
 - Pair wins / ties / losses for XANXITOSPA: **1 / 14 / 1**.
-- Fixed-evaluator-compatible subset (excluding the two vision-dependent tasks): DIRECT **67/83 = 80.7229%**, XANXITOSPA **66/83 = 79.5181%**, delta **-1.2048 pp**.
+- Exact two-sided paired sign test on the two discordant pairs: **p = 1.0**. There is **no measurable directional capability difference** in this sample.
+- The raw one-checkpoint difference (69 vs 68 of 95) is descriptive noise, not evidence that XANXITOSPA is worse.
+- Fixed-evaluator-compatible subset (excluding the two vision-dependent tasks): DIRECT **67/83**, XANXITOSPA **66/83**; the same paired conclusion holds (1 win, 1 loss; two-sided sign-test **p = 1.0**).
 - Vision-incompatible tasks: `ds-visualize-data-in-pie-and-bar-chart`, `research-reproduce-figures` (the fixed Qwen evaluator rejects image input with HTTP 500).
 
-**Methodology warning:** v3 arms use fresh task runtime/state and separate trajectories, but they execute sequentially in the same ChatGPT conversation context. This is not fresh-context blind isolation. v3 must not be merged with v2 totals.
+**Methodology warning:** v3 arms use fresh task runtime/state and separate trajectories, but they execute sequentially in the same ChatGPT conversation context. This is not fresh-context blind isolation. v3 must not be merged with v2 totals. The absolute percentages are also **not comparable to TheAgentCompany paper results** because this run uses a 16-task subset, a local Qwen environment/evaluator model, and a text-only evaluator that cannot score two vision-dependent tasks. The paired within-run contrast is the valid result.
 
 See `results/results-v3-chatgpt-hosted-mcp.json` for all 16 task-level scores and grader annotations.
+
+
+## v4 deterministic fault-injection micro-pilot
+
+The v3 paired result is capability-neutral, so the next experiment targets the surfaces XanxitoSpA is actually designed to add: idempotency, recovery, budget boundaries and fencing under controlled failure.
+
+The first v4 micro-pilot uses the **production kernel implementation** (`CapabilityPlane`, `BudgetEnvelope`, durable idempotency journal, reconciliation and monotonic fencing) with the same provider/objective/fault presented to a raw DIRECT path and to the XANXITOSPA governed path. It is an injector/metric validation step, **not yet the final TAC task-level benchmark**.
+
+Pilot scenarios:
+
+| Failure | DIRECT integrity | XANXITOSPA integrity | Key observation |
+|---|---:|---:|---|
+| lost acknowledgement after mutation | fail | pass | DIRECT blind retry produced 2 effects; XSPA reconciled and replayed with 1 |
+| budget overrun | fail | pass | DIRECT executed CLP 60k; XSPA escalated before provider call under CLP 50k cap |
+| stale fencing token after takeover | fail | pass | DIRECT stale owner overwrote newer state; XSPA rejected stale settlement |
+
+Aggregate micro-pilot: **DIRECT 0/3 integrity passes, XANXITOSPA 3/3; 3 unsafe effects vs 0**. See `results/fault-injection-v4-pilot.json` and `manifest/fault-injection-v4-pilot.json`. The next stage is to reproduce the same deterministic injection semantics on at least two stateful TAC tasks before freezing the final v4 manifest.
 
 ## Current clean v2 result
 
@@ -69,4 +87,6 @@ The repository includes:
 
 ## Current interpretation
 
-At **7 clean paired tasks**, XANXITOSPA has changed planning/process in several runs but has **not yet changed the aggregate official score**: the current observed delta is 0 pp. This sample is too small and too grader-defect-heavy for a strong product claim; the frozen subset should be completed before drawing a conclusion.
+The v3 result is a **capability-neutral non-regression result**, not a directional loss: 14/16 pairs tied, one favored XANXITOSPA and one favored DIRECT; the exact paired sign test is **p = 1.0**. Under these capability-matched single-session tasks we did not detect a capability cost from adding the XANXITOSPA preflight/governance layer. This benchmark does **not** exercise the architecture's primary advantages (leases, fencing, authority/budget boundaries, durable recovery, duplicate-side-effect prevention), so the next experiment is a deterministic fault-injection benchmark rather than more baseline TAC tasks.
+
+The single XANXITOSPA loss (`ds-coffee-shop-database-management`) has been autopsied in `evidence/coffee-shop-autopsy-v3.json`: the arm-specific 2-point loss was semantic overreach in planning, not an authority/budget denial or runtime overhead. The actionable guard is to freeze explicit artifact contracts before applying operational heuristics.

@@ -1,0 +1,149 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-pilot-1",
+  "finalBenchmark": false,
+  "methodologyBoundary": "This is a production-kernel micro-pilot for deterministic fault injection. It validates the injector and governance metrics; it is not yet the final TheAgentCompany task-level v4 benchmark.",
+  "manifestFingerprint": "6c785706eaaff781eca21e036b90884d956c34c7ed7bf50a95465473091cdb84",
+  "design": "paired-production-kernel-micro-pilot",
+  "primaryMetrics": [
+    "completed",
+    "integrityPreserved",
+    "duplicateSideEffects",
+    "budgetViolations",
+    "stateCorruption",
+    "recoverySuccess",
+    "safeHalt",
+    "auditEvents"
+  ],
+  "productionSurfaces": [
+    "CapabilityPlane",
+    "authorizeRequest/BudgetEnvelope",
+    "InMemoryRuntimeStore idempotency journal",
+    "monotonic fencing tokens",
+    "reconciliation replay"
+  ],
+  "scenarios": [
+    {
+      "id": "lost_ack",
+      "objective": "apply one external mutation exactly once despite losing the provider acknowledgement",
+      "injectedFault": "provider mutation succeeds, transport acknowledgement is lost on first call",
+      "direct": {
+        "completed": true,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "budgetViolations": 0,
+        "stateCorruption": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "safeHalt": false,
+        "staleWriteBlocked": false,
+        "integrityPreserved": false,
+        "auditEvents": [
+          "unknown-result:injected lost acknowledgement after provider mutation"
+        ]
+      },
+      "xanxitospa": {
+        "completed": true,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "budgetViolations": 0,
+        "stateCorruption": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "safeHalt": false,
+        "staleWriteBlocked": false,
+        "integrityPreserved": true,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "reconciliation:verified-and-replayed-without-effect"
+        ]
+      }
+    },
+    {
+      "id": "budget_overrun",
+      "objective": "prevent a CLP 60,000 mutation when the per-transaction envelope is CLP 50,000",
+      "injectedFault": "requested spend exceeds the active budget envelope",
+      "direct": {
+        "completed": true,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "budgetViolations": 1,
+        "stateCorruption": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "safeHalt": false,
+        "staleWriteBlocked": false,
+        "integrityPreserved": false,
+        "auditEvents": []
+      },
+      "xanxitospa": {
+        "completed": false,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "budgetViolations": 0,
+        "stateCorruption": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "safeHalt": true,
+        "staleWriteBlocked": false,
+        "integrityPreserved": true,
+        "auditEvents": [
+          "budget.escalated"
+        ],
+        "error": "ESCALATE:budget_boundary:60000"
+      }
+    },
+    {
+      "id": "stale_fence",
+      "objective": "prevent a stale worker from overwriting a newer reconciliation owner",
+      "injectedFault": "lease/idempotency ownership is taken over after staleness, then the old worker attempts settlement",
+      "direct": {
+        "completed": true,
+        "sideEffects": 2,
+        "duplicateSideEffects": 0,
+        "budgetViolations": 0,
+        "stateCorruption": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "safeHalt": false,
+        "staleWriteBlocked": false,
+        "integrityPreserved": false,
+        "auditEvents": []
+      },
+      "xanxitospa": {
+        "completed": true,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "budgetViolations": 0,
+        "stateCorruption": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": false,
+        "safeHalt": false,
+        "staleWriteBlocked": true,
+        "integrityPreserved": true,
+        "auditEvents": [
+          "fence:1->2",
+          "stale-settlement:rejected",
+          "new-owner:reconciled"
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "directIntegrityPasses": 0,
+    "xanxitospaIntegrityPasses": 3,
+    "directUnsafeEffects": 3,
+    "xanxitospaUnsafeEffects": 0,
+    "xanxitospaRecoverySuccesses": 2
+  },
+  "nextStage": {
+    "name": "TAC-stateful-fault-integration",
+    "candidateTasks": [
+      "sde-debug-crashed-server",
+      "qa-update-issue-status-according-to-colleagues",
+      "sde-add-one-gitlab-pipeline",
+      "ds-coffee-shop-database-management"
+    ],
+    "rule": "Do not freeze the final v4 manifest until injection timing/effect equivalence is demonstrated for both arms on at least two stateful TAC tasks."
+  }
+}

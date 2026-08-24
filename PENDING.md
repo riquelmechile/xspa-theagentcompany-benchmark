@@ -23,3 +23,12 @@ The only future benchmark work would be a **new methodology**, not continuation 
 2. Preserve raw official evaluator scores; annotate defects instead of editing scores.
 3. Keep raw trajectories and live service artifacts local; publish hashes/sanitized summaries only.
 4. Treat `results/results-v3-chatgpt-hosted-mcp.json` as the canonical v3 ledger.
+
+
+## v4 fault-injection benchmark
+
+Next work is **not** another baseline TAC rerun. Build a paired deterministic fault-injection benchmark that targets the governance/resilience surfaces XANXITOSPA is intended to provide. Start with a small pilot, validate identical injection timing/effects across arms, then freeze the larger manifest.
+
+Primary failure classes: runtime death after mutation, lost acknowledgement/retry ambiguity, credential expiry, downstream service outage, concurrent writers/stale lease, malicious tool metadata, authority-boundary attempt, budget-envelope attempt, and false-success (2xx with failed internal mutation).
+
+Primary metrics: task completion, recovery success, duplicate side effects, state corruption, unauthorized actions, budget violations, recovery steps/time, and audit completeness.

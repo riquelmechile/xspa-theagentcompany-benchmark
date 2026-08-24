@@ -125,8 +125,8 @@
         "earned": 4,
         "possible": 10
       },
-      "status": "valid-paired-v3",
-      "note": "DIRECT scored 6/10 and XANXITOSPA 4/10; this is the only raw XSPA loss in v3."
+      "status": "valid-paired-v3-with-semantic-overreach-autopsy",
+      "note": "DIRECT 6/10 vs XANXITOSPA 4/10. Checkpoint decomposition: both passed file download (1/1) and analysis answers (3/3); both lost the table-validation checkpoint because the evaluator incorrectly expects tables for its private short_stock.csv/average_sales.csv fixtures; both lost v_sales because both computed AVG(quantity) per order-item row instead of average daily sales across the three order dates. The only arm-specific loss was v_short_stock: DIRECT preserved the explicit current-stock contract (P001/P003), while XANXITOSPA broadened the view to include 7-day projected reorder need (P005) after the preflight conflated the view contract with the separate analysis question. No authority/budget denial or runtime overhead caused the delta."
     },
     {
       "task": "ds-visualize-data-in-pie-and-bar-chart",
@@ -260,5 +260,16 @@
     }
   ],
   "methodologyWarning": "v3 is the user-requested ChatGPT-hosted MCP design. It is methodologically distinct from v2 Codex-hosted hard isolation. Do not combine their totals.",
-  "generatedAt": "2026-08-24T13:56:11.016396+00:00"
+  "generatedAt": "2026-08-24T13:56:11.016396+00:00",
+  "pairedInference": {
+    "primaryClaim": "no measurable capability difference detected between DIRECT and XANXITOSPA under the v3 paired task distribution",
+    "test": "two-sided exact paired sign test on discordant task pairs",
+    "xanxitospaWins": 1,
+    "directWins": 1,
+    "ties": 14,
+    "discordantPairs": 2,
+    "pValue": 1.0,
+    "interpretation": "The observed one-checkpoint raw difference is not evidence of a directional capability effect."
+  },
+  "absoluteScoreCaveat": "Absolute v3 percentages are internal to this harness and must not be compared with TheAgentCompany paper results: v3 uses a 16-task subset, a local Qwen environment/evaluator model, and two vision tasks are incompatible with that fixed evaluator. The paired within-environment contrast is the valid comparison."
 }

@@ -62,3 +62,17 @@ DIRECT and XANXITOSPA execute sequentially inside the same ChatGPT conversation 
 ## fixed evaluator compatibility
 
 The fixed `xspa-env-qwen3.8-27b` evaluator is text-only. Tasks whose official checkpoints require image input retain their raw official score but are additionally reported in an evaluator-compatible subset that excludes those tasks. For v3 these are `ds-visualize-data-in-pie-and-bar-chart` and `research-reproduce-figures`.
+
+
+### Contract-preservation guard learned from v3
+
+The coffee-shop autopsy identified one real XANXITOSPA regression mechanism: process planning broadened an explicitly specified `v_short_stock` contract by mixing it with a separate seven-day forecast question. Future preflights must **freeze explicit artifact/schema/view contracts before applying skills or operational heuristics**. Derived analyses may consume those artifacts but must not silently redefine them. This guard addresses semantic planning drift; it is unrelated to authority or budget denials.
+
+
+## v4 fault-injection protocol (pilot stage)
+
+v4 changes the research question from baseline capability to integrity under deterministic failure. The first stage is a production-kernel micro-pilot; it must not be reported as a final TheAgentCompany score.
+
+For each scenario, DIRECT and XANXITOSPA receive the same objective, provider behavior and injected fault. DIRECT has no authority/budget/idempotency/fencing/reconciliation guard for the tested operation. XANXITOSPA executes through the corresponding production kernel surface. Primary outcomes are completion **and** integrity: duplicate side effects, state corruption, budget violations, safe halt, reconciliation success and audit events.
+
+A scenario only graduates into the final TAC-integrated v4 manifest after the fault trigger and externally visible fault effect can be shown equivalent across both arms. Final v4 must use stateful TAC services/tasks and preserve fresh task state between arms. The micro-pilot manifest is therefore marked `pilot-not-final`.

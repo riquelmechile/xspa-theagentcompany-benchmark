@@ -1,0 +1,60 @@
+{
+  "task": "ds-coffee-shop-database-management",
+  "dataset": "v3-chatgpt-hosted-mcp",
+  "officialScores": {
+    "direct": {
+      "earned": 6,
+      "possible": 10
+    },
+    "xanxitospa": {
+      "earned": 4,
+      "possible": 10
+    }
+  },
+  "checkpointDecomposition": [
+    {
+      "checkpoint": "source files downloaded",
+      "possible": 1,
+      "direct": 1,
+      "xanxitospa": 1,
+      "finding": "both correct"
+    },
+    {
+      "checkpoint": "tables equal evaluator CSVs",
+      "possible": 2,
+      "direct": 0,
+      "xanxitospa": 0,
+      "finding": "grader defect: validator enumerates evaluator-private short_stock.csv and average_sales.csv in /utils and therefore expects unrequested tables"
+    },
+    {
+      "checkpoint": "v_short_stock",
+      "possible": 2,
+      "direct": 2,
+      "xanxitospa": 0,
+      "finding": "real XSPA semantic overreach: explicit current-stock view contract was broadened to include 7-day projected reorder P005"
+    },
+    {
+      "checkpoint": "v_sales",
+      "possible": 2,
+      "direct": 0,
+      "xanxitospa": 0,
+      "finding": "shared agent error: AVG(quantity) per order-item row was used; evaluator expects average daily quantity across three order dates"
+    },
+    {
+      "checkpoint": "analysis.txt answers",
+      "possible": 3,
+      "direct": 3,
+      "xanxitospa": 3,
+      "finding": "both correct"
+    }
+  ],
+  "kernelFinding": {
+    "type": "planning-semantic-overreach",
+    "authorityDenial": false,
+    "budgetDenial": false,
+    "runtimeFailure": false,
+    "extraToolFailure": false,
+    "conclusion": "The arm-specific loss came from planning that merged a downstream forecast question into an explicitly specified artifact contract. Preflight overhead itself did not consume checkpoints."
+  },
+  "guardProposal": "Freeze explicit artifact/schema/view contracts before process/skill planning. Derived analytics may consume those artifacts but must not silently broaden or reinterpret them unless the task explicitly authorizes it."
+}

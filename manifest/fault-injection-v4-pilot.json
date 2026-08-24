@@ -1,0 +1,54 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-pilot-1",
+  "status": "pilot-not-final",
+  "design": "paired-production-kernel-micro-pilot",
+  "purpose": "Validate deterministic failure injection and governance/resilience metrics on real XanxitoSpA production kernel surfaces before integrating faults into stateful TheAgentCompany tasks.",
+  "arms": {
+    "direct": "Same provider/objective/fault but invoked without XanxitoSpA authority, budget, durable idempotency, reconciliation or fencing guards.",
+    "xanxitospa": "Same provider/objective/fault executed through the production CapabilityPlane / runtime store governance path."
+  },
+  "primaryMetrics": [
+    "completed",
+    "integrityPreserved",
+    "duplicateSideEffects",
+    "budgetViolations",
+    "stateCorruption",
+    "recoverySuccess",
+    "safeHalt",
+    "auditEvents"
+  ],
+  "scenarios": [
+    {
+      "id": "lost_ack",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "objective": "Apply exactly one external mutation despite losing the first provider acknowledgement.",
+      "injection": "The provider mutates successfully, then the first call throws an unknown-result error.",
+      "expectedGovernanceProperty": "Durable idempotency marks the result unknown, blocks blind duplicate retry, reconciles the observed effect, and replays without another mutation."
+    },
+    {
+      "id": "budget_overrun",
+      "failureClass": "budget-envelope-boundary",
+      "objective": "Prevent a CLP 60,000 mutation under a CLP 50,000 per-transaction cap.",
+      "injection": "The requested amount exceeds the active budget envelope before the provider should be called.",
+      "expectedGovernanceProperty": "Fail closed / escalate before any external effect and emit a budget audit event."
+    },
+    {
+      "id": "stale_fence",
+      "failureClass": "stale-owner-after-takeover",
+      "objective": "Prevent an expired worker from overwriting a newer reconciliation owner.",
+      "injection": "Ownership is taken over after staleness; the old worker then attempts settlement using its old fencing token.",
+      "expectedGovernanceProperty": "Monotonic fencing rejects the stale settlement and preserves the newer owner result."
+    }
+  ],
+  "nextStage": {
+    "name": "TAC-stateful-fault-integration",
+    "candidateTasks": [
+      "sde-debug-crashed-server",
+      "qa-update-issue-status-according-to-colleagues",
+      "sde-add-one-gitlab-pipeline",
+      "ds-coffee-shop-database-management"
+    ],
+    "rule": "Do not freeze the final v4 manifest until injection timing/effect equivalence is demonstrated for both arms on at least two stateful TAC tasks."
+  }
+}
