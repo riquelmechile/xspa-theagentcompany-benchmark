@@ -1,6 +1,6 @@
 # XanxitoSpA × TheAgentCompany benchmark evidence
 
-Private evidence repository for the paired comparison **DIRECT vs XANXITOSPA** on TheAgentCompany 1.0.0.
+Public evidence repository for the paired comparison **DIRECT vs XANXITOSPA** on TheAgentCompany 1.0.0.
 
 ## Current v3 ChatGPT-hosted MCP result
 
@@ -21,6 +21,22 @@ This is the user-requested architecture where **this ChatGPT session is the agen
 
 See `results/results-v3-chatgpt-hosted-mcp.json` for all 16 task-level scores and grader annotations.
 
+
+## V5 prospective replication — primary result
+
+The V5 replication re-runs the frozen 20-scenario v4 stateful fault-injection design three times per scenario. Because repetition 1 completed before the preregistration commit, the **headline inferential result uses only repetitions 2 and 3**, exactly as frozen in `V5_PREREGISTRATION.md` and `manifest/v5-success-criterion.json`.
+
+- Preregistration commit: `da81bedbe4df5804925170216f6e762c64015c7a`.
+- Prospective-only rep2+rep3 scenario result: **8 XANXITOSPA wins / 0 DIRECT wins / 12 ties**.
+- Exact two-sided sign test over the 8 non-tie scenario outcomes: **p = 0.0078125**.
+- Frozen strong prospective confirmation criterion: **met**.
+- Primary all-three-repetition scenario result: **8 / 0 / 12, p = 0.0078125**.
+- Each individual repetition: **8 / 0 / 12**.
+- Pooled 60-pair result, **descriptive only**: XANXITOSPA **60/60 integrity**, DIRECT **36/60**; **24 / 0 / 36**, `p = 1.1920928955078125e-07`.
+
+The result supports the combined interpretation that v3 is capability-neutral in this sample while v4/v5 show an execution-integrity advantage under the frozen deterministic faults. **Limitation:** DIRECT was not specifically prompted or instrumented to add its own resilience layer, so the benchmark does not establish that a separately engineered DIRECT resilience strategy could not match the behavior.
+
+See `V5_REPORT.md`, `results/v5-preregistered-analysis.json`, and `results/v5-replication-final.json`.
 
 ## v4 deterministic fault-injection micro-pilot
 
@@ -85,7 +101,7 @@ Repeated GitLab resets exposed a benchmark-infrastructure leak: anonymous GitLab
 
 ## What is actually comparable
 
-The repository contains three intentionally separate evidence layers: **v2 hard isolation** (Codex-hosted capability pairs), **v3 ChatGPT-hosted MCP** (capability non-regression), and **v4 stateful fault injection** (execution integrity under deterministic faults). They answer different questions and must not be combined into one score. The older v1 file remains pilot/debug evidence only.
+The repository contains four intentionally separate evidence layers: **v2 hard isolation** (Codex-hosted capability pairs), **v3 ChatGPT-hosted MCP** (capability non-regression), **v4 stateful fault injection** (execution integrity discovery/confirmation under deterministic faults), and **v5 prospective replication** (scenario-blocked replication with rep2+rep3 frozen as the prospective-only confirmation). They answer different questions and must not be combined into one score. The older v1 file remains pilot/debug evidence only.
 
 DIRECT has Apps/MCP/plugins/browser/computer-use disabled and solves through local shell/filesystem plus benchmark services. XANXITOSPA uses the same model and benchmark environment, with one bounded **read-only** `@Xanxito -> xanxitospa` task-aware preflight; HostOps, other downstream MCPs and writes are forbidden.
 
@@ -97,6 +113,10 @@ Raw `trajectory.jsonl` files and live service artifacts are **not committed** be
 
 The repository includes:
 
+- `V5_REPORT.md` — final prospective replication report and reproduction commands.
+- `results/v5-preregistered-analysis.json` — preregistered scenario-blocked V5 analyses.
+- `results/v5-replication-final.json` — pooled 60-pair descriptive V5 aggregate.
+- `evidence/local-evidence-sha256-v5.json` — SHA-256 ledger for V5 publication artifacts.
 - `results/results-v3-chatgpt-hosted-mcp.json` — complete 16-pair ChatGPT-hosted MCP ledger.
 - `results/v4-stateful-final.json` — canonical 20-pair stateful fault-injection aggregate.
 - `results/v4-governance-boundary.json` — separate four-case governance boundary suite.

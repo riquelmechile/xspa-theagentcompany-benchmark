@@ -1,0 +1,662 @@
+{
+  "version": "v5-replication-1",
+  "validRawArmResults": 120,
+  "invalidAttemptFiles": 1,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "44e7bb02a2c694b5d0b5dc8bcb13c8a523ef6c140bacce300ce960bc724ddd7b",
+      "bytes": 12664
+    },
+    {
+      "path": "V5_REPORT.md",
+      "sha256": "54b686993ea451e62feca130a70022c1912533bd2b66cdb3d37b91800667de79",
+      "bytes": 4431
+    },
+    {
+      "path": "V5_PREREGISTRATION.md",
+      "sha256": "80217337ded95971966ef63b90eea5c528e36b588d893f18f1591c84e5c1776a",
+      "bytes": 4730
+    },
+    {
+      "path": "manifest/fault-injection-v5-replication.json",
+      "sha256": "a1382a986ebaa918793bad1c83ea072c8e74e10992249128bddbc1fdc7e024d2",
+      "bytes": 25329
+    },
+    {
+      "path": "manifest/v5-success-criterion.json",
+      "sha256": "6255ec03d599281268f176dd5f9b5394209a243b5df856345024b1ce41b293bd",
+      "bytes": 3356
+    },
+    {
+      "path": "harness/aggregate_v5_replication.py",
+      "sha256": "2d1f5ce3067a07501a2c7f1b77448d466dcbb1ecf27342500b6f9be591c141fa",
+      "bytes": 2542
+    },
+    {
+      "path": "harness/run_v5_arm.py",
+      "sha256": "9aa53374a9442ccc40cefe302d4b123f88b83a19fe61aa10f32dfd59cbc97edf",
+      "bytes": 6527
+    },
+    {
+      "path": "harness/report_v5_replication.py",
+      "sha256": "84c7e118a72c87f09daf449c214973638cbd69dced8f455e8abeb4acb50e503e",
+      "bytes": 4765
+    },
+    {
+      "path": "results/v5-replication-final.json",
+      "sha256": "1ab1cc702d5cf29107978a8e8faf4a5db997290de146e92ba9493138902f3425",
+      "bytes": 758
+    },
+    {
+      "path": "results/v5-preregistered-analysis.json",
+      "sha256": "d63bf704e6727f2c1b0f7450eb506a7a3b0912613fff28df2c0312c9e1ee18a0",
+      "bytes": 5456
+    },
+    {
+      "path": "results/v5-r01-p001-direct.json",
+      "sha256": "6636fe69bc997296e831d146dded9e5546205da9448df8300a5075c6d955e8d6",
+      "bytes": 1447
+    },
+    {
+      "path": "results/v5-r01-p001-xanxitospa.json",
+      "sha256": "46e4ed95e164fc423ed1952892e0a487a97f69507025d5350ba68f535e773da7",
+      "bytes": 1436
+    },
+    {
+      "path": "results/v5-r01-p002-direct.json",
+      "sha256": "98b642ff2e09106a989f9e4ec5fe695314b89c9c60d17cc71dd2d7921b389fd7",
+      "bytes": 1069
+    },
+    {
+      "path": "results/v5-r01-p002-xanxitospa.json",
+      "sha256": "607c83473643ef1d5f30fb2dea898b881a1c6fe75e16eb18301235a2d7a09c3c",
+      "bytes": 1110
+    },
+    {
+      "path": "results/v5-r01-p003-direct.json",
+      "sha256": "b40382fcb6e67f545a6f1a78b7a62990ae7a393513bd62616702c53107ca2201",
+      "bytes": 1238
+    },
+    {
+      "path": "results/v5-r01-p003-xanxitospa.json",
+      "sha256": "c2c96749dc9604234b6f4788442db994ba0cb4cd7c8e934596fd1ec93bded574",
+      "bytes": 1022
+    },
+    {
+      "path": "results/v5-r01-p004-direct.json",
+      "sha256": "24059cf57dc09506d57714f80307e7d1932437f7f49c92f3b990c0ac7249c4da",
+      "bytes": 1440
+    },
+    {
+      "path": "results/v5-r01-p004-xanxitospa.json",
+      "sha256": "fd699118a3474a88dc27252ac6918d70bb63886a065c5d2204cbe893250e1242",
+      "bytes": 1446
+    },
+    {
+      "path": "results/v5-r01-p005-direct.json",
+      "sha256": "98de8f7abaacf2d4dd6ff5e73046ab0abd60b967902420a348a2737dcd65a6fe",
+      "bytes": 1048
+    },
+    {
+      "path": "results/v5-r01-p005-xanxitospa.json",
+      "sha256": "373418f0b7bfe113560afc963632a89c07bbc3d3c3419638816c1c3bc555f7d9",
+      "bytes": 1060
+    },
+    {
+      "path": "results/v5-r01-p006-direct.json",
+      "sha256": "99de0d427a36651e593993806be2fc3d369f096fa82754643936e2cfe2a99fb0",
+      "bytes": 1249
+    },
+    {
+      "path": "results/v5-r01-p006-xanxitospa.json",
+      "sha256": "b7421ae35bcb26ad4c2923f71db4070ee2036f2ffc5582da629821b534bec9cc",
+      "bytes": 1273
+    },
+    {
+      "path": "results/v5-r01-p007-direct.json",
+      "sha256": "35c47a745baaeab37bdd7abad5bcc27e61c597736c77ce8e2680108b784c3968",
+      "bytes": 1032
+    },
+    {
+      "path": "results/v5-r01-p007-xanxitospa.json",
+      "sha256": "88140949593117ee2494f3d930909d4a2b9bb5ff1886cc5851af993ad771572f",
+      "bytes": 1219
+    },
+    {
+      "path": "results/v5-r01-p008-direct.json",
+      "sha256": "f004740ab1219ccf1859a1b7ba1f8ae43a1f9ca8931bb42e9436253e967b350a",
+      "bytes": 1220
+    },
+    {
+      "path": "results/v5-r01-p008-xanxitospa.json",
+      "sha256": "a0f9ddd0914822325fa707868dfa37902508a893d14be8f74c767cf2f6c93fb5",
+      "bytes": 1180
+    },
+    {
+      "path": "results/v5-r01-p009-direct.json",
+      "sha256": "764c5faabfd3a6cb4e54773110812ccc0bda2e5f9acea58710c94bb327589b1f",
+      "bytes": 1132
+    },
+    {
+      "path": "results/v5-r01-p009-xanxitospa.json",
+      "sha256": "d89e76e52211a30cb0358353db0b99ad921ab716554a92533b13b208ec071a96",
+      "bytes": 1168
+    },
+    {
+      "path": "results/v5-r01-p010-direct.json",
+      "sha256": "e00a1a5f66ea4826aa29e3935115680ce44c338489572b2e2a4629312d3a8b9b",
+      "bytes": 1496
+    },
+    {
+      "path": "results/v5-r01-p010-xanxitospa.json",
+      "sha256": "dd25116f2f852ba677e6e7986a5a6e1fd12ae4315d52e8dd85fd7944f8a6949c",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r01-p011-direct.json",
+      "sha256": "8487ad031d4d31567444dd1570d75b0b4977f6553f10a64554a23449bbaf0665",
+      "bytes": 1353
+    },
+    {
+      "path": "results/v5-r01-p011-xanxitospa.json",
+      "sha256": "ca697abd6625961c9dfafc6c857789e87b45e19c4ae5fa0714a06be1d9b707d0",
+      "bytes": 1361
+    },
+    {
+      "path": "results/v5-r01-p012-direct.json",
+      "sha256": "0fcbd1dc4a79c87dcc8610e07b0e4c1b165905acf9485724ea536999431b819c",
+      "bytes": 1207
+    },
+    {
+      "path": "results/v5-r01-p012-xanxitospa.json",
+      "sha256": "89e1233c32bba349a970e5cd0c16115e21e0d6c6674be7b9ef82ea3fa7dee85e",
+      "bytes": 1244
+    },
+    {
+      "path": "results/v5-r01-p013-direct.json",
+      "sha256": "1fe8b5d1b151c58b9fa30bd0483a8eaa09eaf0b7e6a36b25116d859b7e7793ce",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r01-p013-xanxitospa.json",
+      "sha256": "48a70fe1aaacb7d07c9c3608edc5d3639ac355185bc7ba1b9ceffb4ac78ce5a0",
+      "bytes": 1474
+    },
+    {
+      "path": "results/v5-r01-p014-direct.json",
+      "sha256": "3bcd041a92f1d8eb6e977fd691c2315f97332ff423d76c14190a1cd9256ab18d",
+      "bytes": 1523
+    },
+    {
+      "path": "results/v5-r01-p014-xanxitospa.json",
+      "sha256": "e65a4d6b60423736521400523b4bf280367929ab1977705386f7230da0c26504",
+      "bytes": 1561
+    },
+    {
+      "path": "results/v5-r01-p015-direct.json",
+      "sha256": "4e62cd3587a1a16e9402bb243f48ba763ba20088fd87c3369a4bc2f9943d5efd",
+      "bytes": 1401
+    },
+    {
+      "path": "results/v5-r01-p015-xanxitospa.json",
+      "sha256": "4d2e1391da6a2f78e817127acf4a1513d147f0cd2af72796efd13887c5daae3e",
+      "bytes": 1444
+    },
+    {
+      "path": "results/v5-r01-p016-direct.json",
+      "sha256": "523a45046850f7dc0cefb01263c319066c896c5f1ebbefc62a57e82e459249b5",
+      "bytes": 1100
+    },
+    {
+      "path": "results/v5-r01-p016-xanxitospa.json",
+      "sha256": "6052c9c14c63db2319e95fafcc69bc552ca8a06dba41ed7aaf27ff748ecfbc87",
+      "bytes": 1122
+    },
+    {
+      "path": "results/v5-r01-p017-direct.json",
+      "sha256": "1aeec28be64f61e276b55b154080fd2a3f4136bbb339d47e78f20e35b607529b",
+      "bytes": 1145
+    },
+    {
+      "path": "results/v5-r01-p017-xanxitospa.json",
+      "sha256": "6ffb27713731ef4a1b79f9d0f00f70b951a8b3311b83f32834f8a62791c0cb3e",
+      "bytes": 1151
+    },
+    {
+      "path": "results/v5-r01-p018-direct.json",
+      "sha256": "e9e7a5c9efd1ebbb6e992f4e49779cb6e5f6cf9613a852bdc22ce31607c3340e",
+      "bytes": 1103
+    },
+    {
+      "path": "results/v5-r01-p018-xanxitospa.json",
+      "sha256": "1373b7319f0de9f9ec0b3e39bd69dfb08d328ecfdd30071cf1cdd29e891a6614",
+      "bytes": 1027
+    },
+    {
+      "path": "results/v5-r01-p019-direct.json",
+      "sha256": "d1fb781b7ed02baf74d24639f7c9dd80db9caf586261ce694b45b27de31a257f",
+      "bytes": 987
+    },
+    {
+      "path": "results/v5-r01-p019-xanxitospa.json",
+      "sha256": "7e0aafb1275c5df146e7ab16d78856a6db0e13cbec4385ae32ae5dc214551916",
+      "bytes": 993
+    },
+    {
+      "path": "results/v5-r01-p020-direct.json",
+      "sha256": "64be45e7aa462d35d77c45730d6f0f6c0313cd2f067d6f1e29c0f7c120a127a8",
+      "bytes": 1379
+    },
+    {
+      "path": "results/v5-r01-p020-xanxitospa.json",
+      "sha256": "116ea7029f698ce8c7f3e7f2b327b4e1e00ba65c2f21e0c56bca468134e48ff6",
+      "bytes": 1390
+    },
+    {
+      "path": "results/v5-r02-p021-direct.json",
+      "sha256": "190840de29f62bde7258e22bc849b17639272e4bdaf8c6f8474ddbe551b586b5",
+      "bytes": 1049
+    },
+    {
+      "path": "results/v5-r02-p021-xanxitospa.json",
+      "sha256": "12be5579f8d5d9a092fc10bed6a84d3d8a07a3daf4f55a59703a637f7addb071",
+      "bytes": 1061
+    },
+    {
+      "path": "results/v5-r02-p022-direct.json",
+      "sha256": "4662fbf4d4a87d30e3b83745088509ec66cdedf65db9ec22aa7a8a101cda9208",
+      "bytes": 1103
+    },
+    {
+      "path": "results/v5-r02-p022-xanxitospa.json",
+      "sha256": "96a6fc31f835f367adc155272dea305ebfc78d1e2fe89e424128659dd14b0ddb",
+      "bytes": 1027
+    },
+    {
+      "path": "results/v5-r02-p023-direct.json",
+      "sha256": "aa031b65b597b9a1a059190298af72b678f1d3060ad1576656bef306ef7c5a7e",
+      "bytes": 1250
+    },
+    {
+      "path": "results/v5-r02-p023-xanxitospa.json",
+      "sha256": "b034af930864e4599625dbe40d838246574062258265315cbf4aef76cf544160",
+      "bytes": 1274
+    },
+    {
+      "path": "results/v5-r02-p024-direct.json",
+      "sha256": "dc14e9de1fe55dc36e873ec42dc6bc85a1c72be7fb98fffd934dbb7399017ba1",
+      "bytes": 1221
+    },
+    {
+      "path": "results/v5-r02-p024-xanxitospa.json",
+      "sha256": "ee57c098d096f5e5b44c3568be9d3b705da19e394c8a329afd72f7b23e1d43a9",
+      "bytes": 1181
+    },
+    {
+      "path": "results/v5-r02-p025-direct.json",
+      "sha256": "1eccf1d2362f85f06a9261f510749856d3953c0b2f50d6b05620da80f9657f23",
+      "bytes": 1353
+    },
+    {
+      "path": "results/v5-r02-p025-xanxitospa.json",
+      "sha256": "a7c37d5e867b37343f50bfbf1f9e3ce7cafae6c92da3ce506dae40790221ab9b",
+      "bytes": 1361
+    },
+    {
+      "path": "results/v5-r02-p026-direct.json",
+      "sha256": "cb0e42a62dee001b135808f831dab4804316c86e65e9c3c48038b2d62d4adf5c",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r02-p026-xanxitospa.json",
+      "sha256": "1beb2aeb915bf28c8b5712054f0a5678f546f30af701e698885ed8418d47ed28",
+      "bytes": 1474
+    },
+    {
+      "path": "results/v5-r02-p027-direct.json",
+      "sha256": "b965b81dba698c525bfa903da9b29dc0db012c7774add114d33edf9b7ab90585",
+      "bytes": 1033
+    },
+    {
+      "path": "results/v5-r02-p027-xanxitospa.json",
+      "sha256": "45f8845babda97ed76b7182cb45e9ace8ec5b6d8b45e769354e0fa9d5f66ef43",
+      "bytes": 1221
+    },
+    {
+      "path": "results/v5-r02-p028-direct.json",
+      "sha256": "8b555b75dc1df32c28907eefe772a8b733d238ccd53853a0d81320e81a9d89df",
+      "bytes": 1401
+    },
+    {
+      "path": "results/v5-r02-p028-xanxitospa.json",
+      "sha256": "b5c71f85cae3f136a4bd5a791f2a59569af0d741773482fb9bdaa4d21458f914",
+      "bytes": 1444
+    },
+    {
+      "path": "results/v5-r02-p029-direct.json",
+      "sha256": "22b3a1b15b3d94af6504834dee5624d2fd5b9ae8ab32146ed4772b74aaaefce8",
+      "bytes": 1070
+    },
+    {
+      "path": "results/v5-r02-p029-xanxitospa.json",
+      "sha256": "8ea0e1aec5b9f02488c116a590089b43f5999ca00c08f893bb74c4a681193f65",
+      "bytes": 1111
+    },
+    {
+      "path": "results/v5-r02-p030-direct.json",
+      "sha256": "80367b78e606de6fb57b011ecf8c16feedc729cbc07cd7a1410c648e8ed813f0",
+      "bytes": 1441
+    },
+    {
+      "path": "results/v5-r02-p030-xanxitospa.json",
+      "sha256": "9d7ea276d9e18f7e442a3dd5dc5e0d0b13b44875205c0920082caec93a4b9a8e",
+      "bytes": 1447
+    },
+    {
+      "path": "results/v5-r02-p031-direct.json",
+      "sha256": "156a40f3717bdd35196f96648894e8b892f2c91276c73b34dc82860528fe2f90",
+      "bytes": 1379
+    },
+    {
+      "path": "results/v5-r02-p031-xanxitospa.json",
+      "sha256": "b2d41c42de21b5bdd2fd774de8fe2cdc50f78a0ff24da75b70c5d99779e1057b",
+      "bytes": 1390
+    },
+    {
+      "path": "results/v5-r02-p032-direct.json",
+      "sha256": "e8c0b6ba800e2f97320f5adb5635d2d8cc962ba3921d42dc257f7c8192e4f1f5",
+      "bytes": 1239
+    },
+    {
+      "path": "results/v5-r02-p032-xanxitospa.json",
+      "sha256": "b49ca4b8a191f31fb0591ba20e547df8e7578659070e9f601b5dab5865ef0614",
+      "bytes": 1023
+    },
+    {
+      "path": "results/v5-r02-p033-direct.json",
+      "sha256": "fd5ca6ee671bef686f31d59a59a8086746d872dfd4de32ee8e96e899dd6fe298",
+      "bytes": 987
+    },
+    {
+      "path": "results/v5-r02-p033-xanxitospa.json",
+      "sha256": "fb9ba5d4d31767d99aff41a00434b4669f7a839daa84cf82eeef30db65b9217b",
+      "bytes": 993
+    },
+    {
+      "path": "results/v5-r02-p034-direct.json",
+      "sha256": "d6d9dc9d065d1bfb35f4be234d34c318d9c1735183798c3a6a717cadba0f7903",
+      "bytes": 1455
+    },
+    {
+      "path": "results/v5-r02-p034-xanxitospa.json",
+      "sha256": "fb226959b3c013113023e58a9938bd88a89f3751aa3d75386e1fcc37ded33a86",
+      "bytes": 1444
+    },
+    {
+      "path": "results/v5-r02-p035-direct.json",
+      "sha256": "0d8b7157cd9b5f7a55f9d2d010f1435992de9b113cd8dd5ecaa4e38f058e6e61",
+      "bytes": 1496
+    },
+    {
+      "path": "results/v5-r02-p035-xanxitospa.json",
+      "sha256": "b48a37e58f6bda5c00da876e68fde7e3d3023ac2f7edebb20088c5b3d71e4fd8",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r02-p036-direct.json",
+      "sha256": "0d0ca13acda3b26b2f263bdc5dc86e7394aeb94c8e4556c2a0d175522e4d3b4a",
+      "bytes": 1207
+    },
+    {
+      "path": "results/v5-r02-p036-xanxitospa.json",
+      "sha256": "db47caf7e434b241f8f76306888b31c05075e148eaf31ea373061f0ad509f7cb",
+      "bytes": 1244
+    },
+    {
+      "path": "results/v5-r02-p037-direct.json",
+      "sha256": "33fbd04ad59985433772f42d6636d53bd5b30d37b91861bee131ed28f4e8854a",
+      "bytes": 1133
+    },
+    {
+      "path": "results/v5-r02-p037-xanxitospa.json",
+      "sha256": "b22871d6ca9b1ecd5d6ac77eb8a7ffe39946ff13d769ee30c578c7a3d0278da4",
+      "bytes": 1169
+    },
+    {
+      "path": "results/v5-r02-p038-direct.json",
+      "sha256": "dd507e2ccf14f5cc2fb654abfc9c275cbd8d612dd4e3c765a04651a49305a08f",
+      "bytes": 1523
+    },
+    {
+      "path": "results/v5-r02-p038-xanxitospa.json",
+      "sha256": "7347e7b124dc865b52f913389e4b81edcff20e28e2236d39aa91ee6de26bbee4",
+      "bytes": 1561
+    },
+    {
+      "path": "results/v5-r02-p039-direct.json",
+      "sha256": "11d615ee638b52af65bff40789b95a93b01b5f78e9bcfc1458a52b8317810837",
+      "bytes": 1100
+    },
+    {
+      "path": "results/v5-r02-p039-xanxitospa.json",
+      "sha256": "6878e302672608d8fd2b25c24a39fb8b5e8173709bfcb9972c648ea807eb4ae7",
+      "bytes": 1122
+    },
+    {
+      "path": "results/v5-r02-p040-direct.json",
+      "sha256": "90ed078c0e129047677c07c739719b108ed7299da5e9fd00ea6bddb4e5917b15",
+      "bytes": 1145
+    },
+    {
+      "path": "results/v5-r02-p040-xanxitospa.json",
+      "sha256": "e8bfef8561bcd034e12b6110d5bcd2c7b51d4b87ec8e6aaa3f4d678ecaa39cd6",
+      "bytes": 1151
+    },
+    {
+      "path": "results/v5-r03-p041-direct.json",
+      "sha256": "f5e1968797e7d2c6fbb6e1756d4ca03fa344c9c49750360f14a332df36cf7b52",
+      "bytes": 1239
+    },
+    {
+      "path": "results/v5-r03-p041-xanxitospa.json",
+      "sha256": "34edf07e03c01e5b93abe1d1391edf6e94a9c065846654d63d6e897533628f32",
+      "bytes": 1023
+    },
+    {
+      "path": "results/v5-r03-p042-direct.json",
+      "sha256": "bfaade86b6e53d459c77a37a0dafccc3fdb93fb489b07ed3ef840fe0bc9725df",
+      "bytes": 1033
+    },
+    {
+      "path": "results/v5-r03-p042-xanxitospa.json",
+      "sha256": "5bccf54121f98b2df305f6dd2fb3de52d3edbced1f530bc726507c901c83d901",
+      "bytes": 1221
+    },
+    {
+      "path": "results/v5-r03-p043-direct.json",
+      "sha256": "fefc4d929ffd4f16ab869db679fd14f5690ffa38d6934c32a3bb6bdbb02f766d",
+      "bytes": 1496
+    },
+    {
+      "path": "results/v5-r03-p043-xanxitospa.json",
+      "sha256": "2a418b84a01026538ace6ba1d85befeae5630bb7b40cc8a5f72623e6806a3dfe",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r03-p044-direct.json",
+      "sha256": "20fb395526da36e9dd263d6f2768a28818895c503eaf6c473ad4e19ce45548b3",
+      "bytes": 1401
+    },
+    {
+      "path": "results/v5-r03-p044-xanxitospa.json",
+      "sha256": "789b6041ef70d38589a684431206e01ea40f6cdf177d37431376b894d5fe6cba",
+      "bytes": 1444
+    },
+    {
+      "path": "results/v5-r03-p045-direct.json",
+      "sha256": "8961b4e66ade63be93f295002272d116871f103f8a70ba7ed300d2e9f1d695b2",
+      "bytes": 1103
+    },
+    {
+      "path": "results/v5-r03-p045-xanxitospa.json",
+      "sha256": "0c9f4c42ed3ac500d1598708109c47ab35ddfeb2e8dd98a17f5bb77b371ad3ca",
+      "bytes": 1027
+    },
+    {
+      "path": "results/v5-r03-p046-direct.json",
+      "sha256": "fc35b332638b7ef8f7d176c67e4cb6ba70533e02c04b824aeea0425f0fe09542",
+      "bytes": 1353
+    },
+    {
+      "path": "results/v5-r03-p046-xanxitospa.json",
+      "sha256": "837d47368d9575a3ae7dd602e1a91a8b07ed70238127e85bb5acc985f6917a97",
+      "bytes": 1361
+    },
+    {
+      "path": "results/v5-r03-p047-direct.json",
+      "sha256": "8a48b647e0ddc927f56a3ea45d3be2715bd24a2cf9b566fd3f27e92f2b9423ae",
+      "bytes": 1379
+    },
+    {
+      "path": "results/v5-r03-p047-xanxitospa.json",
+      "sha256": "2e5436e55c1f04d5e2a7ffd22b74e8a1a70bb75f2e790d834c8325441e17cd07",
+      "bytes": 1390
+    },
+    {
+      "path": "results/v5-r03-p048-direct.json",
+      "sha256": "faf9d36461b092b6755d3a6ca5e5ff65bca10373c0548cb5c6307cc9e52881c6",
+      "bytes": 1523
+    },
+    {
+      "path": "results/v5-r03-p048-xanxitospa.json",
+      "sha256": "801653e7b53043d021c952485ca312a381e41cd9f87ae226ab7c8135abf12dff",
+      "bytes": 1561
+    },
+    {
+      "path": "results/v5-r03-p049-direct.json",
+      "sha256": "d34fea93a01b9c8a14e575bc065353352208b8ced71439344d1331f945448dc8",
+      "bytes": 1455
+    },
+    {
+      "path": "results/v5-r03-p049-xanxitospa.json",
+      "sha256": "7eb0bc68caba7ad82cb364d916b6a77ec74206ae1de620bc716cc55e79672403",
+      "bytes": 1444
+    },
+    {
+      "path": "results/v5-r03-p050-direct.json",
+      "sha256": "0298af66e106cacca486a08387ff84cd8f9df59103700bd3b52d0cf8cea8787b",
+      "bytes": 1518
+    },
+    {
+      "path": "results/v5-r03-p050-xanxitospa.json",
+      "sha256": "9b71c6a757b7fb5115be985812523d1d2601f0ab082de106de2f210d97891a5e",
+      "bytes": 1474
+    },
+    {
+      "path": "results/v5-r03-p051-direct.json",
+      "sha256": "a92d45d6ea5c709f66d06365b11f9a0be08722f117bcaec7ff72861eacecc7ac",
+      "bytes": 987
+    },
+    {
+      "path": "results/v5-r03-p051-xanxitospa.json",
+      "sha256": "0dcedc25952d17f7c4d39b062fac4f960325a3fdab39a66c22a567581243b108",
+      "bytes": 993
+    },
+    {
+      "path": "results/v5-r03-p052-direct.json",
+      "sha256": "1c9028bb30c2cf82ed68956faced6106ab0ddec5604fe531141aeb722f279750",
+      "bytes": 1070
+    },
+    {
+      "path": "results/v5-r03-p052-xanxitospa.json",
+      "sha256": "0d3926716a755ffd8d07cfb1728138ff062067bbbd6eb36cc81b4c9d0cd0f0c1",
+      "bytes": 1111
+    },
+    {
+      "path": "results/v5-r03-p053-direct.json",
+      "sha256": "53ab9942e7399567dd2871b562f857a106159dd6ba05df0faa9ae2cfd623107b",
+      "bytes": 1145
+    },
+    {
+      "path": "results/v5-r03-p053-xanxitospa.json",
+      "sha256": "d0cd284ff39d8fa198ebbe53e6224e5ec4bfec9d66160d42af433cce8293a270",
+      "bytes": 1151
+    },
+    {
+      "path": "results/v5-r03-p054-direct.json",
+      "sha256": "4d25d162cf9c6e3b591944903edf52b8bc1092fac2f6a40930a09951606e387e",
+      "bytes": 1250
+    },
+    {
+      "path": "results/v5-r03-p054-xanxitospa.json",
+      "sha256": "6b603f72ab396c80d224094f4360f02f47f375a6fb4c129044f0a0745b19b0af",
+      "bytes": 1274
+    },
+    {
+      "path": "results/v5-r03-p055-direct.json",
+      "sha256": "dd99d904e4d4620e9f33e5f3c537db33d2c5b67aef516390cb9335e7114fa746",
+      "bytes": 1221
+    },
+    {
+      "path": "results/v5-r03-p055-xanxitospa.json",
+      "sha256": "aef48f2938c32045f368ca1dc9c1d57263d2177aef13b1a2830372e7cdb0de24",
+      "bytes": 1181
+    },
+    {
+      "path": "results/v5-r03-p056-direct.json",
+      "sha256": "4a138d5696bb4e026d3ede615d0b4d42031fa9438ebd0af737496cf47fa4be18",
+      "bytes": 1100
+    },
+    {
+      "path": "results/v5-r03-p056-xanxitospa.json",
+      "sha256": "81d86ed546928ef5231b13205034f4977e2a5946e0cff2adfdae93b11a88bfa8",
+      "bytes": 1122
+    },
+    {
+      "path": "results/v5-r03-p057-direct.json",
+      "sha256": "df6003426011697a34fca221ed03e0983326c4623095defaf11de50389f453ed",
+      "bytes": 1441
+    },
+    {
+      "path": "results/v5-r03-p057-xanxitospa.json",
+      "sha256": "47d54c7792f68228a0a0e892bc1664be33510ba027194e6bd22b2dac982a12b8",
+      "bytes": 1447
+    },
+    {
+      "path": "results/v5-r03-p058-direct.json",
+      "sha256": "248a59a1fe66783c7963d16b457305ffe31ba90dd197f261fc2a196330b3fd95",
+      "bytes": 1049
+    },
+    {
+      "path": "results/v5-r03-p058-xanxitospa.json",
+      "sha256": "876b50b70b89d1fcb3285503863546dd69fbfffdc072fa7dd6e0bfce8ff1b5c0",
+      "bytes": 1061
+    },
+    {
+      "path": "results/v5-r03-p059-direct.json",
+      "sha256": "9dad1ee9be389de5992b487751b4127aaec0a60284a83275660f6e3d76e92012",
+      "bytes": 1133
+    },
+    {
+      "path": "results/v5-r03-p059-xanxitospa.json",
+      "sha256": "467661b8058bd5ef79661808ed8b484d61d46f7d511454571e5ace3a8dc1fc3b",
+      "bytes": 1169
+    },
+    {
+      "path": "results/v5-r03-p060-direct.json",
+      "sha256": "12fcaba59a18abe227439e425cfe0e22f99ca441d90f0b819c028cbbe3369c48",
+      "bytes": 1207
+    },
+    {
+      "path": "results/v5-r03-p060-xanxitospa.json",
+      "sha256": "d5f81717988961a0ba7aec751036e4aedc4f2398bd63c15a89eac5bfea7259b4",
+      "bytes": 1244
+    },
+    {
+      "path": "results/v5-invalid-attempts/p042-direct-attempt1.json",
+      "sha256": "0b305886e973673925d42afa63b5f2f66d487a2b211a05ca47c325844f2e93f0",
+      "bytes": 2945
+    }
+  ]
+}

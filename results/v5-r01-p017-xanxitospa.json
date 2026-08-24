@@ -1,0 +1,38 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 17,
+  "repetition": 1,
+  "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "xanxitospa",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:09:00.374032+00:00",
+  "sourceRunner": "harness.run_v4_gitlab_arm",
+  "reset": {
+    "fingerprint": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+    "projectCount": 13,
+    "imageIdentity": "ghcr.io/theagentcompany/servers-gitlab:1.0.0|sha256:6c61011c225953f3c081eb44e5ba80068489f31289aeb31ccf621c3df024142e"
+  },
+  "result": {
+    "condition": "control",
+    "mode": "xanxitospa",
+    "completed": true,
+    "issueCount": 1,
+    "sideEffects": 1,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "auditEvents": [
+      "control:xspa"
+    ]
+  }
+}

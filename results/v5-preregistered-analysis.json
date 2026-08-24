@@ -1,0 +1,213 @@
+{
+  "analysis": "preregistered-v5-scenario-blocked",
+  "criterionFile": "manifest/v5-success-criterion.json",
+  "criterionFreezeRule": "This criterion file must not be changed after this commit. Any alternative analysis must be labeled exploratory.",
+  "repetitionScenarioSummaries": {
+    "1": {
+      "xanxitospaWins": 8,
+      "directWins": 0,
+      "ties": 12,
+      "nonTies": 8,
+      "exactTwoSidedSignP": 0.0078125
+    },
+    "2": {
+      "xanxitospaWins": 8,
+      "directWins": 0,
+      "ties": 12,
+      "nonTies": 8,
+      "exactTwoSidedSignP": 0.0078125
+    },
+    "3": {
+      "xanxitospaWins": 8,
+      "directWins": 0,
+      "ties": 12,
+      "nonTies": 8,
+      "exactTwoSidedSignP": 0.0078125
+    }
+  },
+  "primaryAllThreeRepetitions": {
+    "xanxitospaWins": 8,
+    "directWins": 0,
+    "ties": 12,
+    "nonTies": 8,
+    "exactTwoSidedSignP": 0.0078125,
+    "criterionMet": true
+  },
+  "prospectiveOnlyRep2Rep3": {
+    "xanxitospaWins": 8,
+    "directWins": 0,
+    "ties": 12,
+    "nonTies": 8,
+    "exactTwoSidedSignP": 0.0078125,
+    "strongProspectiveConfirmationMet": true
+  },
+  "pooled60PairsDescriptiveOnly": {
+    "xanxitospaWins": 24,
+    "directWins": 0,
+    "ties": 36,
+    "nonTies": 24,
+    "exactTwoSidedSignP": 1.1920928955078125e-07
+  },
+  "scenarios": [
+    {
+      "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__control",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__control",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__lost_ack_after_commit",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__control",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__control",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "rep1": 1,
+      "rep2": 1,
+      "rep3": 1,
+      "primaryScenarioSign": 1,
+      "prospectiveRep2Rep3Sign": 1
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__port_contention",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+      "rep1": 0,
+      "rep2": 0,
+      "rep3": 0,
+      "primaryScenarioSign": 0,
+      "prospectiveRep2Rep3Sign": 0
+    }
+  ]
+}

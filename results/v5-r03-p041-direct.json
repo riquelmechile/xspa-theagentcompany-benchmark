@@ -1,0 +1,38 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 41,
+  "repetition": 3,
+  "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "direct",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:46:22.394661+00:00",
+  "sourceRunner": "harness.run_v4_owncloud_arm",
+  "reset": {
+    "service": "owncloud",
+    "baselineObjectAbsent": true
+  },
+  "result": {
+    "condition": "credential_expiry",
+    "mode": "direct",
+    "completed": false,
+    "finalHash": null,
+    "writeCount": 0,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": true,
+    "staleWriteAccepted": false,
+    "auditEvents": [
+      "auth-failure:OwnCloud HTTP 401: <?xml version=\"1.0\" encoding=\"utf-8\"?>\n<d:error xmlns:d=\"DAV:\" xmlns:s=\"http://sabredav.org/ns\">\n  <s:exception>Sabre\\DAV\\Exception\\NotAuthenticated</s:exception>\n  <s:message>No public access to this"
+    ]
+  }
+}

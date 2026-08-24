@@ -1,0 +1,38 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 59,
+  "repetition": 3,
+  "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "direct",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T20:07:35.869938+00:00",
+  "sourceRunner": "harness.run_v4_owncloud_arm",
+  "reset": {
+    "service": "owncloud",
+    "baselineObjectAbsent": true
+  },
+  "result": {
+    "condition": "lost_ack_after_upload",
+    "mode": "direct",
+    "completed": true,
+    "finalHash": "71b663bdc984d745116ab53eb1b35e884d10d83384492d6635d52b32f0108a81",
+    "writeCount": 2,
+    "duplicateSideEffects": 1,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "staleWriteAccepted": false,
+    "auditEvents": [
+      "unknown-result:injected lost acknowledgement after OwnCloud PUT commit"
+    ]
+  }
+}

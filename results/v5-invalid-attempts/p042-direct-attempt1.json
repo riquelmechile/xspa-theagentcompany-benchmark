@@ -1,0 +1,16 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "pairIndex": 42,
+  "repetition": 3,
+  "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+  "arm": "direct",
+  "attempt": 1,
+  "valid": false,
+  "classification": "infrastructure-invalid",
+  "generatedAt": "2026-08-24T19:46:34.879124+00:00",
+  "returnCode": 1,
+  "stdoutTail": "",
+  "stderrTail": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 203, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/home/sebastian/workspace/xspa-theagentcompany-benchmark/harness/run_v5_arm.py\", line 159, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"/home/sebastian/workspace/xspa-theagentcompany-benchmark/harness/run_v5_arm.py\", line 133, in main\n    raise RuntimeError(f\"surface runner failed rc={proc.returncode}: {proc.stderr[-1800:]} {proc.stdout[-1800:]}\")\nRuntimeError: surface runner failed rc=1: e_rocketchat_arm.py\", line 39, in main\n    proc = run([\n        \"pnpm\", \"exec\", \"tsx\", \"packages/testing/src/run-tac-rocketchat-fault.ts\",\n    ...<4 lines>...\n        \"--text\", args.text,\n    ], cwd=Path(args.xspa_repo), timeout=120)\n  File \"/home/sebastian/workspace/xspa-theagentcompany-benchmark/harness/run_surface_rocketchat_arm.py\", line 17, in run\n    raise RuntimeError(f\"command failed {argv}: {proc.stderr[-1000:]} {proc.stdout[-1000:]}\")\nRuntimeError: command failed ['pnpm', 'exec', 'tsx', 'packages/testing/src/run-tac-rocketchat-fault.ts', '--mode', 'direct', '--condition', 'concurrent_duplicate_intent', '--config', '/home/sebastian/workspace/xspa-benchmark/runtime/tac-rocketchat-fixture.json', '--target', 'Sarah Johnson', '--text', 'XSPA-V5-R3-P42-CONCURRENT_DUPLICATE_INTENT']: ;\n                            ^\n\nError: RocketChat HTTP 400: {\"success\":false,\"error\":\"E11000 duplicate key error collection: rocketchat.rocketchat_room index: _id_ dup key: { _id: \\\"CZYWHd5bCmhj5YcFeXerH6mXGTwiFEmgCh\\\" }\"}\n    at HttpRocketChatPort.json (/home/sebastian/workspace/xanxitospa/packages/testing/src/tac-rocketchat-fault.ts:76:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async HttpRocketChatPort.room (/home/sebastian/workspace/xanxitospa/packages/testing/src/tac-rocketchat-fault.ts:95:18)\n    at async HttpRocketChatPort.postMessage (/home/sebastian/workspace/xanxitospa/packages/testing/src/tac-rocketchat-fault.ts:103:20)\n    at async Promise.all (index 1)\n    at async runRocketChatConcurrentDuplicateArm (/home/sebastian/workspace/xanxitospa/packages/testing/src/tac-rocketchat-fault.ts:377:5)\n    at async <anonymous> (/home/sebastian/workspace/xanxitospa/packages/testing/src/run-tac-rocketchat-fault.ts:32:9)\n\nNode.js v24.18.1\n \n \n"
+}

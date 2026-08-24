@@ -1,0 +1,38 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 32,
+  "repetition": 2,
+  "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+  "armOrder": [
+    "direct",
+    "xanxitospa"
+  ],
+  "arm": "xanxitospa",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:34:39.493964+00:00",
+  "sourceRunner": "harness.run_v4_owncloud_arm",
+  "reset": {
+    "service": "owncloud",
+    "baselineObjectAbsent": true
+  },
+  "result": {
+    "condition": "credential_expiry",
+    "mode": "xanxitospa",
+    "completed": false,
+    "finalHash": null,
+    "writeCount": 0,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": true,
+    "staleWriteAccepted": false,
+    "auditEvents": [
+      "capability-failed-safe"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "generatedAt": "2026-08-24T20:25:02.905201+00:00",
+  "status": "complete",
+  "completedPairs": 60,
+  "pendingPairs": 0,
+  "summary": {
+    "pairedTrials": 60,
+    "directIntegrity": 36,
+    "xanxitospaIntegrity": 60,
+    "xanxitospaWins": 24,
+    "directWins": 0,
+    "ties": 36,
+    "exactTwoSidedSignP": 1.1920928955078125e-07,
+    "directUnsafeOutcomes": 24,
+    "xanxitospaUnsafeOutcomes": 0,
+    "directDuplicateSideEffects": 24,
+    "xanxitospaDuplicateSideEffects": 0,
+    "directRecoverySuccesses": 0,
+    "xanxitospaRecoverySuccesses": 27
+  },
+  "pending": []
+}

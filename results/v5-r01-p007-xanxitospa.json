@@ -1,0 +1,39 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 7,
+  "repetition": 1,
+  "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "xanxitospa",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T18:55:30.373661+00:00",
+  "sourceRunner": "harness.run_surface_rocketchat_arm",
+  "reset": {
+    "service": "rocketchat",
+    "resetReady": true,
+    "resetContainer": "tac-v4-rc-direct-cal"
+  },
+  "result": {
+    "condition": "concurrent_duplicate_intent",
+    "mode": "xanxitospa",
+    "completed": true,
+    "messageCount": 1,
+    "sideEffects": 1,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "auditEvents": [
+      "replay-or-owner:fulfilled",
+      "contended:CONTENDED:capability_inflight:capability:benchmark.rocketchat.message.send:tac-rocketchat-lost-ack:Sarah Johnson:XSPA-V5-R1-P7-CONCURRENT_DUPLICATE_INTENT"
+    ]
+  }
+}

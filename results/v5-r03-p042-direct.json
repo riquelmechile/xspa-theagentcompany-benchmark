@@ -1,0 +1,38 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 42,
+  "repetition": 3,
+  "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+  "armOrder": [
+    "direct",
+    "xanxitospa"
+  ],
+  "arm": "direct",
+  "attempt": 2,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:46:50.013134+00:00",
+  "sourceRunner": "harness.run_surface_rocketchat_arm",
+  "reset": {
+    "service": "rocketchat",
+    "resetReady": true,
+    "resetContainer": "tac-v4-rc-direct-cal"
+  },
+  "result": {
+    "condition": "concurrent_duplicate_intent",
+    "mode": "direct",
+    "completed": true,
+    "messageCount": 2,
+    "sideEffects": 2,
+    "duplicateSideEffects": 1,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": false,
+    "safeHalt": false,
+    "auditEvents": [
+      "concurrent:unfenced"
+    ]
+  }
+}

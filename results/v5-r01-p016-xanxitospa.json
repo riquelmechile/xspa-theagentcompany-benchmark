@@ -1,0 +1,39 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 16,
+  "repetition": 1,
+  "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "xanxitospa",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:06:56.794701+00:00",
+  "sourceRunner": "harness.run_v4_owncloud_arm",
+  "reset": {
+    "service": "owncloud",
+    "baselineObjectAbsent": true
+  },
+  "result": {
+    "condition": "concurrent_revision_write",
+    "mode": "xanxitospa",
+    "completed": true,
+    "finalHash": "01217b602034adb3f59ba5adcc75808269c1a1215d386ed1b3ffb53ce21e3155",
+    "writeCount": 1,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": true,
+    "reconciliationRequired": true,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "staleWriteAccepted": false,
+    "auditEvents": [
+      "fence:1->2",
+      "stale-settlement:rejected"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 28,
+  "repetition": 2,
+  "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+  "armOrder": [
+    "xanxitospa",
+    "direct"
+  ],
+  "arm": "direct",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:32:40.457318+00:00",
+  "sourceRunner": "harness.run_v4_local_runtime_arm",
+  "reset": {
+    "service": "task-container",
+    "containerId": "30e86c3acc6aef40422a3f5ea83b4cd6caef61c58e8f8e5c62f6983b181d5145",
+    "image": "ghcr.io/theagentcompany/sde-debug-crashed-server-image:1.0.0",
+    "fixedMainSha256": "9352a4c17943cf7eab888465e029ddef7265e0042cad55b9028c6ceb05a14783",
+    "wheelhouseFingerprint": "fb7e151d5957593e2fc16e00cd6fd54dd0eb81678a2513809e06ee5844b3ee8b",
+    "dependencyVersions": "3.1.3 1.2.2 20.0.0 50.0.0"
+  },
+  "result": {
+    "condition": "stale_process_after_takeover",
+    "mode": "direct",
+    "completed": true,
+    "healthy": true,
+    "ownerCount": 1,
+    "startAttempts": 2,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "staleResumeBlocked": false,
+    "auditEvents": [
+      "stale-resume:accepted"
+    ]
+  }
+}

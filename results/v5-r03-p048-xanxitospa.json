@@ -1,0 +1,48 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "parentManifestVersion": "v4-stateful-1",
+  "pairIndex": 48,
+  "repetition": 3,
+  "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+  "armOrder": [
+    "direct",
+    "xanxitospa"
+  ],
+  "arm": "xanxitospa",
+  "attempt": 1,
+  "valid": true,
+  "generatedAt": "2026-08-24T19:49:53.166181+00:00",
+  "sourceRunner": "harness.run_v4_plane_arm",
+  "reset": {
+    "fingerprint": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627",
+    "counts": {
+      "workspaces_tac": 1,
+      "projects_tac": 10,
+      "issues_tac": 31
+    },
+    "backupSha256": {
+      "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+      "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+      "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+    }
+  },
+  "result": {
+    "condition": "lost_ack_after_patch",
+    "mode": "xanxitospa",
+    "completed": true,
+    "finalState": "In Progress",
+    "writeCount": 1,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": true,
+    "reconciliationRequired": true,
+    "integrityPreserved": true,
+    "safeHalt": false,
+    "staleSettlementAccepted": false,
+    "auditEvents": [
+      "result:unknown-reconciliation-required",
+      "reconciliation:verified-and-replayed-without-new-patch"
+    ]
+  }
+}
