@@ -1,0 +1,206 @@
+{
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "files": [
+    {
+      "path": "manifest/fault-injection-v4-stateful.json",
+      "sha256": "207ea4c79771daeb79cde0625c77bef282bfaea5f316d126b43ca2a7bf9a1ee2",
+      "bytes": 13038
+    },
+    {
+      "path": "results/fault-injection-v4-service-calibration.json",
+      "sha256": "af51d3798b7d24443517679e559ae1c971e3a032079d0c02bfe7e6688ac859b0",
+      "bytes": 2499
+    },
+    {
+      "path": "results/v4-governance-boundary.json",
+      "sha256": "5cf4a76f2432e70faa20e7b5213ed074be1932d1f89d193d0d1706de9b6556f9",
+      "bytes": 2652
+    },
+    {
+      "path": "results/v4-stateful-final.json",
+      "sha256": "d2e38e28249fa5f1fc7d5b7d538db752c357acaac23a2ee4aaad431850dec874",
+      "bytes": 21832
+    },
+    {
+      "path": "results/v4-stateful-qa-escalate-emergency-auth-expiry.json",
+      "sha256": "e9723899f5eb8f367fd053eabb293924a5987e7ab317b2f6d55f7e1078b66b04",
+      "bytes": 1565
+    },
+    {
+      "path": "results/v4-stateful-qa-escalate-emergency-concurrent.json",
+      "sha256": "1a8bc69fa9510079753c525184e3dccee63c037b9279c3d263c6f970a009d768",
+      "bytes": 1706
+    },
+    {
+      "path": "results/v4-stateful-qa-escalate-emergency-control.json",
+      "sha256": "4d773037907ea9b41e0d29876f3fc96c8261d1c7653741c0a4470109af0a08ea",
+      "bytes": 1403
+    },
+    {
+      "path": "results/v4-stateful-qa-escalate-emergency-lost-ack.json",
+      "sha256": "78221f0a2fe26f85ecae03806dec3f5449458c79132d2d12377c9a2ed50bd490",
+      "bytes": 1622
+    },
+    {
+      "path": "results/v4-stateful-gitlab-control-direct.json",
+      "sha256": "78e0f5999047e097b72454bf96c8e88bdfea20f34c8adc0bb89778d67056b341",
+      "bytes": 1034
+    },
+    {
+      "path": "results/v4-stateful-gitlab-control-xspa.json",
+      "sha256": "ece19ab9d77a755d89212c15855fda4d38511798ce8aba960e8333c9da32f2c0",
+      "bytes": 1040
+    },
+    {
+      "path": "results/v4-stateful-gitlab-credential-expiry-direct.json",
+      "sha256": "09aae67cf2b5db39fac8d6fe645842b84987f9b47e03c4814f239e688a39683a",
+      "bytes": 1120
+    },
+    {
+      "path": "results/v4-stateful-gitlab-credential-expiry-xspa.json",
+      "sha256": "26b2b073368c8e0fea9b2a9f44f7668ca8560ae5a7f5d8e5ff748e2112c069df",
+      "bytes": 1080
+    },
+    {
+      "path": "results/v4-stateful-gitlab-lost-ack-direct.json",
+      "sha256": "91ea19cf5833cf23fa50122f8647ad5ca49dccb83d690467d51139a0ca5b9dae",
+      "bytes": 1110
+    },
+    {
+      "path": "results/v4-stateful-gitlab-lost-ack-xspa.json",
+      "sha256": "b99baa79557354ef7da2631a210a4d9c8076e3179bf9b418ace19e1a47736733",
+      "bytes": 1147
+    },
+    {
+      "path": "results/v4-stateful-gitlab-service-restart-direct.json",
+      "sha256": "853e3c3e39b7eaa05eaec2c8eb5cd302e3c4e6c405d208f22a4ca000228a195b",
+      "bytes": 1160
+    },
+    {
+      "path": "results/v4-stateful-gitlab-service-restart-xspa.json",
+      "sha256": "8d905559616b7fb30feacd8179146fb70182903fc73537f7a9e7826b72393843",
+      "bytes": 1184
+    },
+    {
+      "path": "results/v4-stateful-plane-auth-direct.json",
+      "sha256": "672eebb460d4b3f98ff784b84086afb89ea8ceefd27cf691f637e1c518b3bda6",
+      "bytes": 1393
+    },
+    {
+      "path": "results/v4-stateful-plane-auth-xspa.json",
+      "sha256": "bb626c873383e27a5608c1941038a1d4dfa641e4c972faab5d8490baed1110ad",
+      "bytes": 1349
+    },
+    {
+      "path": "results/v4-stateful-plane-control-direct.json",
+      "sha256": "0371ae7007a4df035347c30dc9844e02f2d734b2fdbe8eaec125d56e8299dcb1",
+      "bytes": 1304
+    },
+    {
+      "path": "results/v4-stateful-plane-control-xspa.json",
+      "sha256": "bc4fbaea511d4b9b070b7531df15c773a6a43eb792fd0e7dbf1fbfa42e89ba82",
+      "bytes": 1310
+    },
+    {
+      "path": "results/v4-stateful-plane-lost-ack-direct.json",
+      "sha256": "e8a0f64b212ca53ec493861608ccaed0e985b1c2c1c92cdb81c8173975294028",
+      "bytes": 1399
+    },
+    {
+      "path": "results/v4-stateful-plane-lost-ack-xspa.json",
+      "sha256": "d369306680b263a904b2a9c972d70626c0b856c7b1429e5c07db1bb4958c46d0",
+      "bytes": 1437
+    },
+    {
+      "path": "results/v4-stateful-plane-stale-direct.json",
+      "sha256": "6f982feca15ae0c2b80925cc350d696c813aea0c95456e22e2692ad6bc62ed34",
+      "bytes": 1379
+    },
+    {
+      "path": "results/v4-stateful-plane-stale-xspa.json",
+      "sha256": "9b85e3d44c4cc74ffa8278f43967ee8afda04cac784bdb0b99948514d152ea57",
+      "bytes": 1401
+    },
+    {
+      "path": "results/v4-stateful-owncloud-auth-direct.json",
+      "sha256": "ed3f3d23bd69c857166a1214c3365ebbb22c6b0c554d2c5c2e8d7a5f1f68b265",
+      "bytes": 1097
+    },
+    {
+      "path": "results/v4-stateful-owncloud-auth-xspa.json",
+      "sha256": "a2f8660d8f6b59d41fdff4150765a06d6a7725729f68d31bc224510c502efae4",
+      "bytes": 881
+    },
+    {
+      "path": "results/v4-stateful-owncloud-concurrent-direct.json",
+      "sha256": "ad08270616966341d6a1df919c768c5422e3a1927b4c591a849ad1c291c72744",
+      "bytes": 966
+    },
+    {
+      "path": "results/v4-stateful-owncloud-concurrent-xspa.json",
+      "sha256": "53113f30bd858d1b4b55c0748b6ca02e08b59baed97aa9c9670a00c9c22e2e04",
+      "bytes": 988
+    },
+    {
+      "path": "results/v4-stateful-owncloud-control-direct.json",
+      "sha256": "3515fc85bd64efaf1e02d955f1f405eee7b85b3f57cf0fbc41a0b46572dd16ce",
+      "bytes": 897
+    },
+    {
+      "path": "results/v4-stateful-owncloud-control-xspa.json",
+      "sha256": "cbb087ec1d197dd7c1714040096e3a19ef38c373c3b1b186d4416246dd0c684a",
+      "bytes": 909
+    },
+    {
+      "path": "results/v4-stateful-owncloud-lost-ack-direct.json",
+      "sha256": "e41d3c6282be9bd64750b812ec43f2d438503592b270c38a474edc26ddbd3500",
+      "bytes": 995
+    },
+    {
+      "path": "results/v4-stateful-owncloud-lost-ack-xspa.json",
+      "sha256": "71aa50ae23a6a0cc42338e8314011d2839b9fa5db5e76346aabc3214c4830d5d",
+      "bytes": 1031
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-control-direct.json",
+      "sha256": "02a34f78b24e115d9ebde8e515d1a0b3bf6b650a408b2f048671cf10afe7812b",
+      "bytes": 1186
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-control-xspa.json",
+      "sha256": "c94d21d10c741535f938868aefc387425e5f60d16bcde28b9d858719f51ed24b",
+      "bytes": 1194
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-kill-direct.json",
+      "sha256": "e100317e768360f9041ac8fe33981724b32b29dcb21c06811ede2ec00a009930",
+      "bytes": 1314
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-kill-xspa.json",
+      "sha256": "e7937b6f88a05669cb50b764323cbaa393cfb7da61ec80c20b096b39c3ada3bf",
+      "bytes": 1303
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-port-direct.json",
+      "sha256": "aa631d7be6e152c0451dabd1167ee9e82164750dd657c6c7a92dee2bce902ddb",
+      "bytes": 1220
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-port-xspa.json",
+      "sha256": "763161f170eca86a05f1fa64452487c2f27c6e10fb94bc66584477c2f8dae5df",
+      "bytes": 1231
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-stale-direct.json",
+      "sha256": "995c5b8decc5a4da5dade6952a6ea6a76168abb0c6c55b09ac3b7786db1e9ed3",
+      "bytes": 1255
+    },
+    {
+      "path": "results/v4-stateful-local-runtime-stale-xspa.json",
+      "sha256": "6ad9d3b42c938bbdc4d2ad2cc17ad1a01e4a1f519feea63c10fd97d01b20133d",
+      "bytes": 1298
+    }
+  ]
+}

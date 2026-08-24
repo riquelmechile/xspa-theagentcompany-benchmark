@@ -1,0 +1,713 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "design": "paired-frozen-action-plan-execution-integrity",
+  "pairs": [
+    {
+      "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "direct": {
+        "condition": "concurrent_revision_write",
+        "mode": "direct",
+        "completed": true,
+        "finalHash": "28267ac72a4ba0fd7727272c4ca01617106ab21b174c01bc17083e988325310e",
+        "writeCount": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "staleWriteAccepted": true,
+        "auditEvents": [
+          "stale-owner:accepted-unfenced"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "concurrent_revision_write",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalHash": "01217b602034adb3f59ba5adcc75808269c1a1215d386ed1b3ffb53ce21e3155",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "fence:1->2",
+          "stale-settlement:rejected"
+        ]
+      }
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__control",
+      "direct": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "finalHash": "738caafb85ddbc340d10b372d3f3d7bd4333f9d0a370419200d43490b3c005c2",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "control:direct"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalHash": "738caafb85ddbc340d10b372d3f3d7bd4333f9d0a370419200d43490b3c005c2",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "control:xanxitospa"
+        ]
+      }
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+      "direct": {
+        "condition": "credential_expiry",
+        "mode": "direct",
+        "completed": false,
+        "finalHash": null,
+        "writeCount": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "auth-failure:OwnCloud HTTP 401: <?xml version=\"1.0\" encoding=\"utf-8\"?>\n<d:error xmlns:d=\"DAV:\" xmlns:s=\"http://sabredav.org/ns\">\n  <s:exception>Sabre\\DAV\\Exception\\NotAuthenticated</s:exception>\n  <s:message>No public access to this"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "credential_expiry",
+        "mode": "xanxitospa",
+        "completed": false,
+        "finalHash": null,
+        "writeCount": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "capability-failed-safe"
+        ]
+      }
+    },
+    {
+      "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "direct": {
+        "condition": "lost_ack_after_upload",
+        "mode": "direct",
+        "completed": true,
+        "finalHash": "71b663bdc984d745116ab53eb1b35e884d10d83384492d6635d52b32f0108a81",
+        "writeCount": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "unknown-result:injected lost acknowledgement after OwnCloud PUT commit"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "lost_ack_after_upload",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalHash": "71b663bdc984d745116ab53eb1b35e884d10d83384492d6635d52b32f0108a81",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleWriteAccepted": false,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "reconciliation:verified-and-replayed-without-new-put"
+        ]
+      }
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "direct": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "issueCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:direct"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "issueCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:xspa"
+        ]
+      }
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "direct": {
+        "condition": "credential_expiry",
+        "mode": "direct",
+        "completed": false,
+        "issueCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "credential-failure:GitLab HTTP 401: {\"message\":\"401 Unauthorized\"}"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "credential_expiry",
+        "mode": "xanxitospa",
+        "completed": false,
+        "issueCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "capability-failed-safe"
+        ]
+      }
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "direct": {
+        "condition": "lost_ack_after_commit",
+        "mode": "direct",
+        "completed": true,
+        "issueCount": 2,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "auditEvents": [
+          "unknown-result:injected lost acknowledgement after GitLab issue commit"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "lost_ack_after_commit",
+        "mode": "xanxitospa",
+        "completed": true,
+        "issueCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "reconciliation:verified-and-replayed-without-new-issue"
+        ]
+      }
+    },
+    {
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "direct": {
+        "condition": "service_restart_after_commit",
+        "mode": "direct",
+        "completed": true,
+        "issueCount": 2,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "auditEvents": [
+          "unknown-result:injected GitLab restart after issue commit before observation"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "service_restart_after_commit",
+        "mode": "xanxitospa",
+        "completed": true,
+        "issueCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "restart:verified-and-replayed-without-new-issue"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "direct": {
+        "condition": "auth_session_expiry",
+        "mode": "direct",
+        "completed": false,
+        "messageCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "auth-failure:RocketChat HTTP 401: {\"status\":\"error\",\"message\":\"You must be logged in to do this.\"}"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "auth_session_expiry",
+        "mode": "xanxitospa",
+        "completed": false,
+        "messageCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "capability-failed-safe"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "direct": {
+        "condition": "concurrent_duplicate_intent",
+        "mode": "direct",
+        "completed": true,
+        "messageCount": 2,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "auditEvents": [
+          "concurrent:unfenced"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "concurrent_duplicate_intent",
+        "mode": "xanxitospa",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "replay-or-owner:fulfilled",
+          "contended:CONTENDED:capability_inflight:capability:benchmark.rocketchat.message.send:tac-rocketchat-lost-ack:Sarah Johnson:XSPA-V4-QA-ESCALATE-CONCURRENT_DUPLICATE_INTENT"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__control",
+      "direct": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:direct"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:xspa"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__lost_ack_after_commit",
+      "direct": {
+        "condition": "lost_ack_after_commit",
+        "mode": "direct",
+        "completed": true,
+        "messageCount": 2,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "auditEvents": [
+          "unknown-result:injected lost acknowledgement after RocketChat commit"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "lost_ack_after_commit",
+        "mode": "xanxitospa",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "reconciliation:verified-and-replayed-without-new-message"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "direct": {
+        "condition": "auth_session_expiry",
+        "mode": "direct",
+        "completed": false,
+        "finalState": "Todo",
+        "writeCount": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "auth-failure:Plane HTTP 403: {\"detail\":\"Given API token is not valid\"}"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "auth_session_expiry",
+        "mode": "xanxitospa",
+        "completed": false,
+        "finalState": "Todo",
+        "writeCount": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "capability-failed-safe"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__control",
+      "direct": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "control:direct"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "control:xspa"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "direct": {
+        "condition": "lost_ack_after_patch",
+        "mode": "direct",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "unknown-result:injected lost acknowledgement after Plane PATCH commit"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "lost_ack_after_patch",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "result:unknown-reconciliation-required",
+          "reconciliation:verified-and-replayed-without-new-patch"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "direct": {
+        "condition": "stale_writer_after_takeover",
+        "mode": "direct",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "staleSettlementAccepted": true,
+        "auditEvents": [
+          "stale-owner:accepted-unfenced"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "stale_writer_after_takeover",
+        "mode": "xanxitospa",
+        "completed": true,
+        "finalState": "In Progress",
+        "writeCount": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleSettlementAccepted": false,
+        "auditEvents": [
+          "fence:1->2",
+          "stale-settlement:rejected"
+        ]
+      }
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__control",
+      "direct": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "healthy": true,
+        "ownerCount": 1,
+        "startAttempts": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "control:started"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "healthy": true,
+        "ownerCount": 1,
+        "startAttempts": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "settled:fence-1"
+        ]
+      }
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "direct": {
+        "condition": "kill_after_fix_before_healthcheck",
+        "mode": "direct",
+        "completed": false,
+        "healthy": false,
+        "ownerCount": 0,
+        "startAttempts": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "injected:kill-before-health",
+          "no-durable-owner-recovery"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "kill_after_fix_before_healthcheck",
+        "mode": "xanxitospa",
+        "completed": true,
+        "healthy": true,
+        "ownerCount": 1,
+        "startAttempts": 2,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "fence:1->2",
+          "recovery:replacement-started"
+        ]
+      }
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__port_contention",
+      "direct": {
+        "condition": "port_contention",
+        "mode": "direct",
+        "completed": false,
+        "healthy": false,
+        "ownerCount": 0,
+        "startAttempts": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "port-contention:surfaced"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "port_contention",
+        "mode": "xanxitospa",
+        "completed": false,
+        "healthy": false,
+        "ownerCount": 0,
+        "startAttempts": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "port-contention:failed-safe"
+        ]
+      }
+    },
+    {
+      "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+      "direct": {
+        "condition": "stale_process_after_takeover",
+        "mode": "direct",
+        "completed": true,
+        "healthy": true,
+        "ownerCount": 1,
+        "startAttempts": 2,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleResumeBlocked": false,
+        "auditEvents": [
+          "stale-resume:accepted"
+        ]
+      },
+      "xanxitospa": {
+        "condition": "stale_process_after_takeover",
+        "mode": "xanxitospa",
+        "completed": true,
+        "healthy": true,
+        "ownerCount": 1,
+        "startAttempts": 1,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "staleResumeBlocked": true,
+        "auditEvents": [
+          "fence:1->2",
+          "stale-settlement:rejected-before-resume"
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "pairCount": 20,
+    "directIntegrityPasses": 12,
+    "xanxitospaIntegrityPasses": 20,
+    "xanxitospaWins": 8,
+    "directWins": 0,
+    "ties": 12,
+    "directUnsafeEffects": 8,
+    "xanxitospaUnsafeEffects": 0,
+    "discordantPairs": 8,
+    "twoSidedExactSignTestP": 0.0078125
+  }
+}

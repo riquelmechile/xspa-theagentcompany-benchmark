@@ -5,6 +5,7 @@
 - **v3 ChatGPT-hosted MCP:** 16/16 previously remaining tasks completed as paired DIRECT vs XANXITOSPA runs.
 - **v2 hard isolation:** frozen at 7 completed pairs; do not merge with v3.
 - **v1 pilot:** retained only as historical/debug evidence.
+- **v4 stateful fault injection:** 20/20 paired scenarios complete; governance boundary suite 4/4 complete.
 - **Safety-excluded:** `hr-resume-screening` remains excluded because the benchmark asks for an employment progression decision based on citizenship/green-card status.
 
 ## Execution pending
@@ -27,8 +28,6 @@ The only future benchmark work would be a **new methodology**, not continuation 
 
 ## v4 fault-injection benchmark
 
-Next work is **not** another baseline TAC rerun. Build a paired deterministic fault-injection benchmark that targets the governance/resilience surfaces XANXITOSPA is intended to provide. Start with a small pilot, validate identical injection timing/effects across arms, then freeze the larger manifest.
+Execution is complete. Canonical stateful result: **12/20 DIRECT integrity vs 20/20 XANXITOSPA**, with **8 XSPA wins, 12 ties, 0 losses** and exact two-sided paired sign-test **p=0.0078125**. Governance boundary suite is reported separately (**0/4 DIRECT vs 4/4 XANXITOSPA**) and must not be folded into the stateful p-value.
 
-Primary failure classes: runtime death after mutation, lost acknowledgement/retry ambiguity, credential expiry, downstream service outage, concurrent writers/stale lease, malicious tool metadata, authority-boundary attempt, budget-envelope attempt, and false-success (2xx with failed internal mutation).
-
-Primary metrics: task completion, recovery success, duplicate side effects, state corruption, unauthorized actions, budget violations, recovery steps/time, and audit completeness.
+Remaining work is closeout/publication only: preserve hashes, keep runtime credentials/locks local, and treat any future campaign as a new frozen methodology/version.

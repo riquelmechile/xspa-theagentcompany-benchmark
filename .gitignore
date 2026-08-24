@@ -8,3 +8,6 @@ trajectory.log
 *.pem
 __pycache__/
 *.pyc
+results/*.lock
+results/*.launch.json
+results/v4-stateful-local-control-direct.json

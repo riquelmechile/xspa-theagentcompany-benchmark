@@ -9,6 +9,7 @@ from harness.reset_controller import (
     assert_fingerprints_equal,
     gitlab_project_fingerprint,
     plan_gitlab_cleanup,
+    select_stale_gitlab_volumes,
     plane_structural_fingerprint,
     validate_backup_set,
 )
@@ -82,6 +83,29 @@ class ResetControllerTests(unittest.TestCase):
         ]
         with self.assertRaises(ResetError):
             plan_gitlab_cleanup(containers)
+
+    def test_select_stale_gitlab_volumes_only_previous_anonymous_canonical_mounts(self):
+        previous = [
+            {"name": "cfg-old", "destination": "/etc/gitlab", "anonymous": True},
+            {"name": "log-old", "destination": "/var/log/gitlab", "anonymous": True},
+            {"name": "data-old", "destination": "/var/opt/gitlab", "anonymous": True},
+        ]
+        current = [
+            {"name": "cfg-new", "destination": "/etc/gitlab", "anonymous": True},
+            {"name": "log-new", "destination": "/var/log/gitlab", "anonymous": True},
+            {"name": "data-new", "destination": "/var/opt/gitlab", "anonymous": True},
+        ]
+        self.assertEqual(select_stale_gitlab_volumes(previous, current), ["cfg-old", "data-old", "log-old"])
+
+    def test_select_stale_gitlab_volumes_excludes_active_named_and_foreign(self):
+        previous = [
+            {"name": "still-active", "destination": "/var/opt/gitlab", "anonymous": True},
+            {"name": "named", "destination": "/var/opt/gitlab", "anonymous": False},
+            {"name": "foreign", "destination": "/some/other/path", "anonymous": True},
+            {"name": "empty", "destination": "/etc/gitlab", "anonymous": True},
+        ]
+        current = [{"name": "still-active", "destination": "/var/opt/gitlab", "anonymous": True}]
+        self.assertEqual(select_stale_gitlab_volumes(previous, current), ["empty"])
 
     def test_gitlab_project_fingerprint_is_order_independent(self):
         a = gitlab_project_fingerprint(["root/janusgraph", "root/openhands"], OFFICIAL_GITLAB_IMAGE)

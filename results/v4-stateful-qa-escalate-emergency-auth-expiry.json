@@ -1,0 +1,51 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "qa-escalate-emergency",
+  "condition": "auth_session_expiry",
+  "design": "paired-frozen-action-plan-execution-integrity",
+  "generatedAt": "2026-08-24T15:33:31.806847+00:00",
+  "runs": [
+    {
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "arm": "direct",
+      "resetReady": true,
+      "result": {
+        "condition": "auth_session_expiry",
+        "mode": "direct",
+        "completed": false,
+        "messageCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "auth-failure:RocketChat HTTP 401: {\"status\":\"error\",\"message\":\"You must be logged in to do this.\"}"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "arm": "xanxitospa",
+      "resetReady": true,
+      "result": {
+        "condition": "auth_session_expiry",
+        "mode": "xanxitospa",
+        "completed": false,
+        "messageCount": 0,
+        "sideEffects": 0,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": true,
+        "auditEvents": [
+          "capability-failed-safe"
+        ]
+      }
+    }
+  ]
+}

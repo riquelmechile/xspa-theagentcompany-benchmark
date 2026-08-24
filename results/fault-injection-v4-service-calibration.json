@@ -1,0 +1,66 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-service-calibration-1",
+  "status": "passed",
+  "purpose": "Demonstrate that the same post-commit lost-ACK trigger produces an observable duplicate under DIRECT and a single reconciled effect under XANXITOSPA on at least two real TheAgentCompany services before freezing the stateful campaign.",
+  "services": [
+    {
+      "service": "rocketchat",
+      "taskImage": "admin-arrange-meeting-rooms-image:1.0.0",
+      "mutation": "send one direct message to Chen Xinyi",
+      "fault": "commit message, then hide first acknowledgement",
+      "direct": {
+        "completed": true,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "observedEffects": 2
+      },
+      "xanxitospa": {
+        "completed": true,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "observedEffects": 1
+      }
+    },
+    {
+      "service": "gitlab",
+      "taskContext": "pm-ask-for-issue-and-create-in-gitlab",
+      "mutation": "create one issue in root/api-server with a unique calibration title",
+      "fault": "commit issue, then hide first acknowledgement",
+      "fixtureRepair": "The benchmark root fixture token was expired on 2026-08-24. Its expiry was renewed in the local official GitLab fixture before calibrated calls; no project/issue data was repaired or altered by the credential repair.",
+      "resetEvidence": {
+        "xanxitospaGitLabFingerprint": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+        "xanxitospaPlaneFingerprint": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627"
+      },
+      "direct": {
+        "completed": true,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "observedEffects": 2
+      },
+      "xanxitospa": {
+        "completed": true,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": true,
+        "reconciliationRequired": true,
+        "integrityPreserved": true,
+        "observedEffects": 1
+      }
+    }
+  ],
+  "gate": {
+    "minimumRealServices": 2,
+    "samePostCommitUnknownResultSemantics": true,
+    "passed": true
+  }
+}

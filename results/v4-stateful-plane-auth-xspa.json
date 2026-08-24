@@ -1,0 +1,39 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "qa-update-issue-status-according-to-colleagues",
+  "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+  "arm": "xanxitospa",
+  "condition": "auth_session_expiry",
+  "generatedAt": "2026-08-24T17:51:54.894149+00:00",
+  "reset": {
+    "fingerprint": "8b6d75852ac9fbb2632b7f644b2c1277650a92d97925f0e0b4a1a569faa24627",
+    "counts": {
+      "workspaces_tac": 1,
+      "projects_tac": 10,
+      "issues_tac": 31
+    },
+    "backupSha256": {
+      "pgdata.tar.gz": "7344416b8fb25fc761db320e2d50d95c87b4ff955e2a26ca0cf7078b8c90e5fd",
+      "redisdata.tar.gz": "06d9fffbfdfd48a5e5bae2d1f78041a47e88e03f4437fb6950f0a69454e02473",
+      "uploads.tar.gz": "3c8a4d836c53aca74cf9691f787a7917b6211acf1361ff8b1a4fd337cf036d4b"
+    }
+  },
+  "result": {
+    "condition": "auth_session_expiry",
+    "mode": "xanxitospa",
+    "completed": false,
+    "finalState": "Todo",
+    "writeCount": 0,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": true,
+    "staleSettlementAccepted": false,
+    "auditEvents": [
+      "capability-failed-safe"
+    ]
+  }
+}

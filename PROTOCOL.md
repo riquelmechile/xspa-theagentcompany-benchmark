@@ -76,3 +76,14 @@ v4 changes the research question from baseline capability to integrity under det
 For each scenario, DIRECT and XANXITOSPA receive the same objective, provider behavior and injected fault. DIRECT has no authority/budget/idempotency/fencing/reconciliation guard for the tested operation. XANXITOSPA executes through the corresponding production kernel surface. Primary outcomes are completion **and** integrity: duplicate side effects, state corruption, budget violations, safe halt, reconciliation success and audit events.
 
 A scenario only graduates into the final TAC-integrated v4 manifest after the fault trigger and externally visible fault effect can be shown equivalent across both arms. Final v4 must use stateful TAC services/tasks and preserve fresh task state between arms. The micro-pilot manifest is therefore marked `pilot-not-final`.
+
+
+## v4 stateful fault-injection addendum
+
+v4 is a separate execution-integrity experiment. It does not reuse TAC evaluator scores and is not merged with v2/v3. The frozen manifest fingerprint is `25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75`.
+
+Each stateful scenario freezes one action plan and one fault trigger. DIRECT and XANXITOSPA receive the same intended mutation and fresh service/task state. The comparison changes only the execution substrate. Primary paired oracle is `integrityPreserved`; secondary metrics include duplicate/unsafe effects, recovery success, reconciliation requirement, safe halt and fencing evidence. Infrastructure-invalid attempts are excluded before observing/scoring an arm and are never substituted with reconstructed results.
+
+The stateful campaign contains 20 pairs across RocketChat, GitLab, Plane, OwnCloud and a local server runtime. Exact paired sign testing is applied only to discordant stateful integrity outcomes. The separate governance boundary suite (budget, authority, poisoned metadata, stale fencing) is reported descriptively and is not included in that sign test.
+
+Runtime credentials, lock files, launch metadata and invalid-attempt artifacts remain local. Published evidence contains sanitized result JSON plus SHA-256 manifests.

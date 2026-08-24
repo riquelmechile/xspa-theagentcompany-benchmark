@@ -20,6 +20,7 @@ REQUIRED_BACKUPS = ("pgdata.tar.gz", "redisdata.tar.gz", "uploads.tar.gz")
 BENCHMARK_GITLAB_PORTS = ("8929", "8930", "2424")
 EXPECTED_GITLAB_PROJECT_COUNT = 13
 EXPECTED_PLANE_COUNTS = {"workspaces_tac": 1, "projects_tac": 10, "issues_tac": 31}
+GITLAB_VOLUME_DESTINATIONS = {"/etc/gitlab", "/var/log/gitlab", "/var/opt/gitlab"}
 API_BASE = "http://127.0.0.1:2999"
 
 
@@ -74,6 +75,22 @@ def plan_gitlab_cleanup(containers: list[dict[str, str]]) -> list[str]:
     return sorted(set(removals))
 
 
+def select_stale_gitlab_volumes(previous_mounts: list[dict[str, Any]], current_mounts: list[dict[str, Any]]) -> list[str]:
+    current_names = {str(item.get("name") or "") for item in current_mounts if item.get("name")}
+    selected: set[str] = set()
+    for item in previous_mounts:
+        name = str(item.get("name") or "")
+        destination = str(item.get("destination") or "")
+        if not name or name in current_names:
+            continue
+        if destination not in GITLAB_VOLUME_DESTINATIONS:
+            continue
+        if item.get("anonymous") is not True:
+            continue
+        selected.add(name)
+    return sorted(selected)
+
+
 def gitlab_project_fingerprint(project_paths: list[str], image_identity: str) -> str:
     payload = {
         "image": image_identity,
@@ -107,6 +124,49 @@ def _docker_ps() -> list[dict[str, str]]:
         if line:
             rows.append(json.loads(line))
     return rows
+
+
+def _gitlab_volume_mounts(container_name: str) -> list[dict[str, Any]]:
+    proc = _run(["docker", "inspect", container_name], check=False, timeout=30)
+    if proc.returncode != 0:
+        return []
+    payload = json.loads(proc.stdout)
+    if not isinstance(payload, list) or len(payload) != 1:
+        raise ResetError(f"unexpected docker inspect payload for {container_name}")
+    mounts: list[dict[str, Any]] = []
+    for mount in payload[0].get("Mounts", []):
+        if mount.get("Type") != "volume":
+            continue
+        name = str(mount.get("Name") or "")
+        destination = str(mount.get("Destination") or "")
+        if not name:
+            continue
+        volume = _run(["docker", "volume", "inspect", name], timeout=30)
+        meta = json.loads(volume.stdout)
+        if not isinstance(meta, list) or len(meta) != 1:
+            raise ResetError(f"unexpected volume inspect payload for {name}")
+        labels = meta[0].get("Labels") or {}
+        mounts.append({
+            "name": name,
+            "destination": destination,
+            "anonymous": isinstance(labels, dict) and "com.docker.volume.anonymous" in labels,
+        })
+    return mounts
+
+
+def _remove_unreferenced_gitlab_volumes(names: list[str]) -> tuple[list[str], list[str]]:
+    removed: list[str] = []
+    skipped: list[str] = []
+    for name in names:
+        refs = _run(["docker", "ps", "-a", "--filter", f"volume={name}", "--format", "{{.ID}}"], timeout=30)
+        if refs.stdout.strip():
+            skipped.append(name)
+            continue
+        proc = _run(["docker", "volume", "rm", name], check=False, timeout=60)
+        if proc.returncode != 0:
+            raise ResetError(f"failed removing unreferenced stale GitLab volume {name}: {proc.stderr.strip()}")
+        removed.append(name)
+    return removed, skipped
 
 
 def _container_marker(name: str) -> str | None:
@@ -276,21 +336,28 @@ def _gitlab_image_identity() -> str:
 def reset_gitlab() -> dict[str, Any]:
     _stage_gitlab_compose_name()
     removed = _ensure_gitlab_preconditions()
+    previous_mounts = _gitlab_volume_mounts(GITLAB_RUNTIME_NAME)
     before = _container_marker(GITLAB_RUNTIME_NAME)
     response = _post_reset("gitlab", timeout=300)
     marker = _wait_for_marker_change(GITLAB_RUNTIME_NAME, before, timeout=300)
     _wait_health("gitlab", timeout=300)
     projects = _gitlab_projects()
     image_identity = _gitlab_image_identity()
+    fingerprint = gitlab_project_fingerprint(projects, image_identity)
+    current_mounts = _gitlab_volume_mounts(GITLAB_RUNTIME_NAME)
+    stale = select_stale_gitlab_volumes(previous_mounts, current_mounts)
+    removed_stale, skipped_stale = _remove_unreferenced_gitlab_volumes(stale)
     return {
         "service": "gitlab",
         "removed_conflicts": removed,
+        "removed_stale_volumes": removed_stale,
+        "skipped_referenced_stale_volumes": skipped_stale,
         "reset_response": response,
         "container_marker": marker,
         "image_identity": image_identity,
         "project_count": len(projects),
         "project_paths": projects,
-        "fingerprint": gitlab_project_fingerprint(projects, image_identity),
+        "fingerprint": fingerprint,
     }
 
 

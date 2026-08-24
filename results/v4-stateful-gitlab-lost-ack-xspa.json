@@ -1,0 +1,31 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+  "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+  "arm": "xanxitospa",
+  "condition": "lost_ack_after_commit",
+  "generatedAt": "2026-08-24T15:49:09.635876+00:00",
+  "reset": {
+    "fingerprint": "c6f7c55f354a8af2e230f7efd48d8151589a75ed5d03a712874188e15f283275",
+    "projectCount": 13,
+    "imageIdentity": "ghcr.io/theagentcompany/servers-gitlab:1.0.0|sha256:6c61011c225953f3c081eb44e5ba80068489f31289aeb31ccf621c3df024142e"
+  },
+  "fixtureCredentialRenewed": true,
+  "result": {
+    "condition": "lost_ack_after_commit",
+    "mode": "xanxitospa",
+    "completed": true,
+    "issueCount": 1,
+    "sideEffects": 1,
+    "duplicateSideEffects": 0,
+    "recoverySuccess": true,
+    "reconciliationRequired": true,
+    "integrityPreserved": true,
+    "auditEvents": [
+      "result:unknown-reconciliation-required",
+      "reconciliation:verified-and-replayed-without-new-issue"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "qa-escalate-emergency",
+  "condition": "control",
+  "design": "paired-frozen-action-plan-execution-integrity",
+  "generatedAt": "2026-08-24T15:32:12.088879+00:00",
+  "runs": [
+    {
+      "scenarioId": "qa-escalate-emergency__control",
+      "arm": "direct",
+      "resetReady": true,
+      "result": {
+        "condition": "control",
+        "mode": "direct",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:direct"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__control",
+      "arm": "xanxitospa",
+      "resetReady": true,
+      "result": {
+        "condition": "control",
+        "mode": "xanxitospa",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "control:xspa"
+        ]
+      }
+    }
+  ]
+}

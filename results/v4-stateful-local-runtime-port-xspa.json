@@ -1,0 +1,34 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "sde-debug-crashed-server",
+  "scenarioId": "sde-debug-crashed-server__port_contention",
+  "arm": "xanxitospa",
+  "condition": "port_contention",
+  "generatedAt": "2026-08-24T18:23:20.378168+00:00",
+  "reset": {
+    "service": "task-container",
+    "containerId": "4c6480bf1f61c86a3ac438c7ffa2e38344609fc6fe5da2ca9b7c212008a9fa74",
+    "image": "ghcr.io/theagentcompany/sde-debug-crashed-server-image:1.0.0",
+    "fixedMainSha256": "9352a4c17943cf7eab888465e029ddef7265e0042cad55b9028c6ceb05a14783",
+    "wheelhouseFingerprint": "fb7e151d5957593e2fc16e00cd6fd54dd0eb81678a2513809e06ee5844b3ee8b",
+    "dependencyVersions": "3.1.3 1.2.2 20.0.0 50.0.0"
+  },
+  "result": {
+    "condition": "port_contention",
+    "mode": "xanxitospa",
+    "completed": false,
+    "healthy": false,
+    "ownerCount": 0,
+    "startAttempts": 1,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": true,
+    "safeHalt": true,
+    "staleResumeBlocked": false,
+    "auditEvents": [
+      "port-contention:failed-safe"
+    ]
+  }
+}

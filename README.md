@@ -38,6 +38,29 @@ Pilot scenarios:
 
 Aggregate micro-pilot: **DIRECT 0/3 integrity passes, XANXITOSPA 3/3; 3 unsafe effects vs 0**. See `results/fault-injection-v4-pilot.json` and `manifest/fault-injection-v4-pilot.json`. The next stage is to reproduce the same deterministic injection semantics on at least two stateful TAC tasks before freezing the final v4 manifest.
 
+## v4 stateful fault-injection result
+
+The frozen stateful campaign is complete. It uses **paired frozen action plans** rather than another reasoning benchmark: DIRECT and XANXITOSPA execute the same designated mutation, against a fresh reset state, and differ only in whether the production XSPA execution-integrity substrate is present. The frozen manifest contains **5 stateful TAC surfaces × 4 conditions = 20 pairs / 40 arms**.
+
+- Manifest fingerprint: `25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75`.
+- DIRECT integrity passes: **12/20 = 60%**.
+- XANXITOSPA integrity passes: **20/20 = 100%**.
+- Paired wins / ties / losses for XANXITOSPA: **8 / 12 / 0**.
+- Exact two-sided sign test over the 8 discordant pairs: **p = 0.0078125**.
+- DIRECT unsafe effects recorded by the frozen metrics: **8**. XANXITOSPA: **0**.
+
+The eight integrity wins are concentrated exactly where the kernel is intended to help: acknowledgement loss after commit, duplicate intent, service restart after commit, stale writer settlement, conflicting object revisions, and process death before health verification. Control cases and naturally fail-closed credential/port cases tied. OwnCloud lost-ACK also tied on final-state integrity because repeated identical PUTs are naturally idempotent, although DIRECT performed two writes and XANXITOSPA one reconciled write.
+
+This result is **not combined with v2/v3 TAC capability scores**. It measures execution integrity under deterministic faults, not baseline task-solving capability. See `results/v4-stateful-final.json`.
+
+### Separate governance boundary suite
+
+Four governance semantics that do not map naturally onto every TAC task were tested separately and are not included in the 20-pair sign test: budget overrun, authority denial, poisoned MCP tool metadata, and stale fencing. DIRECT-without-governance preserved integrity in **0/4**; production XANXITOSPA boundaries preserved integrity in **4/4**, with **4 unsafe effects vs 0**. See `results/v4-governance-boundary.json`.
+
+### Infrastructure hardening discovered during v4
+
+Repeated GitLab resets exposed a benchmark-infrastructure leak: anonymous GitLab data volumes (~9 GB each) accumulated until `/data` reached 100%. The reset controller was hardened to capture only the previous canonical GitLab container's anonymous volumes and remove them **after** the replacement passes health and structural fingerprint validation and only when they are no longer referenced. No global `docker volume prune` is used. Two deterministic reset cycles retained the canonical GitLab/Plane fingerprints without ~9 GB/cycle growth.
+
 ## Current clean v2 result
 
 - Agent model: `gpt-5.6-sol`, reasoning effort `max` in both arms.
@@ -62,7 +85,7 @@ Aggregate micro-pilot: **DIRECT 0/3 integrity passes, XANXITOSPA 3/3; 3 unsafe e
 
 ## What is actually comparable
 
-The repository now contains two intentionally separate final datasets: **v2 hard isolation** (Codex-hosted, 7 pairs) and **v3 ChatGPT-hosted MCP** (16 pairs). They answer different methodological questions and must not be combined. The older v1 file remains pilot/debug evidence only.
+The repository contains three intentionally separate evidence layers: **v2 hard isolation** (Codex-hosted capability pairs), **v3 ChatGPT-hosted MCP** (capability non-regression), and **v4 stateful fault injection** (execution integrity under deterministic faults). They answer different questions and must not be combined into one score. The older v1 file remains pilot/debug evidence only.
 
 DIRECT has Apps/MCP/plugins/browser/computer-use disabled and solves through local shell/filesystem plus benchmark services. XANXITOSPA uses the same model and benchmark environment, with one bounded **read-only** `@Xanxito -> xanxitospa` task-aware preflight; HostOps, other downstream MCPs and writes are forbidden.
 
@@ -75,6 +98,9 @@ Raw `trajectory.jsonl` files and live service artifacts are **not committed** be
 The repository includes:
 
 - `results/results-v3-chatgpt-hosted-mcp.json` — complete 16-pair ChatGPT-hosted MCP ledger.
+- `results/v4-stateful-final.json` — canonical 20-pair stateful fault-injection aggregate.
+- `results/v4-governance-boundary.json` — separate four-case governance boundary suite.
+- `evidence/local-evidence-sha256-v4.json` — integrity hashes for published v4 summary evidence.
 - `results/results-v2-hard-isolation.json` — frozen 7-pair hard-isolation v2 ledger.
 - `results/results-v1-pilot.json` — non-final prompt-isolated pilot results.
 - `manifest/subset-v1.json` — frozen 24-task order.

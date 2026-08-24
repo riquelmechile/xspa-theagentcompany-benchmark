@@ -1,0 +1,30 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "admin-employee-info-reconciliation",
+  "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+  "arm": "direct",
+  "condition": "concurrent_revision_write",
+  "generatedAt": "2026-08-24T17:56:35.847740+00:00",
+  "reset": {
+    "service": "owncloud",
+    "baselineObjectAbsent": true
+  },
+  "result": {
+    "condition": "concurrent_revision_write",
+    "mode": "direct",
+    "completed": true,
+    "finalHash": "28267ac72a4ba0fd7727272c4ca01617106ab21b174c01bc17083e988325310e",
+    "writeCount": 2,
+    "duplicateSideEffects": 1,
+    "recoverySuccess": false,
+    "reconciliationRequired": false,
+    "integrityPreserved": false,
+    "safeHalt": false,
+    "staleWriteAccepted": true,
+    "auditEvents": [
+      "stale-owner:accepted-unfenced"
+    ]
+  }
+}

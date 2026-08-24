@@ -1,0 +1,52 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "manifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "taskId": "qa-escalate-emergency",
+  "condition": "concurrent_duplicate_intent",
+  "design": "paired-frozen-action-plan-execution-integrity",
+  "generatedAt": "2026-08-24T15:34:10.957005+00:00",
+  "runs": [
+    {
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "arm": "direct",
+      "resetReady": true,
+      "result": {
+        "condition": "concurrent_duplicate_intent",
+        "mode": "direct",
+        "completed": true,
+        "messageCount": 2,
+        "sideEffects": 2,
+        "duplicateSideEffects": 1,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": false,
+        "safeHalt": false,
+        "auditEvents": [
+          "concurrent:unfenced"
+        ]
+      }
+    },
+    {
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "arm": "xanxitospa",
+      "resetReady": true,
+      "result": {
+        "condition": "concurrent_duplicate_intent",
+        "mode": "xanxitospa",
+        "completed": true,
+        "messageCount": 1,
+        "sideEffects": 1,
+        "duplicateSideEffects": 0,
+        "recoverySuccess": false,
+        "reconciliationRequired": false,
+        "integrityPreserved": true,
+        "safeHalt": false,
+        "auditEvents": [
+          "replay-or-owner:fulfilled",
+          "contended:CONTENDED:capability_inflight:capability:benchmark.rocketchat.message.send:tac-rocketchat-lost-ack:Sarah Johnson:XSPA-V4-QA-ESCALATE-CONCURRENT_DUPLICATE_INTENT"
+        ]
+      }
+    }
+  ]
+}

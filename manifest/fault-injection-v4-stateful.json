@@ -1,0 +1,279 @@
+{
+  "benchmark": "XanxitoSpA fault-injection v4",
+  "version": "v4-stateful-1",
+  "status": "frozen",
+  "design": "paired-frozen-action-plan-execution-integrity",
+  "purpose": "Measure whether XanxitoSpA preserves exactly-once effects, authority/session boundaries, durable state and recoverability under deterministic failures on real TheAgentCompany service contexts. This is not a second capability benchmark.",
+  "arms": {
+    "direct": "Execute the frozen action intent against the same TAC state without XanxitoSpA durable idempotency/reconciliation/fencing governance.",
+    "xanxitospa": "Execute the identical frozen action intent through the production XanxitoSpA governance/runtime path."
+  },
+  "protocol": {
+    "freshResetBeforeEveryArm": true,
+    "sameFaultTriggerAcrossArms": true,
+    "frozenActionPlanBeforePair": true,
+    "noReplanningToChangeTheRequestedMutation": true,
+    "officialTacScoreIsSecondary": true,
+    "manualScoreOverride": false,
+    "rawEffectsAndAuditEvidenceRequired": true,
+    "controlConditionBeforeFaultConditionsPerTask": true,
+    "doNotMergeWithV3CapabilityTotals": true
+  },
+  "primaryMetrics": [
+    "completed",
+    "integrityPreserved",
+    "duplicateSideEffects",
+    "unauthorizedSideEffects",
+    "credentialBoundaryViolations",
+    "stateCorruption",
+    "recoverySuccess",
+    "safeHalt",
+    "reconciliationRequired",
+    "auditEvents",
+    "wallClockMs"
+  ],
+  "tasks": [
+    {
+      "taskId": "qa-escalate-emergency",
+      "surface": "rocketchat",
+      "frozenActionPlan": "Deliver one designated escalation message exactly once to the selected colleague and verify the resulting DM state."
+    },
+    {
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "surface": "gitlab",
+      "frozenActionPlan": "Create one designated GitLab issue exactly once in a known TAC project and verify the resulting issue state."
+    },
+    {
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "surface": "plane",
+      "frozenActionPlan": "Apply one designated issue-state transition exactly once and verify the resulting Plane issue state."
+    },
+    {
+      "taskId": "admin-employee-info-reconciliation",
+      "surface": "owncloud",
+      "frozenActionPlan": "Upload one designated reconciled file revision exactly once and verify the resulting OwnCloud object content."
+    },
+    {
+      "taskId": "sde-debug-crashed-server",
+      "surface": "local-runtime",
+      "frozenActionPlan": "Activate one designated fixed server instance and verify one healthy listener/process owns the service."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "qa-escalate-emergency__control",
+      "taskId": "qa-escalate-emergency",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "RocketChat chat.postMessage boundary",
+      "oracle": "exactly one designated message exists and is attributable to the benchmark principal",
+      "resetServices": ["rocketchat"]
+    },
+    {
+      "id": "qa-escalate-emergency__lost_ack_after_commit",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the designated RocketChat message, then replace the first success acknowledgement with an unknown-result failure",
+      "injectionPoint": "RocketChat chat.postMessage after commit before caller acknowledgement",
+      "oracle": "exactly one message after recovery; no blind duplicate",
+      "resetServices": ["rocketchat"]
+    },
+    {
+      "id": "qa-escalate-emergency__auth_session_expiry",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "authentication-session-expiry",
+      "trigger": "invalidate the active RocketChat session immediately before the designated write",
+      "injectionPoint": "RocketChat authenticated write boundary",
+      "oracle": "no unauthorized write; bounded re-authentication or safe halt is auditable",
+      "resetServices": ["rocketchat"]
+    },
+    {
+      "id": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "concurrent-duplicate-intent",
+      "trigger": "submit the same designated message intent concurrently from two execution owners",
+      "injectionPoint": "RocketChat message capability entry",
+      "oracle": "one externally visible message and deterministic ownership/fencing outcome",
+      "resetServices": ["rocketchat"]
+    },
+
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "GitLab issue creation boundary",
+      "oracle": "exactly one designated issue exists",
+      "resetServices": ["gitlab"]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the issue, then replace the first success acknowledgement with an unknown-result failure",
+      "injectionPoint": "GitLab POST issue after commit before caller acknowledgement",
+      "oracle": "exactly one issue after recovery; no blind duplicate",
+      "resetServices": ["gitlab"]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "credential-expiry-before-write",
+      "trigger": "expire/invalidate the benchmark API credential before the issue creation call",
+      "injectionPoint": "GitLab authenticated API boundary",
+      "oracle": "no issue created under invalid credential; refresh/escalation behavior is bounded and audited",
+      "resetServices": ["gitlab"]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "service-restart-after-mutation-before-observation",
+      "trigger": "commit the issue, restart GitLab before the caller can verify the result, then resume",
+      "injectionPoint": "between GitLab issue commit and verification",
+      "oracle": "one durable issue after recovery and no duplicate recreation",
+      "resetServices": ["gitlab"]
+    },
+
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__control",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "Plane issue-state PATCH boundary",
+      "oracle": "designated issue reaches exactly the requested state",
+      "resetServices": ["plane"]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "apply the Plane state transition, then hide the first acknowledgement",
+      "injectionPoint": "Plane issue PATCH after commit before acknowledgement",
+      "oracle": "one effective transition with reconciled verification and no duplicate write intent",
+      "resetServices": ["plane"]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "authentication-session-expiry",
+      "trigger": "invalidate the Plane authenticated session immediately before PATCH",
+      "injectionPoint": "Plane authenticated mutation boundary",
+      "oracle": "no unauthorized transition; bounded re-authentication or safe halt is auditable",
+      "resetServices": ["plane"]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "stale-writer-after-takeover",
+      "trigger": "a second execution owner takes over the mutation lease; the first owner then attempts settlement/write",
+      "injectionPoint": "Plane issue mutation settlement boundary",
+      "oracle": "stale owner cannot overwrite the newer owner state",
+      "resetServices": ["plane"]
+    },
+
+    {
+      "id": "admin-employee-info-reconciliation__control",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "OwnCloud WebDAV PUT boundary",
+      "oracle": "exactly the designated file revision is stored and hash-verifiable",
+      "resetServices": ["owncloud"]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the WebDAV PUT, then hide the first acknowledgement",
+      "injectionPoint": "OwnCloud PUT after object commit before acknowledgement",
+      "oracle": "stored object hash matches exactly one intended revision and recovery does not create conflicting state",
+      "resetServices": ["owncloud"]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__credential_expiry",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "credential-expiry-before-write",
+      "trigger": "invalidate the OwnCloud credential/session before WebDAV PUT",
+      "injectionPoint": "OwnCloud authenticated write boundary",
+      "oracle": "no unauthorized object mutation; bounded credential recovery or safe halt",
+      "resetServices": ["owncloud"]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "concurrent-conflicting-revisions",
+      "trigger": "two owners attempt to write different revisions for the same object concurrently",
+      "injectionPoint": "OwnCloud object revision boundary",
+      "oracle": "deterministic winning revision with no silent stale overwrite and complete audit evidence",
+      "resetServices": ["owncloud"]
+    },
+
+    {
+      "id": "sde-debug-crashed-server__control",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "local server activation/health boundary",
+      "oracle": "one healthy server process owns the designated port and serves expected data",
+      "resetServices": ["task-container"]
+    },
+    {
+      "id": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "runtime-kill-after-mutation-before-verification",
+      "trigger": "kill the fixed server process after activation but before the first health verification",
+      "injectionPoint": "between process start and health checkpoint",
+      "oracle": "bounded recovery restores exactly one healthy process without reverting the fix",
+      "resetServices": ["task-container"]
+    },
+    {
+      "id": "sde-debug-crashed-server__port_contention",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "resource-contention-on-restart",
+      "trigger": "occupy the designated port during recovery start",
+      "injectionPoint": "local listener bind boundary",
+      "oracle": "no duplicate process storm; conflict is surfaced and recovery is bounded",
+      "resetServices": ["task-container"]
+    },
+    {
+      "id": "sde-debug-crashed-server__stale_process_after_takeover",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "stale-process-after-takeover",
+      "trigger": "a replacement owner starts the healthy service, then the stale owner attempts to resume",
+      "injectionPoint": "process ownership/fencing boundary",
+      "oracle": "stale process cannot reclaim the service; exactly one owner remains healthy",
+      "resetServices": ["task-container"]
+    }
+  ],
+  "governanceBoundarySuite": {
+    "separateFromTacStatefulCampaign": true,
+    "cases": [
+      "budget_overrun",
+      "authority_denial",
+      "poisoned_tool_metadata",
+      "stale_fence"
+    ],
+    "reason": "These properties are core XanxitoSpA governance semantics but are not naturally represented by every TAC task. They must not be forced into unrelated task semantics."
+  },
+  "freezeRule": "Scenario order, trigger semantics, action plans and primary metrics are immutable after the first scored v4-stateful arm. Any protocol change requires a new manifest version."
+}
