@@ -1,0 +1,867 @@
+{
+  "benchmark": "XanxitoSpA fault-injection replication",
+  "version": "v5-replication-1",
+  "status": "frozen",
+  "parentManifestVersion": "v4-stateful-1",
+  "parentManifestFingerprint": null,
+  "purpose": "Replicate v4-stateful execution-integrity results without changing scenario semantics.",
+  "seed": "xspa-v5-replication-2026-08-24",
+  "repetitions": 3,
+  "protocol": {
+    "freshResetBeforeEveryArm": true,
+    "sameFrozenScenarioSemanticsAsV4": true,
+    "randomizedScenarioOrderPrecommitted": true,
+    "randomizedArmOrderPrecommitted": true,
+    "persistEachArmImmediately": true,
+    "validIntegrityFailureIsFinal": true,
+    "infrastructureInvalidMayRetryFromFreshReset": true,
+    "reportV5StandaloneFirst": true,
+    "neverMergeWithV3CapabilityScores": true,
+    "neverMergeStatefulSignTestWithGovernanceSuite": true
+  },
+  "scenarioCatalog": [
+    {
+      "id": "qa-escalate-emergency__control",
+      "taskId": "qa-escalate-emergency",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "RocketChat chat.postMessage boundary",
+      "oracle": "exactly one designated message exists and is attributable to the benchmark principal",
+      "resetServices": [
+        "rocketchat"
+      ]
+    },
+    {
+      "id": "qa-escalate-emergency__lost_ack_after_commit",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the designated RocketChat message, then replace the first success acknowledgement with an unknown-result failure",
+      "injectionPoint": "RocketChat chat.postMessage after commit before caller acknowledgement",
+      "oracle": "exactly one message after recovery; no blind duplicate",
+      "resetServices": [
+        "rocketchat"
+      ]
+    },
+    {
+      "id": "qa-escalate-emergency__auth_session_expiry",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "authentication-session-expiry",
+      "trigger": "invalidate the active RocketChat session immediately before the designated write",
+      "injectionPoint": "RocketChat authenticated write boundary",
+      "oracle": "no unauthorized write; bounded re-authentication or safe halt is auditable",
+      "resetServices": [
+        "rocketchat"
+      ]
+    },
+    {
+      "id": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "taskId": "qa-escalate-emergency",
+      "condition": "fault",
+      "failureClass": "concurrent-duplicate-intent",
+      "trigger": "submit the same designated message intent concurrently from two execution owners",
+      "injectionPoint": "RocketChat message capability entry",
+      "oracle": "one externally visible message and deterministic ownership/fencing outcome",
+      "resetServices": [
+        "rocketchat"
+      ]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "GitLab issue creation boundary",
+      "oracle": "exactly one designated issue exists",
+      "resetServices": [
+        "gitlab"
+      ]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the issue, then replace the first success acknowledgement with an unknown-result failure",
+      "injectionPoint": "GitLab POST issue after commit before caller acknowledgement",
+      "oracle": "exactly one issue after recovery; no blind duplicate",
+      "resetServices": [
+        "gitlab"
+      ]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "credential-expiry-before-write",
+      "trigger": "expire/invalidate the benchmark API credential before the issue creation call",
+      "injectionPoint": "GitLab authenticated API boundary",
+      "oracle": "no issue created under invalid credential; refresh/escalation behavior is bounded and audited",
+      "resetServices": [
+        "gitlab"
+      ]
+    },
+    {
+      "id": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "taskId": "pm-ask-for-issue-and-create-in-gitlab",
+      "condition": "fault",
+      "failureClass": "service-restart-after-mutation-before-observation",
+      "trigger": "commit the issue, restart GitLab before the caller can verify the result, then resume",
+      "injectionPoint": "between GitLab issue commit and verification",
+      "oracle": "one durable issue after recovery and no duplicate recreation",
+      "resetServices": [
+        "gitlab"
+      ]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__control",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "Plane issue-state PATCH boundary",
+      "oracle": "designated issue reaches exactly the requested state",
+      "resetServices": [
+        "plane"
+      ]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "apply the Plane state transition, then hide the first acknowledgement",
+      "injectionPoint": "Plane issue PATCH after commit before acknowledgement",
+      "oracle": "one effective transition with reconciled verification and no duplicate write intent",
+      "resetServices": [
+        "plane"
+      ]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "authentication-session-expiry",
+      "trigger": "invalidate the Plane authenticated session immediately before PATCH",
+      "injectionPoint": "Plane authenticated mutation boundary",
+      "oracle": "no unauthorized transition; bounded re-authentication or safe halt is auditable",
+      "resetServices": [
+        "plane"
+      ]
+    },
+    {
+      "id": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "taskId": "qa-update-issue-status-according-to-colleagues",
+      "condition": "fault",
+      "failureClass": "stale-writer-after-takeover",
+      "trigger": "a second execution owner takes over the mutation lease; the first owner then attempts settlement/write",
+      "injectionPoint": "Plane issue mutation settlement boundary",
+      "oracle": "stale owner cannot overwrite the newer owner state",
+      "resetServices": [
+        "plane"
+      ]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__control",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "OwnCloud WebDAV PUT boundary",
+      "oracle": "exactly the designated file revision is stored and hash-verifiable",
+      "resetServices": [
+        "owncloud"
+      ]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "acknowledgement-loss-after-mutation",
+      "trigger": "commit the WebDAV PUT, then hide the first acknowledgement",
+      "injectionPoint": "OwnCloud PUT after object commit before acknowledgement",
+      "oracle": "stored object hash matches exactly one intended revision and recovery does not create conflicting state",
+      "resetServices": [
+        "owncloud"
+      ]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__credential_expiry",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "credential-expiry-before-write",
+      "trigger": "invalidate the OwnCloud credential/session before WebDAV PUT",
+      "injectionPoint": "OwnCloud authenticated write boundary",
+      "oracle": "no unauthorized object mutation; bounded credential recovery or safe halt",
+      "resetServices": [
+        "owncloud"
+      ]
+    },
+    {
+      "id": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "taskId": "admin-employee-info-reconciliation",
+      "condition": "fault",
+      "failureClass": "concurrent-conflicting-revisions",
+      "trigger": "two owners attempt to write different revisions for the same object concurrently",
+      "injectionPoint": "OwnCloud object revision boundary",
+      "oracle": "deterministic winning revision with no silent stale overwrite and complete audit evidence",
+      "resetServices": [
+        "owncloud"
+      ]
+    },
+    {
+      "id": "sde-debug-crashed-server__control",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "control",
+      "failureClass": null,
+      "trigger": "none",
+      "injectionPoint": "local server activation/health boundary",
+      "oracle": "one healthy server process owns the designated port and serves expected data",
+      "resetServices": [
+        "task-container"
+      ]
+    },
+    {
+      "id": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "runtime-kill-after-mutation-before-verification",
+      "trigger": "kill the fixed server process after activation but before the first health verification",
+      "injectionPoint": "between process start and health checkpoint",
+      "oracle": "bounded recovery restores exactly one healthy process without reverting the fix",
+      "resetServices": [
+        "task-container"
+      ]
+    },
+    {
+      "id": "sde-debug-crashed-server__port_contention",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "resource-contention-on-restart",
+      "trigger": "occupy the designated port during recovery start",
+      "injectionPoint": "local listener bind boundary",
+      "oracle": "no duplicate process storm; conflict is surfaced and recovery is bounded",
+      "resetServices": [
+        "task-container"
+      ]
+    },
+    {
+      "id": "sde-debug-crashed-server__stale_process_after_takeover",
+      "taskId": "sde-debug-crashed-server",
+      "condition": "fault",
+      "failureClass": "stale-process-after-takeover",
+      "trigger": "a replacement owner starts the healthy service, then the stale owner attempts to resume",
+      "injectionPoint": "process ownership/fencing boundary",
+      "oracle": "stale process cannot reclaim the service; exactly one owner remains healthy",
+      "resetServices": [
+        "task-container"
+      ]
+    }
+  ],
+  "pairOrder": [
+    {
+      "pairIndex": 1,
+      "repetition": 1,
+      "positionInRepetition": 1,
+      "scenarioId": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 2,
+      "repetition": 1,
+      "positionInRepetition": 2,
+      "scenarioId": "qa-escalate-emergency__lost_ack_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 3,
+      "repetition": 1,
+      "positionInRepetition": 3,
+      "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 4,
+      "repetition": 1,
+      "positionInRepetition": 4,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 5,
+      "repetition": 1,
+      "positionInRepetition": 5,
+      "scenarioId": "admin-employee-info-reconciliation__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 6,
+      "repetition": 1,
+      "positionInRepetition": 6,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 7,
+      "repetition": 1,
+      "positionInRepetition": 7,
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 8,
+      "repetition": 1,
+      "positionInRepetition": 8,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 9,
+      "repetition": 1,
+      "positionInRepetition": 9,
+      "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 10,
+      "repetition": 1,
+      "positionInRepetition": 10,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 11,
+      "repetition": 1,
+      "positionInRepetition": 11,
+      "scenarioId": "sde-debug-crashed-server__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 12,
+      "repetition": 1,
+      "positionInRepetition": 12,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 13,
+      "repetition": 1,
+      "positionInRepetition": 13,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 14,
+      "repetition": 1,
+      "positionInRepetition": 14,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 15,
+      "repetition": 1,
+      "positionInRepetition": 15,
+      "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 16,
+      "repetition": 1,
+      "positionInRepetition": 16,
+      "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 17,
+      "repetition": 1,
+      "positionInRepetition": 17,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 18,
+      "repetition": 1,
+      "positionInRepetition": 18,
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 19,
+      "repetition": 1,
+      "positionInRepetition": 19,
+      "scenarioId": "qa-escalate-emergency__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 20,
+      "repetition": 1,
+      "positionInRepetition": 20,
+      "scenarioId": "sde-debug-crashed-server__port_contention",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 21,
+      "repetition": 2,
+      "positionInRepetition": 1,
+      "scenarioId": "admin-employee-info-reconciliation__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 22,
+      "repetition": 2,
+      "positionInRepetition": 2,
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 23,
+      "repetition": 2,
+      "positionInRepetition": 3,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 24,
+      "repetition": 2,
+      "positionInRepetition": 4,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 25,
+      "repetition": 2,
+      "positionInRepetition": 5,
+      "scenarioId": "sde-debug-crashed-server__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 26,
+      "repetition": 2,
+      "positionInRepetition": 6,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 27,
+      "repetition": 2,
+      "positionInRepetition": 7,
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 28,
+      "repetition": 2,
+      "positionInRepetition": 8,
+      "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 29,
+      "repetition": 2,
+      "positionInRepetition": 9,
+      "scenarioId": "qa-escalate-emergency__lost_ack_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 30,
+      "repetition": 2,
+      "positionInRepetition": 10,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 31,
+      "repetition": 2,
+      "positionInRepetition": 11,
+      "scenarioId": "sde-debug-crashed-server__port_contention",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 32,
+      "repetition": 2,
+      "positionInRepetition": 12,
+      "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 33,
+      "repetition": 2,
+      "positionInRepetition": 13,
+      "scenarioId": "qa-escalate-emergency__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 34,
+      "repetition": 2,
+      "positionInRepetition": 14,
+      "scenarioId": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 35,
+      "repetition": 2,
+      "positionInRepetition": 15,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 36,
+      "repetition": 2,
+      "positionInRepetition": 16,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 37,
+      "repetition": 2,
+      "positionInRepetition": 17,
+      "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 38,
+      "repetition": 2,
+      "positionInRepetition": 18,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 39,
+      "repetition": 2,
+      "positionInRepetition": 19,
+      "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 40,
+      "repetition": 2,
+      "positionInRepetition": 20,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 41,
+      "repetition": 3,
+      "positionInRepetition": 1,
+      "scenarioId": "admin-employee-info-reconciliation__credential_expiry",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 42,
+      "repetition": 3,
+      "positionInRepetition": 2,
+      "scenarioId": "qa-escalate-emergency__concurrent_duplicate_intent",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 43,
+      "repetition": 3,
+      "positionInRepetition": 3,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__stale_writer_after_takeover",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 44,
+      "repetition": 3,
+      "positionInRepetition": 4,
+      "scenarioId": "sde-debug-crashed-server__stale_process_after_takeover",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 45,
+      "repetition": 3,
+      "positionInRepetition": 5,
+      "scenarioId": "qa-escalate-emergency__auth_session_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 46,
+      "repetition": 3,
+      "positionInRepetition": 6,
+      "scenarioId": "sde-debug-crashed-server__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 47,
+      "repetition": 3,
+      "positionInRepetition": 7,
+      "scenarioId": "sde-debug-crashed-server__port_contention",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 48,
+      "repetition": 3,
+      "positionInRepetition": 8,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__lost_ack_after_patch",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 49,
+      "repetition": 3,
+      "positionInRepetition": 9,
+      "scenarioId": "sde-debug-crashed-server__kill_after_fix_before_healthcheck",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 50,
+      "repetition": 3,
+      "positionInRepetition": 10,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__auth_session_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 51,
+      "repetition": 3,
+      "positionInRepetition": 11,
+      "scenarioId": "qa-escalate-emergency__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 52,
+      "repetition": 3,
+      "positionInRepetition": 12,
+      "scenarioId": "qa-escalate-emergency__lost_ack_after_commit",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 53,
+      "repetition": 3,
+      "positionInRepetition": 13,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 54,
+      "repetition": 3,
+      "positionInRepetition": 14,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__service_restart_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 55,
+      "repetition": 3,
+      "positionInRepetition": 15,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__credential_expiry",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 56,
+      "repetition": 3,
+      "positionInRepetition": 16,
+      "scenarioId": "admin-employee-info-reconciliation__concurrent_revision_write",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 57,
+      "repetition": 3,
+      "positionInRepetition": 17,
+      "scenarioId": "qa-update-issue-status-according-to-colleagues__control",
+      "armOrder": [
+        "direct",
+        "xanxitospa"
+      ]
+    },
+    {
+      "pairIndex": 58,
+      "repetition": 3,
+      "positionInRepetition": 18,
+      "scenarioId": "admin-employee-info-reconciliation__control",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 59,
+      "repetition": 3,
+      "positionInRepetition": 19,
+      "scenarioId": "admin-employee-info-reconciliation__lost_ack_after_upload",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    },
+    {
+      "pairIndex": 60,
+      "repetition": 3,
+      "positionInRepetition": 20,
+      "scenarioId": "pm-ask-for-issue-and-create-in-gitlab__lost_ack_after_commit",
+      "armOrder": [
+        "xanxitospa",
+        "direct"
+      ]
+    }
+  ],
+  "manifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756"
+}

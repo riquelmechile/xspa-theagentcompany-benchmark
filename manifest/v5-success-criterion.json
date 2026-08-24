@@ -1,0 +1,71 @@
+{
+  "version": "v5-success-criterion-1",
+  "status": "frozen",
+  "registeredAtUtc": "2026-08-24T19:15:22.361545+00:00",
+  "experiment": "v5-replication-1",
+  "v5ManifestFingerprint": "a47990651ffad820dfe6e3fb7a33465f3634728a942603e605ea76bf908ad756",
+  "v5ManifestFileSha256AtRegistration": "a1382a986ebaa918793bad1c83ea072c8e74e10992249128bddbc1fdc7e024d2",
+  "v4ManifestFingerprint": "25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75",
+  "v4ManifestFileSha256AtRegistration": "207ea4c79771daeb79cde0625c77bef282bfaea5f316d126b43ca2a7bf9a1ee2",
+  "timingDisclosure": {
+    "v5ManifestGeneratedAndFingerprintedBeforeFirstArm": true,
+    "v5ManifestCommittedBeforeFirstArm": false,
+    "completedV5PairsWhenCriterionRegistered": 20,
+    "completedRepetitionsWhenCriterionRegistered": [1],
+    "unseenRepetitionsWhenCriterionRegistered": [2, 3],
+    "earlyStoppingAllowed": false,
+    "all60PairsRequiredForFinalV5": true
+  },
+  "primaryConfirmatoryAnalysis": {
+    "unit": "scenario",
+    "scenarioCount": 20,
+    "repetitionsPerScenario": 3,
+    "armOutcome": "integrityPreserved",
+    "replicateSign": {
+      "xanxitospaWin": "xanxitospa.integrityPreserved=true and direct.integrityPreserved=false",
+      "directWin": "direct.integrityPreserved=true and xanxitospa.integrityPreserved=false",
+      "tie": "both arms have the same integrityPreserved value"
+    },
+    "scenarioAggregation": "majority sign across the three repetition-level signs, with ties participating as tie votes; no majority direction yields scenario tie",
+    "test": "exact two-sided paired sign test on non-tie scenario-level outcomes",
+    "alpha": 0.01,
+    "replicationSuccessRequires": [
+      "exact two-sided sign-test p < 0.01",
+      "xanxitospa scenario wins > direct scenario wins",
+      "all 60 precommitted pairs have valid results under the frozen invalid-run/retry rules"
+    ]
+  },
+  "prospectiveSensitivityAnalysis": {
+    "purpose": "corroboration using only repetitions unseen when this criterion was registered",
+    "repetitions": [2, 3],
+    "unit": "scenario",
+    "scenarioSignRule": "sum the two repetition-level directional signs (+1 XSPA, -1 DIRECT, 0 tie); positive is XSPA win, negative is DIRECT win, zero is tie",
+    "test": "exact two-sided paired sign test on non-tie scenario-level outcomes",
+    "alpha": 0.01,
+    "requiredForStrongProspectiveConfirmation": [
+      "exact two-sided sign-test p < 0.01",
+      "xanxitospa scenario wins > direct scenario wins"
+    ]
+  },
+  "secondaryAnalyses": {
+    "pooled60PairSignTest": "descriptive only because repetitions within scenario are not treated as independent inferential units",
+    "report": [
+      "integrity rates by arm",
+      "unsafe outcomes",
+      "duplicate side effects",
+      "recovery successes",
+      "per-surface results",
+      "per-repetition results",
+      "order-stratified results"
+    ],
+    "noSecondaryAnalysisCanReplacePrimaryCriterion": true
+  },
+  "invalidRunPolicy": {
+    "validOutcomeFailuresAreNeverRetried": true,
+    "infrastructureInvalidRunsMayBeRetried": true,
+    "onlyFirstValidAttemptCounts": true,
+    "manualOutcomeExclusionForbidden": true,
+    "manifestOrFaultSemanticChangesForbidden": true
+  },
+  "freezeRule": "This criterion file must not be changed after this commit. Any alternative analysis must be labeled exploratory."
+}
