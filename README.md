@@ -2,6 +2,24 @@
 
 Private evidence repository for the paired comparison **DIRECT vs XANXITOSPA** on TheAgentCompany 1.0.0.
 
+## Current v3 ChatGPT-hosted MCP result
+
+This is the user-requested architecture where **this ChatGPT session is the agent host** and the PC only supplies benchmark runtimes, services, Docker and evidence. XANXITOSPA adds a bounded read-only `ChatGPT -> Xanxittoo -> xanxitospa` preflight; no Codex CLI or secondary model is spawned.
+
+- Agent model: `gpt-5.6-sol`, reasoning effort `max`.
+- Environment/evaluator text model: `xspa-env-qwen3.8-27b`.
+- Completed v3 pairs: **16/16** of the previously remaining tasks.
+- DIRECT raw official: **69/95 = 72.6316%**.
+- XANXITOSPA raw official: **68/95 = 71.5789%**.
+- Raw delta: **-1.0526 percentage points**.
+- Pair wins / ties / losses for XANXITOSPA: **1 / 14 / 1**.
+- Fixed-evaluator-compatible subset (excluding the two vision-dependent tasks): DIRECT **67/83 = 80.7229%**, XANXITOSPA **66/83 = 79.5181%**, delta **-1.2048 pp**.
+- Vision-incompatible tasks: `ds-visualize-data-in-pie-and-bar-chart`, `research-reproduce-figures` (the fixed Qwen evaluator rejects image input with HTTP 500).
+
+**Methodology warning:** v3 arms use fresh task runtime/state and separate trajectories, but they execute sequentially in the same ChatGPT conversation context. This is not fresh-context blind isolation. v3 must not be merged with v2 totals.
+
+See `results/results-v3-chatgpt-hosted-mcp.json` for all 16 task-level scores and grader annotations.
+
 ## Current clean v2 result
 
 - Agent model: `gpt-5.6-sol`, reasoning effort `max` in both arms.
@@ -26,7 +44,7 @@ Private evidence repository for the paired comparison **DIRECT vs XANXITOSPA** o
 
 ## What is actually comparable
 
-The **v2 hard-isolation** ledger is the current final-quality dataset. The older v1 file is retained only as pilot/debug evidence and must **not** be combined with v2 totals.
+The repository now contains two intentionally separate final datasets: **v2 hard isolation** (Codex-hosted, 7 pairs) and **v3 ChatGPT-hosted MCP** (16 pairs). They answer different methodological questions and must not be combined. The older v1 file remains pilot/debug evidence only.
 
 DIRECT has Apps/MCP/plugins/browser/computer-use disabled and solves through local shell/filesystem plus benchmark services. XANXITOSPA uses the same model and benchmark environment, with one bounded **read-only** `@Xanxito -> xanxitospa` task-aware preflight; HostOps, other downstream MCPs and writes are forbidden.
 
@@ -38,12 +56,14 @@ Raw `trajectory.jsonl` files and live service artifacts are **not committed** be
 
 The repository includes:
 
-- `results/results-v2-hard-isolation.json` — canonical clean v2 ledger.
+- `results/results-v3-chatgpt-hosted-mcp.json` — complete 16-pair ChatGPT-hosted MCP ledger.
+- `results/results-v2-hard-isolation.json` — frozen 7-pair hard-isolation v2 ledger.
 - `results/results-v1-pilot.json` — non-final prompt-isolated pilot results.
 - `manifest/subset-v1.json` — frozen 24-task order.
 - `evidence/pair-summaries.json` — ledger-derived task summaries.
 - `evidence/raw-evals-available.json` — raw evaluator JSON where it was safely persisted as JSON.
-- `evidence/local-evidence-sha256.json` — integrity hashes for local pair evidence.
+- `evidence/local-evidence-sha256-v3.json` — integrity hashes for local v3 pair evidence.
+- `evidence/local-evidence-sha256.json` — integrity hashes for local v2 pair evidence.
 - `PROTOCOL.md` — isolation and scoring rules.
 - `PENDING.md` — exact remaining work.
 

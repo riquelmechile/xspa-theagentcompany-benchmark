@@ -1,0 +1,1568 @@
+{
+  "generatedAt": "2026-08-24T13:56:57.206517+00:00",
+  "sourceRoot": "/home/sebastian/workspace/xspa-benchmark",
+  "dataset": "v3-chatgpt-hosted-mcp",
+  "policy": "Raw trajectories/artifacts remain local; repository publishes only hashes and sanitized score/evidence summaries.",
+  "pairs": [
+    {
+      "task": "admin-arrange-meeting-rooms",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/eval.json",
+              "sha256": "1731bef18b46e09630214cd13fa3ea4ae78ec6d8ea4c3769107638975ca98190",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/run-meta.json",
+              "sha256": "b66cf5319ad1fe0e26afd44a9d7b4066e9745d2dd62731a802e2c00fec062c6b",
+              "sizeBytes": 889,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "684abe36fa19d616bd3142c0b5fd5d32f1e88cb8829d4e95fe5ce839b1c3188d",
+              "sizeBytes": 9260,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/direct-chatgpt-v3/last-message.txt",
+              "sha256": "08a98881f7f9f0c8c99229d0881861f6c3e61bc96ea619fd1ada7f8a512c9910",
+              "sizeBytes": 129,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "1731bef18b46e09630214cd13fa3ea4ae78ec6d8ea4c3769107638975ca98190",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "7c1dd39b411a970577ffd13f9d3be992fb4eb815f3ce298160a751b14f250ee3",
+              "sizeBytes": 775,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "b547692b038f1e2d5e6bc6c550fc018aff20b6e4df395055526ee44ad6e3bc59",
+              "sizeBytes": 6033,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-arrange-meeting-rooms/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "ab4946c6e6da73afbd52ff00f557db0901db6d3198aff05892f265de3b4c4306",
+              "sizeBytes": 166,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "admin-employee-info-reconciliation",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/eval.json",
+              "sha256": "da85a9dd8349d9a1ab1f9ed788233a7f447e3fa922a1484984501413c2478aa5",
+              "sizeBytes": 442,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/run-meta.json",
+              "sha256": "f0012add1e8eda3a0b098e191740a0cf34fcc72cf9cfc869232850696b49e87c",
+              "sizeBytes": 820,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "bb8a9320a9e04d7ccfba990a5c67e7ca5f01cb8a1089c898443ae6ad59904624",
+              "sizeBytes": 17824,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/direct-chatgpt-v3/last-message.txt",
+              "sha256": "081623366cc7536db5ad537d5d61866ab723b1a43845effff63e93aba7b2b2d2",
+              "sizeBytes": 258,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "da85a9dd8349d9a1ab1f9ed788233a7f447e3fa922a1484984501413c2478aa5",
+              "sizeBytes": 442,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "0d919c97ce2923109a5951232fa18bf09eab5d144e34662c72cbbab1d847079a",
+              "sizeBytes": 827,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "89260d0dc4c28558d5db9e74158015dd4bc42c5307239f4bd979461e1a7549a5",
+              "sizeBytes": 24073,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-employee-info-reconciliation/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "93a997455fb1e4b6d3f203132031740d3bab6ec6741790d75dd9cf39d720941c",
+              "sizeBytes": 267,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "admin-get-best-vendor-quote",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/eval.json",
+              "sha256": "66bf1a40008ef449920cf49ff2e0b22dfce3b75c05a89b466a6ab6417c93f317",
+              "sizeBytes": 511,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/run-meta.json",
+              "sha256": "ff00c3d41277fe884e5d4d12bddf6bd02f23b2b1668afad43ec590affebb2e77",
+              "sizeBytes": 930,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "5ae543f684b55fe70d2e025d85ee2bb3ccf0690b6d9224c062fac069ad574497",
+              "sizeBytes": 33190,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/last-message.txt",
+              "sha256": "b65acc0ddc9f987f627fc3cc0dae88461d457824a8d79c3f8823b322653d21b5",
+              "sizeBytes": 329,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "ee4b504a6b3814c0a6bcecb455b38678b5e800d42e24fab88a4872c774eef5a8",
+              "sizeBytes": 157,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "66bf1a40008ef449920cf49ff2e0b22dfce3b75c05a89b466a6ab6417c93f317",
+              "sizeBytes": 511,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "b30c246772eeee50de5261b08b2a31385b773f39009ef8a16fdb415a758cd755",
+              "sizeBytes": 813,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "8b24fc1ae3e261871ed9dde460702a58a18154350f516c587cd735c0b7323e6b",
+              "sizeBytes": 16961,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "b275a3e610bcd169bb5584c290beec58d059bf6519dd56abf178d0736a7b8132",
+              "sizeBytes": 377,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/admin-get-best-vendor-quote/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "ee4b504a6b3814c0a6bcecb455b38678b5e800d42e24fab88a4872c774eef5a8",
+              "sizeBytes": 157,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "bm-classify-nationality",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/bm-classify-nationality/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/eval.json",
+              "sha256": "05ec827f82e2ba4baebad79c3e2b163fc3aa1b351bd625b434602b0003e90273",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/run-meta.json",
+              "sha256": "5de0fcfcf356213d9226694fe2fa093af774ed9d8deea004ea0320e266784ef5",
+              "sizeBytes": 798,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "6f1072b4b7592775238dba7ec3a7f2d2650b3ddd6faa7b0d559d945d81620cc8",
+              "sizeBytes": 27581,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/last-message.txt",
+              "sha256": "1d441e0c2f00284002597fef84952341b1a38af4c54182cb888da641b7d677a0",
+              "sizeBytes": 318,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "05ec827f82e2ba4baebad79c3e2b163fc3aa1b351bd625b434602b0003e90273",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "3b15c1ad2a18aff559ba59baae254440ca8742b5007496c1f139f1d8d4088871",
+              "sizeBytes": 929,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "ca35bb9db3fe3d65facf45eb9147542846c234ca056ce8d3bc0d8a1d5d4a6b95",
+              "sizeBytes": 10764,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "0ac22ace82a2945afce0ac1f9608430d88519e688c76d4850085dba3530d9715",
+              "sizeBytes": 236,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/bm-classify-nationality/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "ds-answer-numerical-data-question",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/eval.json",
+              "sha256": "4c0cf399073977d4f251f697cfcae5ae089684c151815e8e5f9981d990f6133c",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/run-meta.json",
+              "sha256": "16f5872b61a2825d2883bda999fc682579a7fad64d049f4532d4a8b5bb89279f",
+              "sizeBytes": 818,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "2f0e12508eb5e034f112da22539c9e665f184b021c214eb5f15107514c7f8263",
+              "sizeBytes": 11492,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/last-message.txt",
+              "sha256": "3417b3951535bc070f359869d815ae749e204aaf5a041755940b6ec6b825d9fe",
+              "sizeBytes": 217,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "4c0cf399073977d4f251f697cfcae5ae089684c151815e8e5f9981d990f6133c",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "2fbe86b682fccac67752eaee4ff403ee287940573205e0d74e1b44f70036fb77",
+              "sizeBytes": 825,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "131f40619f9ac89194bca61d02dfcc6e62eb8e2f3337ed9d9f2a2445937734d2",
+              "sizeBytes": 7928,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "2a43dc07577f2d90212f9c28062603633ead55f1675d07e73235784356b788b9",
+              "sizeBytes": 281,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-answer-numerical-data-question/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "ds-coffee-shop-database-management",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/eval.json",
+              "sha256": "bf19681392d0b194085dcbc4de16ea605699b7935400ab08a376e5faa0dce634",
+              "sizeBytes": 443,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/run-meta.json",
+              "sha256": "c0f2baa14143124781b1d30fbd3908ae91caf405725942547df542590a7c2a36",
+              "sizeBytes": 821,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "7c08fc88474808466e6c8d2377ad61c216ac553a535364bf8517c7bb150907cb",
+              "sizeBytes": 13524,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/last-message.txt",
+              "sha256": "f77c4d845f9d0b42f664c139d9b5aa1586559454567adf3979c7de00d26c208b",
+              "sizeBytes": 346,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "5d60616fef574ffd86c219be26a886ea9b4cc7db28bea1000f5e2ed36e250254",
+              "sizeBytes": 443,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "8327ef55b73b75c96807dabbe5dd191511eb1c719f5f23baaf2c6c7d20f7376b",
+              "sizeBytes": 828,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "0be2b204cae9cb3e46133d094f7176281ef28f286d6f95c7b632bcfe562c99e2",
+              "sizeBytes": 11700,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "61fe3cb40a57608ceb7e29b51428a0caabbea7588d3f95f076fcb5914d840f00",
+              "sizeBytes": 392,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-coffee-shop-database-management/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "ds-visualize-data-in-pie-and-bar-chart",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/eval.json",
+              "sha256": "746d91a1fa27bbe6523b356552a4a0e057406ee5cb9b9be4aa457bd0f294624e",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/run-meta.json",
+              "sha256": "668d0780df7471c57cec6c27d7dc9e42cdce2c7a94d4dadcff1267413843b5c8",
+              "sizeBytes": 828,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "c07ae57c2dab5ccf7e752a64617c2df2518e1f5c1e0a338da9f78f32766bad9b",
+              "sizeBytes": 16396,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/last-message.txt",
+              "sha256": "c94b73d2e528c60cda335516bd6683614b812d689e9131eaca9e6904e0bf313f",
+              "sizeBytes": 195,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "746d91a1fa27bbe6523b356552a4a0e057406ee5cb9b9be4aa457bd0f294624e",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "94499671096e2891ba8725149e9624973bfaa0f1e096975196435577680c792a",
+              "sizeBytes": 974,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "0857c5732173389984d48b0c33a88c8383b98c38be95a20ddd90c92bfea659f7",
+              "sizeBytes": 7245,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "1e998cfd4003cc8993bbdd1801529a26f962a7a75fcdcd6f2bd8cd10335123cc",
+              "sizeBytes": 263,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ds-visualize-data-in-pie-and-bar-chart/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "finance-budget-variance",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/finance-budget-variance/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/eval.json",
+              "sha256": "fbbd3a6af56e1505631a32bafbf0d4bbe27ed276d96e19590a40b41849d50434",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/run-meta.json",
+              "sha256": "58ce6ec30e4ecc9ed994a2f5510bf7511d9a9313c29da79de50b3f412de9ebbd",
+              "sizeBytes": 798,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "bbd9a2de26876d42fc372931ded3b96191367d7646dfbbb33f22d8352c9519c7",
+              "sizeBytes": 133878,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/last-message.txt",
+              "sha256": "c9a7b6f3ae4418aecb6a4d1d1d7b59685a692cb20fa635382ce806428ccbcce0",
+              "sizeBytes": 388,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "fbbd3a6af56e1505631a32bafbf0d4bbe27ed276d96e19590a40b41849d50434",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "b5285454752b7c5f084d81a652f3fee06286184f4b2ecf4928a90c62caf65ecd",
+              "sizeBytes": 805,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "8f25fbbc3fff52e1b668e151d50f11fad549377aaa14f17890d34dded8ab4386",
+              "sizeBytes": 9480,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "1730ee3693bc26504427c6e64e92f3d984836883d8e91d1f5f2d6128ff91d1cb",
+              "sizeBytes": 387,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/finance-budget-variance/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "ml-grade-exam",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/ml-grade-exam/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/eval.json",
+              "sha256": "a6531073847f96f39df0a36690d891c5fabed9aefc5648168544c0099de3bfc5",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/run-meta.json",
+              "sha256": "22eca750105100d1dee6fa92a9fa24cddca38df913d3d472f48961361e033275",
+              "sizeBytes": 778,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "6f172ec062d8e7d205dffcb9db91d4266dc5d01d742364e8bfd96aba7a370e42",
+              "sizeBytes": 122738,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/last-message.txt",
+              "sha256": "7c11548a8a3069f64a516682db2aba3f4eac19bdf76ea70d32ff1908be79dc76",
+              "sizeBytes": 319,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "a6531073847f96f39df0a36690d891c5fabed9aefc5648168544c0099de3bfc5",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "c9e318554d8b71bcaea6941ed295ba6c15130b8212a97c0a9b1d8c8a9a53c9b7",
+              "sizeBytes": 899,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "0cd058929eef78d3da93375a9e0c8489d36a541eeb1c39fa31695c8521123f79",
+              "sizeBytes": 19710,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "d2d0f3d59e3d1a215dc7d4e53b00a4644ceedc82e919c12d238ccbdfeda08807",
+              "sizeBytes": 303,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/ml-grade-exam/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "qa-escalate-emergency",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/qa-escalate-emergency/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/eval.json",
+              "sha256": "fbb446c339387ce070da42f54eddc24ac2f6f6cbf274ed69f87b82d36c5b684c",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/run-meta.json",
+              "sha256": "6f0d9274911790854abbe4d1f6ddbc1b154ad6373e4ac388830be02093b40215",
+              "sizeBytes": 794,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "fea6a381d1e865f8571071005b6e15a072d0408dc28ade2c4fed04cae7d7cfc7",
+              "sizeBytes": 7327,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/last-message.txt",
+              "sha256": "206b2674287351e683c9fa85b341a6cb5d713365c636cfa7ab187a4b0cfd1092",
+              "sizeBytes": 201,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "fbb446c339387ce070da42f54eddc24ac2f6f6cbf274ed69f87b82d36c5b684c",
+              "sizeBytes": 304,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "e8afc9117d4984392cf94174637309f9e9a94e7b6ec32d1a0aa9135e03156c1b",
+              "sizeBytes": 923,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "2cb7191379be423281ae1cb7fb2fce3c06f2d673a9b8af6f1680c3325e21a994",
+              "sizeBytes": 9554,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "f2bf7c45275f209ecbb57b6ac5b735054cd985d2df0b1032b8270f3bd4a24234",
+              "sizeBytes": 208,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-escalate-emergency/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "qa-update-issue-status-according-to-colleagues",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/eval.json",
+              "sha256": "f1ebf71c5f825129c84776cb76978d525071eb1dd6a0cef0a010890f23b05273",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/run-meta.json",
+              "sha256": "5eb57959d5c39c574c2ed9541b682f26c613d74987a8b06006202111676768b6",
+              "sizeBytes": 1065,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/baseline.json",
+              "sha256": "3555a1e98bed47134291d8d0a4b81e8aca7bc51dafa3f721e3bed998cdc2ded2",
+              "sizeBytes": 206,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "170e8d21e6c1d60ff499405191a6eff665c3bb8dc4defede24feb0d7e95627e9",
+              "sizeBytes": 18546,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/last-message.txt",
+              "sha256": "447135ef7968cc2b99527e0cebe090196e5b7d4861d277cdd75b06d97ab34f4a",
+              "sizeBytes": 214,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "07a2b60313897bc71d24f86b5774c0cb847585fd05828e260f27c9f52a2a2e3f",
+              "sizeBytes": 147,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "f1ebf71c5f825129c84776cb76978d525071eb1dd6a0cef0a010890f23b05273",
+              "sizeBytes": 373,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "cf09b14bef69444865aed4108bd70f17e3bf451cde811864a888d8ddb2e13028",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "faa0e4fb3b8d61fa96bae5f0950509a0c93306a0dd05031d1108887d3c1e234b",
+              "sizeBytes": 1072,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "3555a1e98bed47134291d8d0a4b81e8aca7bc51dafa3f721e3bed998cdc2ded2",
+              "sizeBytes": 206,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "3889649b353e3634bd295e9abb7e569e610bf6639257d10007665665ee506e5e",
+              "sizeBytes": 8527,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "d75b79f5ba3cb9b713bd4f31f5204b5a08c8205ac3fb2e94b77b6189a4e661e6",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/qa-update-issue-status-according-to-colleagues/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "07a2b60313897bc71d24f86b5774c0cb847585fd05828e260f27c9f52a2a2e3f",
+              "sizeBytes": 147,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "research-answer-questions-on-paper",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/eval.json",
+              "sha256": "367aa168a1cfe0ae4e7036f6d849a8471e3aef17fddd50517dad929386ded948",
+              "sizeBytes": 237,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/run-meta.json",
+              "sha256": "10fa66fd97da34503d1948f0ecb9ead6da45b1f186376dd37c901c130b14f3ce",
+              "sizeBytes": 821,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "0d66210c8c4260725bc32b6dc7d379fc56c073fde1db32245397923c8f3e57d6",
+              "sizeBytes": 240907,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/last-message.txt",
+              "sha256": "c196bfe15839bb16f754e9d898f29abad9025f0aa1eb9de20eda734d69baef63",
+              "sizeBytes": 202,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "ca499922ce6419581c2f40901c018df8c60c6dd2a93df426cbf1887c025335e8",
+              "sizeBytes": 238,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "55b7ca675c173fa0eef04f458c145138167a770aaafb826dc9b9b0b284dc47db",
+              "sizeBytes": 829,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "520357592c4cb1e330b06930c31868b5f13d535f3b1dbc818e928df6624f9496",
+              "sizeBytes": 23010,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "3dce0ab1e5f7b351465b04bfa27d99fd3c9ed8ba0fac37650683f2a972ec00fd",
+              "sizeBytes": 248,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-answer-questions-on-paper/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "research-reproduce-figures",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/research-reproduce-figures/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/eval.json",
+              "sha256": "6986005f0bc529ea7a6317229368a83564459935f8c1ebecf73146fc1c846dc1",
+              "sizeBytes": 649,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/run-meta.json",
+              "sha256": "d4a48a17395261497e0b596a409d92a95ec89ef440913c50293d4066d5e79046",
+              "sizeBytes": 804,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "d5a5bd4c03a3fd871cb898e57bd2016b33a7c1f9b61e9dd142b1f6815125c44c",
+              "sizeBytes": 96953,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/last-message.txt",
+              "sha256": "aef18d570ca039388cb66608ab90486fde1a487706e0dc1d434cfcdcaa3e1e4e",
+              "sizeBytes": 263,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "6986005f0bc529ea7a6317229368a83564459935f8c1ebecf73146fc1c846dc1",
+              "sizeBytes": 649,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "6d6dd8ecad714e75d2c02b70e5f755daa226e002a9c6ad8037eddc59ea12085e",
+              "sizeBytes": 811,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "b426f3a5de2342486ee6b202f2bfa7a6f11bb8622f69c12e513357ad2fd6948b",
+              "sizeBytes": 20550,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "aa2f00ed115da314b44ac0a83e0114e24177e0e7a8fd45a3d840f7cdfd9fd616",
+              "sizeBytes": 331,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/research-reproduce-figures/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "sde-add-one-gitlab-pipeline",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/eval.json",
+              "sha256": "02bb8168a4dd7d50af3a015bddae92550dac0d46c952925dcd37f8f9ca894756",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/run-meta.json",
+              "sha256": "5e184783dd866bfa75c1ade5d7b16e5cbd7a6f88831bfe52be74453d14a3a8ec",
+              "sizeBytes": 946,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/baseline.json",
+              "sha256": "87051653c3f551bb56ed87b8220a58352a0da44f888e398c8b7c44c8164e185e",
+              "sizeBytes": 133,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "a533631131f37ead1c503feb80c0895231b71558d84f3054603e952fc7fbbd6c",
+              "sizeBytes": 15915,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/last-message.txt",
+              "sha256": "ec0b895c8adbc8edf98bb0ccbbab62a09796a3f2ea6b3d3dc97cf77db3369311",
+              "sizeBytes": 295,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "02bb8168a4dd7d50af3a015bddae92550dac0d46c952925dcd37f8f9ca894756",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "a4c8f8fa65002d21f100081925078bb3d6afbb030ce7120337c35e101bd8b6a4",
+              "sizeBytes": 953,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "87051653c3f551bb56ed87b8220a58352a0da44f888e398c8b7c44c8164e185e",
+              "sizeBytes": 133,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "38d935e8e53df1e956a0779b3797749ee556acbe23d24afb074742fef67420fb",
+              "sizeBytes": 7797,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "611ef49623f3f47e76e71157c730596416df6cbbca9797e4675f45ac933723af",
+              "sizeBytes": 239,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-add-one-gitlab-pipeline/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "sde-check-and-run-unit-test",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/eval.json",
+              "sha256": "1731bef18b46e09630214cd13fa3ea4ae78ec6d8ea4c3769107638975ca98190",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/run-meta.json",
+              "sha256": "b6dc7d2617cf0addd6b2b90d443b4b807a8a8d89cb273544c737e91e7085b637",
+              "sizeBytes": 946,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/baseline.json",
+              "sha256": "87051653c3f551bb56ed87b8220a58352a0da44f888e398c8b7c44c8164e185e",
+              "sizeBytes": 133,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "2e78b8cb596cf96e0f9c57bf58c10e924cfd01113e80e921cc6beeb55371c6fa",
+              "sizeBytes": 75446,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/last-message.txt",
+              "sha256": "8cbd6b4a59ce6ebaf67fc3d268d09aa730dd82cd86547a61a5737bb95d22b43b",
+              "sizeBytes": 347,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "1731bef18b46e09630214cd13fa3ea4ae78ec6d8ea4c3769107638975ca98190",
+              "sizeBytes": 235,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "239cbec6e6a5efa83dc45f0043d9511f61d7b3acddd1450ac831758e7cb04815",
+              "sizeBytes": 953,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "87051653c3f551bb56ed87b8220a58352a0da44f888e398c8b7c44c8164e185e",
+              "sizeBytes": 133,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "0c9b8dd2a2731e51929b042342520bda7e5a68abacb5c7ef54f2f2eb5176e90d",
+              "sizeBytes": 20012,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "c971ee9fab2c3ce8e86d52ec949654afd817961fa80c3cc838bd52c20836d0dc",
+              "sizeBytes": 413,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-check-and-run-unit-test/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "19c0162da37d6c2fd67cd453782c83cbc302c4863c356a733b1bbc7053b3bb3f",
+              "sizeBytes": 75,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "task": "sde-debug-crashed-server",
+      "arms": {
+        "direct": {
+          "sourceDir": "pairs/sde-debug-crashed-server/direct-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/eval.json",
+              "sha256": "1cacbf0bb7b551a63e36c646324d3f59caf6431d62019e6f286358bc07f5d06c",
+              "sizeBytes": 442,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/isolation-gate.json",
+              "sha256": "92584bdc94e18cb0ce61dc58207fb5a435cd4c6fd5934d54bf4f1034ef454469",
+              "sizeBytes": 76,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/run-meta.json",
+              "sha256": "62d9a8f5e6e3d767ec78947d2010939f01ea5bb1302f7b184d6ac9719324bae0",
+              "sizeBytes": 800,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/trajectory.jsonl",
+              "sha256": "6590862a0d5b6142340705db0cb933251e03e17a3cc999aca38eff7378762799",
+              "sizeBytes": 37471,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/last-message.txt",
+              "sha256": "2044af9351028ec550f3dc8c49bf46d011a6262f816f6a6aa46e0fd7b199fc1a",
+              "sizeBytes": 674,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/direct-chatgpt-v3/npc-runtime.json",
+              "sha256": "1f43176276ec4822bdb90845cc5860207e602d0ea4a5327826c662f3fa616724",
+              "sizeBytes": 149,
+              "publishedContent": false
+            }
+          ]
+        },
+        "xanxitospa": {
+          "sourceDir": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3",
+          "files": [
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/eval.json",
+              "sha256": "1cacbf0bb7b551a63e36c646324d3f59caf6431d62019e6f286358bc07f5d06c",
+              "sizeBytes": 442,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/isolation-gate.json",
+              "sha256": "7a8421282415674f4ac01e925ebdce1a982e6b01fc6ad73fe0fb6103fd23e966",
+              "sizeBytes": 79,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/run-meta.json",
+              "sha256": "9c93badd4dd5e42dfaf1bad739dbd72245a29240a015e06c9f92c1754b9e6176",
+              "sizeBytes": 807,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/baseline.json",
+              "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+              "sizeBytes": 3,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/trajectory.jsonl",
+              "sha256": "e25c80daf58b3f26c811be7229c28368071f729236bad6d0ffc86a6062624a0d",
+              "sizeBytes": 22853,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/last-message.txt",
+              "sha256": "f162d734e61b8eda6f18db154e46f0a2968d4f0972ebac53a4e224b94ef8cfd6",
+              "sizeBytes": 602,
+              "publishedContent": false
+            },
+            {
+              "path": "pairs/sde-debug-crashed-server/xanxitospa-chatgpt-v3/npc-runtime.json",
+              "sha256": "1f43176276ec4822bdb90845cc5860207e602d0ea4a5327826c662f3fa616724",
+              "sizeBytes": 149,
+              "publishedContent": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

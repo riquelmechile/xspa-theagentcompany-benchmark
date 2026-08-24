@@ -1,0 +1,264 @@
+{
+  "benchmark": "TheAgentCompany",
+  "version": "1.0.0",
+  "design": "chatgpt-hosted-mcp-paired-v3",
+  "agentHost": "ChatGPT connected to Xanxittoo MCP",
+  "agentModel": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "environmentModel": "xspa-env-qwen3.8-27b",
+  "protocol": {
+    "direct": "This ChatGPT session operates only the benchmark runtime/container; no XanxitoSpA MCP preflight.",
+    "xanxitospa": "Same ChatGPT session and benchmark runtime, with bounded read-only ChatGPT -> Xanxittoo -> xanxitospa discovery/preflight before material task execution.",
+    "runtime": "PC supplies Docker/services/evidence only; no Codex CLI or secondary agent model is spawned.",
+    "armIsolation": "Fresh task runtime/state per arm and separate trajectories/evidence. Arms execute sequentially in the same ChatGPT conversation context, so this is not fresh-context blind isolation and must not be merged with v2.",
+    "invalidRunsCounted": 0,
+    "evaluatorBlindUntilPairClosed": true
+  },
+  "completedPairs": 16,
+  "officialTotals": {
+    "direct": {
+      "earned": 69,
+      "possible": 95,
+      "percent": 72.6316
+    },
+    "xanxitospa": {
+      "earned": 68,
+      "possible": 95,
+      "percent": 71.5789
+    },
+    "deltaPercentagePoints": -1.0526,
+    "wins": 1,
+    "ties": 14,
+    "losses": 1
+  },
+  "evaluatorCompatibleSubset": {
+    "excludedTasks": [
+      "ds-visualize-data-in-pie-and-bar-chart",
+      "research-reproduce-figures"
+    ],
+    "completedPairs": 14,
+    "direct": {
+      "earned": 67,
+      "possible": 83,
+      "percent": 80.7229
+    },
+    "xanxitospa": {
+      "earned": 66,
+      "possible": 83,
+      "percent": 79.5181
+    },
+    "deltaPercentagePoints": -1.2048
+  },
+  "pairs": [
+    {
+      "task": "admin-arrange-meeting-rooms",
+      "direct": {
+        "earned": 0,
+        "possible": 2
+      },
+      "xanxitospa": {
+        "earned": 0,
+        "possible": 2
+      },
+      "status": "broken-reference-answer",
+      "note": "Both arms correctly computed and verified 5 simultaneous meetings; official evaluator hardcodes 4. Raw 0/2 retained."
+    },
+    {
+      "task": "admin-employee-info-reconciliation",
+      "direct": {
+        "earned": 6,
+        "possible": 7
+      },
+      "xanxitospa": {
+        "earned": 6,
+        "possible": 7
+      },
+      "status": "stale-reference-grader",
+      "note": "Both arms scored 6/7. Employee-provided current Priya email conflicts with evaluator stale reference; XSPA also reconciled current Sophia/Zhang emails. Raw retained."
+    },
+    {
+      "task": "admin-get-best-vendor-quote",
+      "direct": {
+        "earned": 4,
+        "possible": 6
+      },
+      "xanxitospa": {
+        "earned": 4,
+        "possible": 6
+      },
+      "status": "broken-valid-vendor-reference",
+      "note": "Both arms scored 4/6 after applying Sarah requirements. Evaluator rewards vendors that violate stated minimums; raw retained."
+    },
+    {
+      "task": "bm-classify-nationality",
+      "direct": {
+        "earned": 6,
+        "possible": 6
+      },
+      "xanxitospa": {
+        "earned": 6,
+        "possible": 6
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms updated Customer.xlsx only for explicit locations, verified 5 Domestic and 12 International, uploaded the workbook and notified Sarah."
+    },
+    {
+      "task": "ds-answer-numerical-data-question",
+      "direct": {
+        "earned": 6,
+        "possible": 6
+      },
+      "xanxitospa": {
+        "earned": 6,
+        "possible": 6
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms scored 6/6."
+    },
+    {
+      "task": "ds-coffee-shop-database-management",
+      "direct": {
+        "earned": 6,
+        "possible": 10
+      },
+      "xanxitospa": {
+        "earned": 4,
+        "possible": 10
+      },
+      "status": "valid-paired-v3",
+      "note": "DIRECT scored 6/10 and XANXITOSPA 4/10; this is the only raw XSPA loss in v3."
+    },
+    {
+      "task": "ds-visualize-data-in-pie-and-bar-chart",
+      "direct": {
+        "earned": 0,
+        "possible": 4
+      },
+      "xanxitospa": {
+        "earned": 0,
+        "possible": 4
+      },
+      "status": "evaluator-incompatible-vision",
+      "note": "Both arms produced valid PNGs, but fixed Qwen3.8-27B evaluator is text-only and image comparison returns HTTP 500. Raw 0/4 retained; task excluded from evaluator-compatible aggregate."
+    },
+    {
+      "task": "finance-budget-variance",
+      "direct": {
+        "earned": 3,
+        "possible": 4
+      },
+      "xanxitospa": {
+        "earned": 3,
+        "possible": 4
+      },
+      "status": "order-sensitive-grader",
+      "note": "Both arms found the same eight significant variances and produced valid workbooks. Evaluator requires source-row order although task does not specify ordering. Raw 3/4 retained."
+    },
+    {
+      "task": "ml-grade-exam",
+      "direct": {
+        "earned": 8,
+        "possible": 8
+      },
+      "xanxitospa": {
+        "earned": 8,
+        "possible": 8
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms exhaustively found six PDFs, independently graded them 1/15,15/15,9/15,12/15,11/15,10/15 and selected Attempt2_15-submit. Both scored 8/8."
+    },
+    {
+      "task": "qa-escalate-emergency",
+      "direct": {
+        "earned": 3,
+        "possible": 3
+      },
+      "xanxitospa": {
+        "earned": 3,
+        "possible": 3
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms scored 3/3; XSPA respected a fresh real 10-minute escalation window before contacting Sarah."
+    },
+    {
+      "task": "qa-update-issue-status-according-to-colleagues",
+      "direct": {
+        "earned": 6,
+        "possible": 6
+      },
+      "xanxitospa": {
+        "earned": 6,
+        "possible": 6
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms independently obtained colleague instructions and verified Wang Fang -> In Progress and Mike Chen -> Done in Plane. Both scored 6/6."
+    },
+    {
+      "task": "research-answer-questions-on-paper",
+      "direct": {
+        "earned": 9,
+        "possible": 12
+      },
+      "xanxitospa": {
+        "earned": 10,
+        "possible": 12
+      },
+      "status": "valid-paired-with-broken-reference",
+      "note": "DIRECT 9/12, XANXITOSPA 10/12: the sole raw XSPA win. XSPA improved literal evidence usage. One evaluator reference incorrectly says SpeechAttentionGAN requires parallel data, contradicting the paper; raw retained."
+    },
+    {
+      "task": "research-reproduce-figures",
+      "direct": {
+        "earned": 2,
+        "possible": 8
+      },
+      "xanxitospa": {
+        "earned": 2,
+        "possible": 8
+      },
+      "status": "evaluator-incompatible-vision-and-literal-code",
+      "note": "Both arms generated/verified three figure PDFs, three table TEX/PDF pairs, shared only figures, and scored 2/8. Vision checkpoints fail because fixed evaluator is text-only; table checkpoints additionally require >=0.9 similarity to hidden TEX. Excluded from evaluator-compatible aggregate."
+    },
+    {
+      "task": "sde-add-one-gitlab-pipeline",
+      "direct": {
+        "earned": 2,
+        "possible": 3
+      },
+      "xanxitospa": {
+        "earned": 2,
+        "possible": 3
+      },
+      "status": "wrong-repository-grader",
+      "note": "Both arms configured, validated, committed and pushed CI for task-specified root/api-server and scored 2/3. Evaluator checks root/openhands path instead; raw retained."
+    },
+    {
+      "task": "sde-check-and-run-unit-test",
+      "direct": {
+        "earned": 0,
+        "possible": 2
+      },
+      "xanxitospa": {
+        "earned": 0,
+        "possible": 2
+      },
+      "status": "trajectory-literal-grader",
+      "note": "Both arms proved the requested open_file tests pass 2/2 with clean source, but evaluator expects literal trajectory patterns/casing not required by task. Raw 0/2 retained."
+    },
+    {
+      "task": "sde-debug-crashed-server",
+      "direct": {
+        "earned": 8,
+        "possible": 8
+      },
+      "xanxitospa": {
+        "earned": 8,
+        "possible": 8
+      },
+      "status": "valid-paired-v3",
+      "note": "Both arms independently reproduced cryptography.fernet.InvalidToken, repaired configuration/error handling, verified users/events/participants and served HTTP 200. Both scored 8/8."
+    }
+  ],
+  "methodologyWarning": "v3 is the user-requested ChatGPT-hosted MCP design. It is methodologically distinct from v2 Codex-hosted hard isolation. Do not combine their totals.",
+  "generatedAt": "2026-08-24T13:56:11.016396+00:00"
+}

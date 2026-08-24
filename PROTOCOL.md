@@ -31,3 +31,34 @@ Infrastructure recovery is allowed only to restore the intended official baselin
 - Broken graders remain in the raw score and are separately tagged.
 - Safety-excluded tasks do not enter the denominator.
 - Visual evaluator incompatibility with the fixed text-only environment model is execution-only/unscorable rather than silently scored as failure.
+
+
+# Protocol v3 addendum — ChatGPT-hosted MCP
+
+v3 is a separate experiment from v2. The agent host is the current ChatGPT session (`gpt-5.6-sol`, max reasoning). The PC is runtime infrastructure only: Docker, benchmark task containers, benchmark services, local environment/evaluator model, and evidence storage. No Codex CLI or secondary agent model is spawned.
+
+## v3 DIRECT
+
+ChatGPT reads the task through the hosted lifecycle and operates only the task runtime plus benchmark services. No XanxitoSpA preflight is permitted. Any MCP event in a DIRECT trajectory invalidates the arm.
+
+## v3 XANXITOSPA
+
+The same ChatGPT model/runtime is used. After reading `task.md`, the arm must first perform downstream discovery for `xanxitospa` and at least one bounded read-only `mcp_read` preflight. Material task execution starts only after that preflight. MCP writes, HostOps as task assistance, other downstream MCPs, browser/computer-use, memory/SDD/review assistance, or hidden grader access invalidate the arm.
+
+## v3 lifecycle and evidence
+
+- Fresh benchmark task state before each arm.
+- Separate task containers, output directories and trajectories for DIRECT and XANXITOSPA.
+- Opposite-arm output artifacts are not reused.
+- Official evaluator source remains unopened until both arms of a pair are complete.
+- Invalid/contaminated attempts are aborted and archived before evaluation; they do not enter the ledger.
+- Raw scores are never edited after evaluator inspection.
+- Raw trajectories remain local; only sanitized ledgers and SHA-256 evidence manifests are committed.
+
+## v3 methodology limitation
+
+DIRECT and XANXITOSPA execute sequentially inside the same ChatGPT conversation context. Runtime/evidence state is isolated, but model conversation context is not freshly reset between arms. Therefore v3 is **not fresh-context blind isolation**. Its totals must not be merged with v2 and should not be presented as a replacement for the v2 hard-isolation result.
+
+## fixed evaluator compatibility
+
+The fixed `xspa-env-qwen3.8-27b` evaluator is text-only. Tasks whose official checkpoints require image input retain their raw official score but are additionally reported in an evaluator-compatible subset that excludes those tasks. For v3 these are `ds-visualize-data-in-pie-and-bar-chart` and `research-reproduce-figures`.

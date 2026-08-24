@@ -1,43 +1,25 @@
 # Pending work
 
-## Frozen 24-task manifest
+## Dataset status
 
-1. `admin-arrange-meeting-rooms` — **PILOT ONLY — rerun under v2 hard isolation**
-2. `admin-employee-info-reconciliation` — **PILOT ONLY — rerun under v2 hard isolation**
-3. `admin-get-best-vendor-quote` — **PILOT ONLY — rerun under v2 hard isolation**
-4. `ds-answer-numerical-data-question` — **PILOT ONLY — rerun under v2 hard isolation**
-5. `ds-coffee-shop-database-management` — **PILOT ONLY — rerun under v2 hard isolation**
-6. `ds-visualize-data-in-pie-and-bar-chart` — **PILOT ONLY — rerun under v2 hard isolation** — fixed Qwen evaluator is text-only; treat as execution-only/unscorable unless evaluator capability changes
-7. `finance-budget-variance` — **PILOT ONLY — rerun under v2 hard isolation**
-8. `finance-invoice-matching` — **DONE v2**
-9. `finance-find-signatories` — **DONE v2**
-10. `hr-check-attendance-multiple-days-department-with-chat` — **DONE v2**
-11. `hr-resume-screening` — **SAFETY EXCLUDED**
-12. `hr-salary-analysis` — **DONE v2**
-13. `pm-ask-for-issue-and-create-in-gitlab` — **DONE v2**
-14. `pm-copy-plane-issues-to-gitlab` — **DONE v2**
-15. `pm-check-backlog-update-issues` — **DONE v2**
-16. `sde-check-and-run-unit-test` — **PENDING v2**
-17. `sde-debug-crashed-server` — **PENDING v2**
-18. `sde-add-one-gitlab-pipeline` — **PENDING v2**
-19. `qa-escalate-emergency` — **PENDING v2**
-20. `qa-update-issue-status-according-to-colleagues` — **PENDING v2**
-21. `research-answer-questions-on-paper` — **PENDING v2**
-22. `research-reproduce-figures` — **PENDING v2**
-23. `ml-grade-exam` — **PENDING v2**
-24. `bm-classify-nationality` — **PENDING v2**
+- **v3 ChatGPT-hosted MCP:** 16/16 previously remaining tasks completed as paired DIRECT vs XANXITOSPA runs.
+- **v2 hard isolation:** frozen at 7 completed pairs; do not merge with v3.
+- **v1 pilot:** retained only as historical/debug evidence.
+- **Safety-excluded:** `hr-resume-screening` remains excluded because the benchmark asks for an employment progression decision based on citizenship/green-card status.
 
-## Counts
+## Execution pending
 
-- Clean v2 completed/scored pairs: **7**.
-- Safety-excluded: **1** (`hr-resume-screening`).
-- Remaining tasks requiring a clean v2 run or execution-only handling: **16**.
-- Of those remaining, **7** have only old pilot results and therefore still require hard-isolation reruns.
+No unstarted v3 benchmark tasks remain.
 
-## Before continuing
+The only future benchmark work would be a **new methodology**, not continuation of this ledger, for example:
 
-1. Stabilize the benchmark reset path so GitLab/Plane can be freshly restored without manual recovery races.
-2. Keep raw trajectories local; update the SHA-256 evidence manifest after each new pair.
-3. Continue in the frozen order; do not cherry-pick tasks.
-4. Recompute the v2 aggregate only from clean capability-isolated pairs.
-5. Do not combine the v1 pilot totals with v2.
+1. A fresh-context blind ChatGPT-hosted rerun where DIRECT and XANXITOSPA execute in separate conversation contexts.
+2. A multimodal evaluator rerun for the two vision-dependent tasks, while preserving the current fixed-evaluator raw scores.
+3. A larger frozen manifest if a new benchmark version is adopted.
+
+## Closeout invariants
+
+1. Do not combine v1, v2 and v3 totals.
+2. Preserve raw official evaluator scores; annotate defects instead of editing scores.
+3. Keep raw trajectories and live service artifacts local; publish hashes/sanitized summaries only.
+4. Treat `results/results-v3-chatgpt-hosted-mcp.json` as the canonical v3 ledger.

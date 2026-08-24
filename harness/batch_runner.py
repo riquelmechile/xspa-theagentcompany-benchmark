@@ -243,7 +243,7 @@ def validate_trajectory(arm: str, trajectory: str) -> dict[str, Any]:
     saw_read = False
     first_mcp_index = mcp_calls[0][0]
     for idx, item in mcp_calls:
-        if item.get("server") != "codex_apps":
+        if item.get("server") not in {"codex_apps", "chatgpt_apps"}:
             raise IsolationError(f"unexpected MCP server surface: {item.get('server')}")
         tool = str(item.get("tool") or "")
         args = item.get("arguments") or {}
