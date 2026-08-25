@@ -8,7 +8,7 @@ A post-publication code audit found that the historical **v4/v5 fault suite is d
 
 The sign-test values remain in historical artifacts because they were preregistered and actually computed; they are now treated as **historical diagnostics, not evidential strength**. With fixed scripted branches there is no natural Bernoulli/randomization mechanism that justifies reading those p-values as sampling uncertainty. The identical 8/0/12 repetitions demonstrate determinism of the suite, not independent replication.
 
-V6 is the corrective design: a competent DIRECT baseline, one shared declarative executor that both arms consume, common action plan/oracle/fault/pre-state fingerprints derived by that executor, no literal outcome fields, PostgreSQL durability for crash/fencing claims, and an exact SUT commit SHA in every result. See `V6_DESIGN.md`.
+V6 is the corrective design: a competent DIRECT baseline, one shared declarative executor that walks the same ordered action steps for both arms, a canonical execution trace + common action plan/oracle/fault/pre-state fingerprints derived centrally, no arm-authored trace/fingerprint and no literal outcome fields, PostgreSQL durability for crash/fencing claims, and an exact SUT commit SHA in every result. See `V6_DESIGN.md`.
 
 The separate model-in-the-loop governance experiment is specified as a ChatGPT-hosted MCP-only design in `GOVERNANCE_MODEL_IN_LOOP_DESIGN.md`; it introduces genuine randomized host sessions instead of reusing deterministic subprocess repetitions.
 
