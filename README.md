@@ -10,6 +10,8 @@ The sign-test values remain in historical artifacts because they were preregiste
 
 V6 is the corrective design: a competent DIRECT baseline, one shared declarative executor that walks the same ordered action steps for both arms, a canonical execution trace + common action plan/oracle/fault/pre-state fingerprints derived centrally, no arm-authored trace/fingerprint and no literal outcome fields, PostgreSQL durability for crash/fencing claims, and an exact SUT commit SHA in every result. A pre-run freeze audit later found that the frozen V6 parent manifest contains no concrete scenario campaign; because its runner SHA is already frozen, V6 is deliberately left at zero outcomes and the executable campaign must move to a new version rather than being added post hoc. See `V6_DESIGN.md` and `PENDING.md`.
 
+V7 is that executable replacement. Its runner, bridge, shared scenario objects and result validator are implemented before the freeze. The initial campaign is intentionally small and mechanism-specific: ABA stale idempotency settlement, ABA stale heartbeat cursor regression, and `xspa.write`-without-owner-credential. Every durability scenario uses the real XanxitoSpA PostgreSQL runtime; both arms receive the same ordered plan/fault/pre-state and a shared oracle. V7 has no sampling p-value. See `V7_DESIGN.md`.
+
 The separate model-in-the-loop governance experiment is specified as a ChatGPT-hosted MCP-only design in `GOVERNANCE_MODEL_IN_LOOP_DESIGN.md`; it introduces genuine randomized host sessions instead of reusing deterministic subprocess repetitions.
 
 ## Current v3 ChatGPT-hosted MCP result
