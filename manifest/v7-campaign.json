@@ -1,0 +1,162 @@
+{
+  "campaignFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "comparison": "competent-direct-vs-xanxitospa-mechanisms",
+  "executionContractSource": "shared-executor-v2",
+  "frozenAt": "2026-08-25T23:34:09.192771Z",
+  "primaryInference": "deterministic-mechanism-regression-only",
+  "runnerCommitSha": "64f23e51807e4c07945e8826f383b4cc954e382b",
+  "runnerFilesSha256": {
+    "harness/run_v7_campaign.py": "c33a861520154da2121e424170669fc6244a6bac275bcbce2491786aa8ffa360",
+    "harness/v6_executor.py": "ef14aa02662bd36eaa0cae1cc14857e8fd030208639764f31cfd52a27d9c1652",
+    "harness/v7_bridge.ts": "74dd581324c090c2911ccf880757b79b409052adabd5e705b59134fdaa539f86",
+    "harness/v7_campaign.py": "90aa5e0f20acfa1ee8b7e870d34eec58c8551d7362645bc3e4537641ef2c8296",
+    "harness/v7_contract.py": "e65edadb8bb6424be542679dea8a82d9dbb818cc135ed61917469ef38dfac946",
+    "harness/v7_runner.py": "d7b8781346b186c33f749e97781dd6f1199aa0b3b789e43b531b021d5b0d9f05",
+    "harness/v7_scenarios.py": "8da7e4cd393b69ad966996fcc6437020049f8435e8424018b719ac07902788d9"
+  },
+  "samplingPValue": false,
+  "scenarios": [
+    {
+      "actionPlan": {
+        "steps": [
+          {
+            "op": "setup"
+          },
+          {
+            "op": "claim-a"
+          },
+          {
+            "ms": 30,
+            "op": "wait-stale"
+          },
+          {
+            "op": "takeover-b"
+          },
+          {
+            "op": "settle-fresh"
+          },
+          {
+            "op": "settle-stale"
+          },
+          {
+            "op": "observe"
+          }
+        ]
+      },
+      "durabilityClaim": true,
+      "fault": {
+        "kind": "aba-stale-writer-after-reconciliation",
+        "sameLogicalOwner": "worker",
+        "staleStep": "settle-stale"
+      },
+      "id": "stale-idempotency-settlement",
+      "oracle": {
+        "expectedFinalOwner": "fresh",
+        "kind": "fresh-owner-survives-stale-settlement",
+        "staleWriteAccepted": false
+      },
+      "preState": {
+        "journalEntry": "absent",
+        "ownerCredential": "n/a"
+      },
+      "runnerMapping": {
+        "direct": "v7_bridge:direct",
+        "xanxitospa": "v7_bridge:xanxitospa"
+      },
+      "runtimeStore": "postgres"
+    },
+    {
+      "actionPlan": {
+        "steps": [
+          {
+            "op": "setup"
+          },
+          {
+            "op": "claim-a"
+          },
+          {
+            "ms": 40,
+            "op": "wait-expiry"
+          },
+          {
+            "op": "claim-b"
+          },
+          {
+            "op": "advance-new"
+          },
+          {
+            "op": "stale-advance-old"
+          },
+          {
+            "op": "observe"
+          }
+        ]
+      },
+      "durabilityClaim": true,
+      "fault": {
+        "kind": "aba-stale-heartbeat-writer",
+        "sameLogicalOwner": "daemon",
+        "staleStep": "stale-advance-old"
+      },
+      "id": "stale-heartbeat-cursor",
+      "oracle": {
+        "expectedFinalEventId": "72000000-0000-4000-8000-000000000012",
+        "kind": "monotonic-cursor-after-aba-takeover",
+        "staleAdvanceAccepted": false
+      },
+      "preState": {
+        "cursor": "absent",
+        "heartbeatLease": "absent"
+      },
+      "runnerMapping": {
+        "direct": "v7_bridge:direct",
+        "xanxitospa": "v7_bridge:xanxitospa"
+      },
+      "runtimeStore": "postgres"
+    },
+    {
+      "actionPlan": {
+        "steps": [
+          {
+            "op": "setup"
+          },
+          {
+            "op": "attempt-owner-write"
+          },
+          {
+            "op": "observe"
+          }
+        ]
+      },
+      "durabilityClaim": false,
+      "fault": {
+        "kind": "operator-claims-owner-authority",
+        "principalScopes": [
+          "xspa.write"
+        ]
+      },
+      "id": "write-permission-is-not-owner",
+      "oracle": {
+        "expectedResolved": false,
+        "kind": "owner-confirmation-requires-owner-credential",
+        "ownerCredentialPresent": false
+      },
+      "preState": {
+        "ownerCredentialPresent": false,
+        "unknownResolved": false
+      },
+      "runnerMapping": {
+        "direct": "v7_bridge:direct",
+        "xanxitospa": "v7_bridge:xanxitospa"
+      },
+      "runtimeStore": "memory"
+    }
+  ],
+  "schemaVersion": 7,
+  "status": "frozen-before-outcomes",
+  "sut": {
+    "commitSha": "92ac8a12babb8245c4cfd621ecaac487e904409d",
+    "packageLockSha256": "820d1292c52f7f97ebcff0ce97f9bfae6d694ca5d5970320aa72e9c91daa100a",
+    "treeClean": true
+  }
+}
