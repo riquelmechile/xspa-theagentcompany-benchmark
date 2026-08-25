@@ -65,3 +65,7 @@ V6 code MUST use repository-relative paths or explicit environment variables. `/
 ## Result validity gates
 
 A V6 result is valid only if `harness/v6_contract.py` accepts it. The validator rejects mismatched plan/oracle/fault fingerprints, unpinned SUTs, non-Postgres durability claims, dirty SUT trees and literal outcomes.
+
+## Shared declarative executor invariant
+
+Before any V6 outcome is produced, both arms must consume the exact same `V6Plan` object through `harness.v6_executor.execute_pair`. The executor derives the action-plan, oracle, fault and pre-state fingerprints once from that object. Arm runners return measurements only; they cannot author contract fingerprints or derived integrity booleans. `validate_v6_result` rejects the historical per-arm `pairContract` shape and requires `executionContract.source == "shared-executor-v1"`. This turns arm symmetry from a reporting convention into a code-path invariant.

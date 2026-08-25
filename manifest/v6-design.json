@@ -3,6 +3,7 @@
   "status": "design-frozen-before-outcomes",
   "comparison": "competent-direct-vs-xanxitospa",
   "commonPairContract": [
+    "shared-executor-v1",
     "actionPlanFingerprint",
     "oracleFingerprint",
     "faultFingerprint",
@@ -22,5 +23,7 @@
   "literalOutcomesAllowed": false,
   "primaryInference": "deterministic-scenario-measurements",
   "signTestPrimary": false,
-  "modelInLoopGovernanceExperiment": "separate-future-preregistration"
+  "modelInLoopGovernanceExperiment": "separate-future-preregistration",
+  "sharedExecutorRequired": true,
+  "armAuthoredFingerprintsAllowed": false
 }

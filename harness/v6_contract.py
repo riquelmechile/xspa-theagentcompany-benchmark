@@ -30,15 +30,13 @@ def validate_v6_result(result: dict[str, Any]) -> None:
         raise ValueError("sut.treeClean")
     if not SHA64.fullmatch(str(sut.get("packageLockSha256", ""))):
         raise ValueError("sut.packageLockSha256")
-    pair = _required(result, "pairContract")
-    if not isinstance(pair, dict):
-        raise ValueError("pairContract")
-    direct = _required(pair, "direct")
-    xspa = _required(pair, "xanxitospa")
+    if "pairContract" in result:
+        raise ValueError("legacy-arm-authored-pair-contract")
+    contract = _required(result, "executionContract")
+    if not isinstance(contract, dict) or contract.get("source") != "shared-executor-v1":
+        raise ValueError("executionContract.source")
     for field in ("actionPlanFingerprint", "oracleFingerprint", "faultFingerprint", "preStateFingerprint"):
-        if direct.get(field) != xspa.get(field):
-            raise ValueError(f"arm-asymmetry:{field}")
-        if not SHA64.fullmatch(str(direct.get(field, ""))):
+        if not SHA64.fullmatch(str(contract.get(field, ""))):
             raise ValueError(f"invalid-fingerprint:{field}")
     if result.get("durabilityClaim") is True and result.get("runtimeStore") != "postgres":
         raise ValueError("durability-requires-postgres")
