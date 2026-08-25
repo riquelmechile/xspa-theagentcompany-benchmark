@@ -1,0 +1,13 @@
+{
+  "bothFail": 0,
+  "bothPass": 0,
+  "campaignFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "directOnlyPass": 0,
+  "directPass": 0,
+  "inference": "deterministic-mechanism-regression-only",
+  "samplingPValue": null,
+  "scenarioCount": 3,
+  "schemaVersion": 7,
+  "xanxitospaOnlyPass": 3,
+  "xanxitospaPass": 3
+}

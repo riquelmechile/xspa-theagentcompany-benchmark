@@ -1,0 +1,183 @@
+{
+  "campaignFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "durabilityClaim": true,
+  "executionContract": {
+    "actionPlanFingerprint": "1ef3478097f9cf47ad10747bcc1908256ee5d66808f44585f38e133ab2289963",
+    "actionTraceFingerprint": "84f3128683b0edc37bce6e08e59b7f9be44701071d2dc20f3bce665034b2a3ab",
+    "faultFingerprint": "ae7fa61621b4421ba24694bc36d5ef891f12c62002b1cce0565933e556056d70",
+    "oracleFingerprint": "5af0f2785fe70e80343d98e0717183a2ee7f608938c40623c6afd706848f534c",
+    "preStateFingerprint": "fa86124b4db89629d665ac87d7db9d71cc02eef10e5c20e465a809477e946d97",
+    "source": "shared-executor-v2"
+  },
+  "manifestFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "oracleEvaluation": {
+    "direct": {
+      "finalOwner": "stale",
+      "passes": false,
+      "staleWriteAccepted": true
+    },
+    "source": "shared-oracle-v1",
+    "xanxitospa": {
+      "finalOwner": "fresh",
+      "passes": true,
+      "staleWriteAccepted": false
+    }
+  },
+  "outcomes": {
+    "direct": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "claim-a",
+          "stepFingerprint": "402a604933a0f1469b8cb8a67cd1204a0fe4c4e7904307573def5b5649e73ed0"
+        },
+        {
+          "index": 2,
+          "op": "wait-stale",
+          "stepFingerprint": "5b8ce705f6cb19e10b03395f6dbdf97e552be4ac7fe3bdb8206b7be220a1e8e0"
+        },
+        {
+          "index": 3,
+          "op": "takeover-b",
+          "stepFingerprint": "a6e73821a87ac5452a3c9e228f7fa307c17fe9df74d1d397fd6161fc9034be3d"
+        },
+        {
+          "index": 4,
+          "op": "settle-fresh",
+          "stepFingerprint": "6b1b4965514b8bdb094bffaf2986b5de152a2d1b184573fdc0110f1d61a62eb5"
+        },
+        {
+          "index": 5,
+          "op": "settle-stale",
+          "stepFingerprint": "611d352a7b3b5c45ddc054179230dea7bbaa8aaf8ebe2d792968b0b383659ea3"
+        },
+        {
+          "index": 6,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "reset": true
+          },
+          {
+            "claimed": true,
+            "op": "claim-a"
+          },
+          {
+            "op": "wait-stale",
+            "waitedMs": 30
+          },
+          {
+            "op": "takeover-b",
+            "takenOver": true
+          },
+          {
+            "accepted": true,
+            "op": "settle-fresh"
+          },
+          {
+            "accepted": true,
+            "op": "settle-stale"
+          },
+          {
+            "finalOwner": "stale",
+            "finalState": "applied",
+            "op": "observe"
+          }
+        ]
+      }
+    },
+    "xanxitospa": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "claim-a",
+          "stepFingerprint": "402a604933a0f1469b8cb8a67cd1204a0fe4c4e7904307573def5b5649e73ed0"
+        },
+        {
+          "index": 2,
+          "op": "wait-stale",
+          "stepFingerprint": "5b8ce705f6cb19e10b03395f6dbdf97e552be4ac7fe3bdb8206b7be220a1e8e0"
+        },
+        {
+          "index": 3,
+          "op": "takeover-b",
+          "stepFingerprint": "a6e73821a87ac5452a3c9e228f7fa307c17fe9df74d1d397fd6161fc9034be3d"
+        },
+        {
+          "index": 4,
+          "op": "settle-fresh",
+          "stepFingerprint": "6b1b4965514b8bdb094bffaf2986b5de152a2d1b184573fdc0110f1d61a62eb5"
+        },
+        {
+          "index": 5,
+          "op": "settle-stale",
+          "stepFingerprint": "611d352a7b3b5c45ddc054179230dea7bbaa8aaf8ebe2d792968b0b383659ea3"
+        },
+        {
+          "index": 6,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "reset": true
+          },
+          {
+            "claimed": true,
+            "fencingToken": 1,
+            "op": "claim-a"
+          },
+          {
+            "op": "wait-stale",
+            "waitedMs": 30
+          },
+          {
+            "fencingToken": 2,
+            "op": "takeover-b",
+            "takenOver": true
+          },
+          {
+            "accepted": true,
+            "op": "settle-fresh"
+          },
+          {
+            "accepted": false,
+            "op": "settle-stale"
+          },
+          {
+            "finalOwner": "fresh",
+            "finalState": "reconciled",
+            "op": "observe"
+          }
+        ]
+      }
+    }
+  },
+  "runnerCommitSha": "64f23e51807e4c07945e8826f383b4cc954e382b",
+  "runtimeStore": "postgres",
+  "scenarioId": "stale-idempotency-settlement",
+  "schemaVersion": 7,
+  "sut": {
+    "commitSha": "92ac8a12babb8245c4cfd621ecaac487e904409d",
+    "packageLockSha256": "820d1292c52f7f97ebcff0ce97f9bfae6d694ca5d5970320aa72e9c91daa100a",
+    "treeClean": true
+  }
+}

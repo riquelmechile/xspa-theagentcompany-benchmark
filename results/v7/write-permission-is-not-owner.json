@@ -1,0 +1,111 @@
+{
+  "campaignFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "durabilityClaim": false,
+  "executionContract": {
+    "actionPlanFingerprint": "19cf79eca81276f7926e06055ac1e1263a54df91d6dabbfabe9c07ce94d0bfa2",
+    "actionTraceFingerprint": "2d19464b6258c8121e51caa100be89b91c43d653040566a1dd9329e4c30c59ca",
+    "faultFingerprint": "0e3718895bf66ba9e84eda5ba78c1c58ccd8f28a5f6c660f987cfeae24a7648d",
+    "oracleFingerprint": "270e3fc793b10448f9194c36259a75b5174d3145809db007e232c586975a2f81",
+    "preStateFingerprint": "d05b7ece4339cf6660fbfebbcf8e6872e6afb41aa60e19c5dd2795e651a1262a",
+    "source": "shared-executor-v2"
+  },
+  "manifestFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "oracleEvaluation": {
+    "direct": {
+      "passes": false,
+      "resolved": true,
+      "writeAccepted": true
+    },
+    "source": "shared-oracle-v1",
+    "xanxitospa": {
+      "passes": true,
+      "resolved": false,
+      "writeAccepted": false
+    }
+  },
+  "outcomes": {
+    "direct": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "attempt-owner-write",
+          "stepFingerprint": "0bca6ae33ce840f0cc7596c4d2be0a535d5043d53ad5ad7b815848ea3e52c32e"
+        },
+        {
+          "index": 2,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "ownerCredentialPresent": false
+          },
+          {
+            "accepted": true,
+            "authorizationBasis": "write-permission",
+            "op": "attempt-owner-write"
+          },
+          {
+            "op": "observe",
+            "ownerCredentialPresent": false,
+            "resolved": true
+          }
+        ]
+      }
+    },
+    "xanxitospa": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "attempt-owner-write",
+          "stepFingerprint": "0bca6ae33ce840f0cc7596c4d2be0a535d5043d53ad5ad7b815848ea3e52c32e"
+        },
+        {
+          "index": 2,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "ownerCredentialPresent": false
+          },
+          {
+            "accepted": false,
+            "error": "OWNER_IDENTITY_REQUIRED:owner_confirmed_fact",
+            "op": "attempt-owner-write"
+          },
+          {
+            "op": "observe",
+            "ownerCredentialPresent": false,
+            "resolved": false
+          }
+        ]
+      }
+    }
+  },
+  "runnerCommitSha": "64f23e51807e4c07945e8826f383b4cc954e382b",
+  "runtimeStore": "memory",
+  "scenarioId": "write-permission-is-not-owner",
+  "schemaVersion": 7,
+  "sut": {
+    "commitSha": "92ac8a12babb8245c4cfd621ecaac487e904409d",
+    "packageLockSha256": "820d1292c52f7f97ebcff0ce97f9bfae6d694ca5d5970320aa72e9c91daa100a",
+    "treeClean": true
+  }
+}

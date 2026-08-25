@@ -1,0 +1,181 @@
+{
+  "campaignFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "durabilityClaim": true,
+  "executionContract": {
+    "actionPlanFingerprint": "a8f10f51b281d1e8b074363c0653728ace1babc53657d7267a21f05322901882",
+    "actionTraceFingerprint": "3e6d11b59bf9922a81fd2534e1d11490144fc184fb4f8f701cee3b989c4cfb77",
+    "faultFingerprint": "9e39cc2c892b573e5dd9ceac86340ec9adb458ccd665ff54cfb2bb84192bd439",
+    "oracleFingerprint": "8e0f9ef023a2bec837b2fb4cd9a5ba63723a8cb9ff78f489fdafb51d11820887",
+    "preStateFingerprint": "b00c72c96143e08d2cd8e0f02e4d9f1a8dfbbfac6404b9a3ea597582146fdf6d",
+    "source": "shared-executor-v2"
+  },
+  "manifestFingerprint": "a693e1020baf3a15689b635eeabedf1f3ba6c03d3105d191b994c723633abfbd",
+  "oracleEvaluation": {
+    "direct": {
+      "finalEventId": "72000000-0000-4000-8000-000000000011",
+      "passes": false,
+      "staleAdvanceAccepted": true
+    },
+    "source": "shared-oracle-v1",
+    "xanxitospa": {
+      "finalEventId": "72000000-0000-4000-8000-000000000012",
+      "passes": true,
+      "staleAdvanceAccepted": false
+    }
+  },
+  "outcomes": {
+    "direct": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "claim-a",
+          "stepFingerprint": "402a604933a0f1469b8cb8a67cd1204a0fe4c4e7904307573def5b5649e73ed0"
+        },
+        {
+          "index": 2,
+          "op": "wait-expiry",
+          "stepFingerprint": "6d415d22fb85f3b0f1992611b61aff5e8bd9db4e5fce3f966b8e009b68b0cefe"
+        },
+        {
+          "index": 3,
+          "op": "claim-b",
+          "stepFingerprint": "e8264469b929407fc086f0e6eb7b2dca429ff585cfd813f5c0a2d5484389bee9"
+        },
+        {
+          "index": 4,
+          "op": "advance-new",
+          "stepFingerprint": "8e8814ed2f14bdff9f9debf63e61ed7c29833041f943123fa4abc305a48b54a6"
+        },
+        {
+          "index": 5,
+          "op": "stale-advance-old",
+          "stepFingerprint": "f632959585119bfa895c13e89e119fa1295db5fb514370ed7fda0ba37f67ec8f"
+        },
+        {
+          "index": 6,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "reset": true
+          },
+          {
+            "claimed": true,
+            "op": "claim-a"
+          },
+          {
+            "op": "wait-expiry",
+            "waitedMs": 40
+          },
+          {
+            "claimed": true,
+            "op": "claim-b"
+          },
+          {
+            "accepted": true,
+            "op": "advance-new"
+          },
+          {
+            "accepted": true,
+            "op": "stale-advance-old"
+          },
+          {
+            "finalEventId": "72000000-0000-4000-8000-000000000011",
+            "op": "observe"
+          }
+        ]
+      }
+    },
+    "xanxitospa": {
+      "executionTrace": [
+        {
+          "index": 0,
+          "op": "setup",
+          "stepFingerprint": "491184a7928689193d72d419acf5d254f941a9a19ce0e025990a01196cce732b"
+        },
+        {
+          "index": 1,
+          "op": "claim-a",
+          "stepFingerprint": "402a604933a0f1469b8cb8a67cd1204a0fe4c4e7904307573def5b5649e73ed0"
+        },
+        {
+          "index": 2,
+          "op": "wait-expiry",
+          "stepFingerprint": "6d415d22fb85f3b0f1992611b61aff5e8bd9db4e5fce3f966b8e009b68b0cefe"
+        },
+        {
+          "index": 3,
+          "op": "claim-b",
+          "stepFingerprint": "e8264469b929407fc086f0e6eb7b2dca429ff585cfd813f5c0a2d5484389bee9"
+        },
+        {
+          "index": 4,
+          "op": "advance-new",
+          "stepFingerprint": "8e8814ed2f14bdff9f9debf63e61ed7c29833041f943123fa4abc305a48b54a6"
+        },
+        {
+          "index": 5,
+          "op": "stale-advance-old",
+          "stepFingerprint": "f632959585119bfa895c13e89e119fa1295db5fb514370ed7fda0ba37f67ec8f"
+        },
+        {
+          "index": 6,
+          "op": "observe",
+          "stepFingerprint": "bdc4c1704814467a0cc1222e2778d7ba56832d021ba8372d72e25300a5bb19f4"
+        }
+      ],
+      "measurements": {
+        "steps": [
+          {
+            "op": "setup",
+            "reset": true
+          },
+          {
+            "claimed": true,
+            "fencingToken": 1,
+            "op": "claim-a"
+          },
+          {
+            "op": "wait-expiry",
+            "waitedMs": 40
+          },
+          {
+            "claimed": true,
+            "fencingToken": 2,
+            "op": "claim-b"
+          },
+          {
+            "accepted": true,
+            "op": "advance-new"
+          },
+          {
+            "accepted": false,
+            "op": "stale-advance-old"
+          },
+          {
+            "finalEventId": "72000000-0000-4000-8000-000000000012",
+            "op": "observe"
+          }
+        ]
+      }
+    }
+  },
+  "runnerCommitSha": "64f23e51807e4c07945e8826f383b4cc954e382b",
+  "runtimeStore": "postgres",
+  "scenarioId": "stale-heartbeat-cursor",
+  "schemaVersion": 7,
+  "sut": {
+    "commitSha": "92ac8a12babb8245c4cfd621ecaac487e904409d",
+    "packageLockSha256": "820d1292c52f7f97ebcff0ce97f9bfae6d694ca5d5970320aa72e9c91daa100a",
+    "treeClean": true
+  }
+}
