@@ -1,7 +1,8 @@
 {
   "schemaVersion": 6,
-  "status": "design-frozen-before-outcomes",
+  "status": "frozen-before-outcomes",
   "comparison": "competent-direct-vs-xanxitospa",
+  "executionContractSource": "shared-executor-v2",
   "commonPairContract": [
     "shared-executor-v2",
     "actionPlanFingerprint",
@@ -28,5 +29,12 @@
   "sharedExecutorRequired": true,
   "armAuthoredFingerprintsAllowed": false,
   "sharedExecutionTraceRequired": true,
-  "armAuthoredTraceAllowed": false
+  "armAuthoredTraceAllowed": false,
+  "sut": {
+    "commitSha": "03e4780290e28937b14f32ce3dcdc40685e72f79",
+    "treeClean": true,
+    "packageLockSha256": "820d1292c52f7f97ebcff0ce97f9bfae6d694ca5d5970320aa72e9c91daa100a"
+  },
+  "runnerCommitSha": "a95b21cf9a4960bea5e7b6ad5210b5afca757ca5",
+  "manifestFingerprint": "dc2740212e2358f0eca43de1ea94b3b1bacf28cf8fdb2bc5b06da0a7f9570e3f"
 }

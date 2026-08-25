@@ -62,6 +62,10 @@ V3 is retained as “no directional difference detected”, not equivalence. Any
 
 V6 code MUST use repository-relative paths or explicit environment variables. `/home/...` paths are forbidden in V6 files. Historical v1-v5 evidence is not rewritten.
 
+## Frozen pre-outcome state
+
+The final V6 manifest is frozen before any V6 outcome. It embeds the exact clean XanxitoSpA SUT commit, dependency lock SHA-256 and benchmark runner commit, and self-fingerprints the full manifest. Any post-freeze SUT/runner/manifest drift invalidates execution and requires a new benchmark version rather than editing V6 in place.
+
 ## Result validity gates
 
 A V6 result is valid only if `harness/v6_contract.py` accepts it. The validator rejects mismatched plan/oracle/fault fingerprints, unpinned SUTs, non-Postgres durability claims, dirty SUT trees and literal outcomes.

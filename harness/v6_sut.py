@@ -7,9 +7,11 @@ from typing import Any
 
 from harness.v6_contract import fingerprint_json
 
+
 def _git(repo: Path, *args: str) -> str:
     completed = subprocess.run(["git", "-C", str(repo), *args], check=True, capture_output=True, text=True)
     return completed.stdout.strip()
+
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -17,6 +19,7 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
 
 def capture_sut_pin(repo: Path, lockfile: str = "pnpm-lock.yaml") -> dict[str, Any]:
     repo = repo.resolve()
@@ -33,16 +36,33 @@ def capture_sut_pin(repo: Path, lockfile: str = "pnpm-lock.yaml") -> dict[str, A
         "packageLockSha256": sha256_file(lock_path),
     }
 
+
 def capture_runner_commit(repo: Path) -> str:
     commit = _git(repo.resolve(), "rev-parse", "HEAD")
     if len(commit) != 40:
         raise ValueError("runnerCommitSha")
     return commit
 
+
 def freeze_v6_manifest(base: dict[str, Any], sut: dict[str, Any], runner_commit_sha: str) -> dict[str, Any]:
     if sut.get("treeClean") is not True:
         raise ValueError("dirty-sut")
+    if len(str(runner_commit_sha)) != 40:
+        raise ValueError("runnerCommitSha")
     manifest = {**base, "sut": dict(sut), "runnerCommitSha": runner_commit_sha}
     without_fingerprint = {k: v for k, v in manifest.items() if k != "manifestFingerprint"}
     manifest["manifestFingerprint"] = fingerprint_json(without_fingerprint)
     return manifest
+
+
+def validate_frozen_v6_manifest(manifest: dict[str, Any], sut: dict[str, Any], runner_commit_sha: str) -> None:
+    if manifest.get("status") != "frozen-before-outcomes":
+        raise ValueError("manifest-not-frozen")
+    if manifest.get("sut") != sut:
+        raise ValueError("sut-drift")
+    if manifest.get("runnerCommitSha") != runner_commit_sha:
+        raise ValueError("runner-drift")
+    without_fingerprint = {k: v for k, v in manifest.items() if k != "manifestFingerprint"}
+    expected = fingerprint_json(without_fingerprint)
+    if manifest.get("manifestFingerprint") != expected:
+        raise ValueError("manifest-fingerprint-drift")

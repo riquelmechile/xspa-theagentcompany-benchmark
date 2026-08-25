@@ -4,12 +4,12 @@
 
 - **v1/v2/v3:** historical capability evidence retained unchanged.
 - **v4/v5:** complete historical deterministic fault-suite evidence. Raw outputs, preregistration and chronology are preserved, but the former statistical-confirmation interpretation is withdrawn after the arm-symmetry audit.
-- **V6:** corrective comparison contract implemented and tested; execution campaign has not yet been run.
+- **V6:** corrective comparison contract implemented, tested, and final manifest frozen against exact clean SUT/lockfile/runner pins; execution campaign has not yet been run.
 - **Governance model-in-loop:** design specified separately; no outcomes claimed yet.
 
 ## Next executable work
 
-1. Freeze the final V6 manifest only after the shared declarative executor (`V6Plan` -> `execute_pair`) is committed; pin the exact clean XanxitoSpA SUT commit, lockfile hash and runner hash. No V6 arm may run from a hand-authored per-arm fingerprint contract.
+1. **DONE:** final V6 manifest frozen after `shared-executor-v2`, pinned to exact clean XanxitoSpA SUT commit, lockfile hash and benchmark runner commit. No V6 arm has run yet.
 2. Run only scenarios satisfying the V6 contract: common action plan, shared executor-authored ordered trace, common external mutation intent, common fault injection, common oracle, measured per-step outcomes only, and PostgreSQL for durability/fencing claims.
 3. Report deterministic scenario measurements as regression evidence; do not attach sampling p-values unless a genuine randomization/sampling mechanism is introduced.
 4. Run the separate ChatGPT-hosted MCP governance experiment with independently randomized host sessions for adversarial authority/budget/mandate/tool-metadata conditions.
