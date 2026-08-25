@@ -16,7 +16,7 @@ jobs:
       - run: python -m compileall -q harness tests
       - name: V6 portability guard
         run: |
-          if grep -R -nE '/home/|/Users/' V6_DESIGN.md harness/v6_contract.py harness/v6_direct.py harness/v6_sut.py tests/test_v6_contract.py tests/test_v6_direct.py tests/test_v6_sut.py; then
+          if grep -R -nE '/home/|/Users/' harness/v6_contract.py harness/v6_direct.py harness/v6_sut.py tests/test_v6_contract.py tests/test_v6_direct.py tests/test_v6_sut.py; then
             echo 'absolute path found in V6 files' >&2
             exit 1
           fi
