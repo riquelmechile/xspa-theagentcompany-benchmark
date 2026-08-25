@@ -8,7 +8,7 @@ Historically, V5 satisfied the criterion frozen before repetitions 2 and 3 were 
 
 The preregistered **prospective-only analysis historically produced**: across the 20 scenarios, combining only repetitions 2 and 3 gives **8 XANXITOSPA wins, 0 DIRECT wins, and 12 ties**. The exact two-sided sign test over the 8 non-tie scenario outcomes is **p = 0.0078125**, which mechanically satisfied the frozen rule (`p < 0.01` and direction favoring XANXITOSPA).
 
-The preregistered primary all-three-repetition scenario analysis is also **8 / 0 / 12, p = 0.0078125**. Each individual repetition independently produced the same scenario-level split: **8 / 0 / 12**.
+The preregistered primary all-three-repetition scenario analysis is also **8 / 0 / 12, p = 0.0078125**. Each individual repetition produced the same scenario-level split: **8 / 0 / 12**; because the runner is deterministic, these are replay checks rather than independent replications.
 
 The pooled 60-pair result is **descriptive only**, as preregistered: XANXITOSPA preserved integrity in **60/60** pairs versus **36/60** for DIRECT, with **24 XANXITOSPA wins, 0 DIRECT wins, 36 ties**, exact two-sided sign-test **p = 1.1920928955078125e-07**. This pooled p-value is not used as the primary inferential result because repetitions within a scenario are not treated as independent scenarios.
 

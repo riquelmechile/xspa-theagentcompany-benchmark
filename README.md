@@ -123,7 +123,7 @@ Raw `trajectory.jsonl` files and live service artifacts are **not committed** be
 
 The repository includes:
 
-- `V5_REPORT.md` — final prospective replication report and reproduction commands.
+- `V5_REPORT.md` — historical deterministic V5 report, methodological correction, and reproduction commands.
 - `results/v5-preregistered-analysis.json` — preregistered scenario-blocked V5 analyses.
 - `results/v5-replication-final.json` — pooled 60-pair descriptive V5 aggregate.
 - `evidence/local-evidence-sha256-v5.json` — SHA-256 ledger for V5 publication artifacts.
@@ -143,6 +143,6 @@ The repository includes:
 
 ## Current interpretation
 
-The v3 result found **no directional capability difference in this small sample**: 14/16 pairs tied, one favored XANXITOSPA and one favored DIRECT; the exact paired sign test is **p = 1.0**. This is **not an equivalence result**: no equivalence margin was preregistered and the sample is too small to claim capability neutrality from failure to reject a difference. A future capacity study should use a preregistered equivalence margin (for example TOST or another appropriate paired equivalence procedure). This benchmark does **not** exercise the architecture's primary advantages (leases, fencing, authority/budget boundaries, durable recovery, duplicate-side-effect prevention), so the next experiment is a deterministic fault-injection benchmark rather than more baseline TAC tasks.
+The v3 result found **no directional capability difference in this small sample**: 14/16 pairs tied, one favored XANXITOSPA and one favored DIRECT; the exact paired sign test is **p = 1.0**. This is **not an equivalence result**: no equivalence margin was preregistered and the sample is too small to claim capability neutrality from failure to reject a difference. A future capacity study should use a preregistered equivalence margin (for example TOST or another appropriate paired equivalence procedure). The historical v3 benchmark does **not** exercise the architecture's primary advantages (leases, fencing, authority/budget boundaries, durable recovery, duplicate-side-effect prevention). V4/V5 attempted that with a deterministic suite but were later found arm-asymmetric. V6 is the corrective integrity-comparison contract; a separate randomized model-in-the-loop governance experiment is designed for the Company OS-specific contribution.
 
 The single XANXITOSPA loss (`ds-coffee-shop-database-management`) has been autopsied in `evidence/coffee-shop-autopsy-v3.json`: the arm-specific 2-point loss was semantic overreach in planning, not an authority/budget denial or runtime overhead. The actionable guard is to freeze explicit artifact contracts before applying operational heuristics.
