@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, fcntl, json, subprocess, uuid
+import argparse, fcntl, json, os, subprocess, uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
+REPO_ROOT=Path(__file__).resolve().parents[1]
 IMAGE="ghcr.io/theagentcompany/sde-debug-crashed-server-image:1.0.0"
-WHEELHOUSE="/home/sebastian/workspace/xspa-benchmark/runtime/local-runtime-wheelhouse"
+WHEELHOUSE=os.environ.get("XSPA_BENCH_WHEELHOUSE", str(REPO_ROOT.parent / "xspa-benchmark" / "runtime" / "local-runtime-wheelhouse"))
 WHEELHOUSE_FINGERPRINT="fb7e151d5957593e2fc16e00cd6fd54dd0eb81678a2513809e06ee5844b3ee8b"
 CONDITIONS=["control","kill_after_fix_before_healthcheck","port_contention","stale_process_after_takeover"]
 ARMS=["direct","xanxitospa"]

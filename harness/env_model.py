@@ -10,12 +10,12 @@ import time
 import urllib.request
 from pathlib import Path
 
-BINARY = Path('/home/sebastian/llama.cpp-cuda/build/bin/llama-server')
+BINARY = Path(os.environ.get('XSPA_ENV_MODEL_BINARY', Path.home() / 'llama.cpp-cuda/build/bin/llama-server'))
 MODEL = Path('/data/models/Qwen3.8-27B-UD-Q3_K_XL.gguf')
 ALIAS = 'xspa-env-qwen3.8-27b'
 HOST = '127.0.0.1'
 PORT = 18080
-STATE = Path('/home/sebastian/workspace/xspa-benchmark/v2-runner-state')
+STATE = Path(os.environ.get('XSPA_BENCH_STATE_ROOT', Path(__file__).resolve().parents[2] / 'xspa-benchmark' / 'v2-runner-state'))
 PID_FILE = STATE / 'env-model.pid'
 LOG_FILE = STATE / 'env-model.log'
 

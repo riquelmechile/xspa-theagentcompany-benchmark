@@ -4,13 +4,14 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MANIFEST = REPO_ROOT / "manifest" / "fault-injection-v4-pilot.json"
-DEFAULT_XSPA_REPO = Path("/home/sebastian/workspace/xanxitospa")
+DEFAULT_XSPA_REPO = Path(os.environ.get("XSPA_SUT_DIR", REPO_ROOT.parent / "xanxitospa"))
 DEFAULT_OUTPUT = REPO_ROOT / "results" / "fault-injection-v4-pilot.json"
 
 

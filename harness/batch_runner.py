@@ -17,15 +17,15 @@ from typing import Any
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
-WORK_ROOT = Path("/home/sebastian/workspace/xspa-benchmark")
-UPSTREAM = Path("/home/sebastian/workspace/TheAgentCompany-upstream")
+WORK_ROOT = Path(os.environ.get("XSPA_BENCH_WORK_ROOT", REPO.parent / "xspa-benchmark"))
+UPSTREAM = Path(os.environ.get("XSPA_TAC_UPSTREAM", REPO.parent / "TheAgentCompany-upstream"))
 PAIR_ROOT = WORK_ROOT / "pairs"
 STATE_ROOT = WORK_ROOT / "v2-runner-state"
 RESET_CONTROLLER = HERE / "reset_controller.py"
 ENV_MODEL_HELPER = HERE / "env_model.py"
 PLANE_BACKUPS = WORK_ROOT / "infra-backups/plane-20241031-0351"
-CODEX_PACKAGE = Path("/home/sebastian/.npm-global/lib/node_modules/@openai/codex")
-CODEX_AUTH = Path("/home/sebastian/.codex/auth.json")
+CODEX_PACKAGE = Path(os.environ.get("XSPA_CODEX_PACKAGE", Path.home() / ".npm-global/lib/node_modules/@openai/codex"))
+CODEX_AUTH = Path(os.environ.get("XSPA_CODEX_AUTH", Path.home() / ".codex/auth.json"))
 GLOBAL_LOCK = WORK_ROOT / ".v2-hard-isolation.lock"
 MODEL = "gpt-5.6-sol"
 ENV_MODEL = "openai/xspa-env-qwen3.8-27b"

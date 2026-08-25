@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 6,
+  "status": "design-frozen-before-outcomes",
+  "comparison": "competent-direct-vs-xanxitospa",
+  "commonPairContract": [
+    "actionPlanFingerprint",
+    "oracleFingerprint",
+    "faultFingerprint",
+    "preStateFingerprint"
+  ],
+  "directBaseline": {
+    "probeUnknownOutcomeBeforeRetry": true,
+    "boundedRetry": true,
+    "nativeIdempotencyKeyWhenAvailable": true,
+    "xspaJournal": false,
+    "xspaFencing": false,
+    "companyGovernance": false
+  },
+  "durabilityClaimsRequire": "postgres",
+  "sutPinRequired": true,
+  "dirtyTreeAllowed": false,
+  "literalOutcomesAllowed": false,
+  "primaryInference": "deterministic-scenario-measurements",
+  "signTestPrimary": false,
+  "modelInLoopGovernanceExperiment": "separate-future-preregistration"
+}

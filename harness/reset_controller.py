@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import subprocess
 import time
 import urllib.error
@@ -12,9 +13,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+WORK_ROOT = Path(os.environ.get("XSPA_BENCH_WORK_ROOT", REPO_ROOT.parent / "xspa-benchmark"))
 OFFICIAL_GITLAB_IMAGE = "ghcr.io/theagentcompany/servers-gitlab:1.0.0"
 GITLAB_RUNTIME_NAME = "gitlab-benchmark-canonical"
-DEFAULT_BACKUP_DIR = Path("/home/sebastian/workspace/xspa-benchmark/infra-backups/plane-20241031-0351")
+DEFAULT_BACKUP_DIR = Path(os.environ.get("XSPA_PLANE_BACKUP_DIR", WORK_ROOT / "infra-backups" / "plane-20241031-0351"))
 PLANE_BACKUP_VOLUME = "xspa-plane-official-backup"
 REQUIRED_BACKUPS = ("pgdata.tar.gz", "redisdata.tar.gz", "uploads.tar.gz")
 BENCHMARK_GITLAB_PORTS = ("8929", "8930", "2424")

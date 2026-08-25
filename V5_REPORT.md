@@ -1,10 +1,12 @@
-# V5 prospective replication report
+# V5 historical deterministic replication report
+
+> **Methodological correction (2026-08-25).** The raw V5 outcomes, preregistration and commit chronology are preserved unchanged, but the former statistical-confirmation interpretation is withdrawn. A code audit found deterministic fixed branches, arm-asymmetric mutation/recovery logic, and two DIRECT cases whose failing integrity outcome is effectively encoded by the implementation. The sign-test values below are historical outputs of the preregistered analysis, **not sampling p-values that quantify evidence for a population effect**. Three identical repetitions demonstrate deterministic replay of the suite, not independent replication. See `V6_DESIGN.md` for the corrected comparison contract.
 
 ## Result
 
-V5 prospectively confirms the v4 execution-integrity effect under the criterion frozen before repetitions 2 and 3 were observed.
+Historically, V5 satisfied the criterion frozen before repetitions 2 and 3 were observed. After runner audit, this is retained as a chronology/preregistration fact rather than interpreted as prospective statistical confirmation.
 
-The preregistered **prospective-only analysis is the headline result**: across the 20 scenarios, combining only repetitions 2 and 3 gives **8 XANXITOSPA wins, 0 DIRECT wins, and 12 ties**. The exact two-sided sign test over the 8 non-tie scenario outcomes is **p = 0.0078125**, satisfying the frozen strong prospective confirmation rule (`p < 0.01` and direction favoring XANXITOSPA).
+The preregistered **prospective-only analysis historically produced**: across the 20 scenarios, combining only repetitions 2 and 3 gives **8 XANXITOSPA wins, 0 DIRECT wins, and 12 ties**. The exact two-sided sign test over the 8 non-tie scenario outcomes is **p = 0.0078125**, which mechanically satisfied the frozen rule (`p < 0.01` and direction favoring XANXITOSPA).
 
 The preregistered primary all-three-repetition scenario analysis is also **8 / 0 / 12, p = 0.0078125**. Each individual repetition independently produced the same scenario-level split: **8 / 0 / 12**.
 
@@ -18,7 +20,7 @@ The V5 manifest was generated and fingerprinted before the first V5 arm, but rep
 
 ## Interpretation
 
-Taken together, the benchmark supports two intentionally separate statements. V3 found no measurable directional capability difference between DIRECT and XANXITOSPA in the matched capability sample. V4 then found that the execution-integrity substrate preserved integrity under deterministic faults in eight scenarios where DIRECT did not. V5 prospectively replicated that directional integrity result using data unseen when the prospective criterion was committed.
+The defensible post-audit interpretation is narrower. V3 detected no directional capability difference in its small matched sample but did not establish equivalence. V4/V5 show deterministic regression differences between the exact scripted arms that were executed. They do not yet establish that the broader XANXITOSPA architecture causally outperforms a competent DIRECT resilience baseline. V6 is designed to test that narrower causal question.
 
 A key limitation is that the DIRECT arm was **not specifically prompted or instrumented to add its own resilience layer**. The comparison therefore estimates the effect of adding the XANXITOSPA execution-integrity substrate to otherwise direct execution under the frozen benchmark protocol; it does not establish that no specially engineered DIRECT resilience strategy could achieve comparable behavior.
 

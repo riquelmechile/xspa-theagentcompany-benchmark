@@ -17,7 +17,7 @@ def main() -> int:
     parser.add_argument("--attempt", type=int, default=1)
     parser.add_argument("--output", required=True)
     parser.add_argument("--manifest", default="manifest/fault-injection-v5-replication.json")
-    parser.add_argument("--xspa-repo", default="/home/sebastian/workspace/xanxitospa")
+    parser.add_argument("--xspa-repo", default=os.environ.get("XSPA_SUT_DIR", str(Path(__file__).resolve().parents[2] / "xanxitospa")))
     args = parser.parse_args()
 
     output = Path(args.output)

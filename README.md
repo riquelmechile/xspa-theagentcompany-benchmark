@@ -2,6 +2,16 @@
 
 Public evidence repository for the paired comparison **DIRECT vs XANXITOSPA** on TheAgentCompany 1.0.0.
 
+## Methodological correction — 2026-08-25
+
+A post-publication code audit found that the historical **v4/v5 fault suite is deterministic and arm-asymmetric in several scenarios**. In particular, some DIRECT paths do not execute the same recovery/mutation sequence as XANXITOSPA, and two scenarios encode a failing DIRECT outcome rather than deriving it from a common fault + common oracle. Therefore v4/v5 remain useful as **deterministic regression evidence for the specific implementations that were run**, but they do **not** support the previous inferential claim that `p = 0.0078125` prospectively confirms an architectural population-level effect. The preregistration commit, raw outcomes and chronology are preserved unchanged for auditability.
+
+The sign-test values remain in historical artifacts because they were preregistered and actually computed; they are now treated as **historical diagnostics, not evidential strength**. With fixed scripted branches there is no natural Bernoulli/randomization mechanism that justifies reading those p-values as sampling uncertainty. The identical 8/0/12 repetitions demonstrate determinism of the suite, not independent replication.
+
+V6 is the corrective design: a competent DIRECT baseline, common action plan, common oracle, common fault injection, no literal outcome fields, PostgreSQL durability for crash/fencing claims, and an exact SUT commit SHA in every result. See `V6_DESIGN.md`.
+
+The separate model-in-the-loop governance experiment is specified as a ChatGPT-hosted MCP-only design in `GOVERNANCE_MODEL_IN_LOOP_DESIGN.md`; it introduces genuine randomized host sessions instead of reusing deterministic subprocess repetitions.
+
 ## Current v3 ChatGPT-hosted MCP result
 
 This is the user-requested architecture where **this ChatGPT session is the agent host** and the PC only supplies benchmark runtimes, services, Docker and evidence. XANXITOSPA adds a bounded read-only `ChatGPT -> Xanxittoo -> xanxitospa` preflight; no Codex CLI or secondary model is spawned.
@@ -22,19 +32,19 @@ This is the user-requested architecture where **this ChatGPT session is the agen
 See `results/results-v3-chatgpt-hosted-mcp.json` for all 16 task-level scores and grader annotations.
 
 
-## V5 prospective replication — primary result
+## V5 historical deterministic replication
 
-The V5 replication re-runs the frozen 20-scenario v4 stateful fault-injection design three times per scenario. Because repetition 1 completed before the preregistration commit, the **headline inferential result uses only repetitions 2 and 3**, exactly as frozen in `V5_PREREGISTRATION.md` and `manifest/v5-success-criterion.json`.
+V5 re-ran the frozen 20-scenario v4 scripted fault suite three times per scenario. The preregistration chronology is genuine and remains valuable evidence of when the criterion was frozen; however, the audited runner is deterministic and some arms are asymmetric, so the former “prospective confirmation” interpretation is withdrawn. The numbers below are retained as historical outputs of the preregistered analysis.
 
 - Preregistration commit: `da81bedbe4df5804925170216f6e762c64015c7a`.
 - Prospective-only rep2+rep3 scenario result: **8 XANXITOSPA wins / 0 DIRECT wins / 12 ties**.
-- Exact two-sided sign test over the 8 non-tie scenario outcomes: **p = 0.0078125**.
-- Frozen strong prospective confirmation criterion: **met**.
-- Primary all-three-repetition scenario result: **8 / 0 / 12, p = 0.0078125**.
-- Each individual repetition: **8 / 0 / 12**.
+- Historical preregistered sign-test output: **p = 0.0078125**; **do not interpret this as a sampling p-value** for the deterministic suite.
+- The frozen machine criterion evaluated to **met** under its original rule; the repository no longer treats that boolean as statistical confirmation.
+- All-three-repetition scripted result: **8 / 0 / 12**.
+- Each repetition: **8 / 0 / 12**, which is evidence of deterministic replay, not independent replication.
 - Pooled 60-pair result, **descriptive only**: XANXITOSPA **60/60 integrity**, DIRECT **36/60**; **24 / 0 / 36**, `p = 1.1920928955078125e-07`.
 
-The result supports the combined interpretation that v3 is capability-neutral in this sample while v4/v5 show an execution-integrity advantage under the frozen deterministic faults. **Limitation:** DIRECT was not specifically prompted or instrumented to add its own resilience layer, so the benchmark does not establish that a separately engineered DIRECT resilience strategy could not match the behavior.
+The historical result shows that the specific XANXITOSPA scripts preserved the suite-defined integrity conditions more often than the specific DIRECT scripts. It does **not** isolate the causal contribution of the broader Company OS architecture because DIRECT was not a competent resilience baseline and several arm action plans/oracles differ. V6 is intended to isolate the residual value of fencing, durable reconciliation and governance after giving DIRECT ordinary retry/probe hygiene.
 
 See `V5_REPORT.md`, `results/v5-preregistered-analysis.json`, and `results/v5-replication-final.json`.
 
@@ -56,13 +66,13 @@ Aggregate micro-pilot: **DIRECT 0/3 integrity passes, XANXITOSPA 3/3; 3 unsafe e
 
 ## v4 stateful fault-injection result
 
-The frozen stateful campaign is complete. It uses **paired frozen action plans** rather than another reasoning benchmark: DIRECT and XANXITOSPA execute the same designated mutation, against a fresh reset state, and differ only in whether the production XSPA execution-integrity substrate is present. The frozen manifest contains **5 stateful TAC surfaces × 4 conditions = 20 pairs / 40 arms**.
+The frozen stateful campaign is complete, but a later code audit found that the “same designated mutation / differ only by substrate” description was too strong. Several arm implementations differ in retry, duplicate mutation, restart behavior or integrity formulas. The frozen manifest and outcomes are retained as historical regression evidence; they are not treated as a clean causal comparison. It contains **5 stateful TAC surfaces × 4 conditions = 20 pairs / 40 arms**.
 
 - Manifest fingerprint: `25d2991fe2171591b349864ea2a230ff68268ba90fc7b2e1495b9e6bce168a75`.
 - DIRECT integrity passes: **12/20 = 60%**.
 - XANXITOSPA integrity passes: **20/20 = 100%**.
 - Paired wins / ties / losses for XANXITOSPA: **8 / 12 / 0**.
-- Exact two-sided sign test over the 8 discordant pairs: **p = 0.0078125**.
+- Historical exact sign-test output: **p = 0.0078125**; no longer used for inferential claims because the suite is deterministic and arm-asymmetric.
 - DIRECT unsafe effects recorded by the frozen metrics: **8**. XANXITOSPA: **0**.
 
 The eight integrity wins are concentrated exactly where the kernel is intended to help: acknowledgement loss after commit, duplicate intent, service restart after commit, stale writer settlement, conflicting object revisions, and process death before health verification. Control cases and naturally fail-closed credential/port cases tied. OwnCloud lost-ACK also tied on final-state integrity because repeated identical PUTs are naturally idempotent, although DIRECT performed two writes and XANXITOSPA one reconciled write.
@@ -101,7 +111,7 @@ Repeated GitLab resets exposed a benchmark-infrastructure leak: anonymous GitLab
 
 ## What is actually comparable
 
-The repository contains four intentionally separate evidence layers: **v2 hard isolation** (Codex-hosted capability pairs), **v3 ChatGPT-hosted MCP** (capability non-regression), **v4 stateful fault injection** (execution integrity discovery/confirmation under deterministic faults), and **v5 prospective replication** (scenario-blocked replication with rep2+rep3 frozen as the prospective-only confirmation). They answer different questions and must not be combined into one score. The older v1 file remains pilot/debug evidence only.
+The repository contains separate evidence layers: **v2 hard isolation**, **v3 ChatGPT-hosted MCP**, **v4/v5 historical deterministic integrity regression**, and the corrective **v6 causal-integrity design**. They answer different questions and must not be combined into one score. The older v1 file remains pilot/debug evidence only.
 
 DIRECT has Apps/MCP/plugins/browser/computer-use disabled and solves through local shell/filesystem plus benchmark services. XANXITOSPA uses the same model and benchmark environment, with one bounded **read-only** `@Xanxito -> xanxitospa` task-aware preflight; HostOps, other downstream MCPs and writes are forbidden.
 
@@ -133,6 +143,6 @@ The repository includes:
 
 ## Current interpretation
 
-The v3 result is a **capability-neutral non-regression result**, not a directional loss: 14/16 pairs tied, one favored XANXITOSPA and one favored DIRECT; the exact paired sign test is **p = 1.0**. Under these capability-matched single-session tasks we did not detect a capability cost from adding the XANXITOSPA preflight/governance layer. This benchmark does **not** exercise the architecture's primary advantages (leases, fencing, authority/budget boundaries, durable recovery, duplicate-side-effect prevention), so the next experiment is a deterministic fault-injection benchmark rather than more baseline TAC tasks.
+The v3 result found **no directional capability difference in this small sample**: 14/16 pairs tied, one favored XANXITOSPA and one favored DIRECT; the exact paired sign test is **p = 1.0**. This is **not an equivalence result**: no equivalence margin was preregistered and the sample is too small to claim capability neutrality from failure to reject a difference. A future capacity study should use a preregistered equivalence margin (for example TOST or another appropriate paired equivalence procedure). This benchmark does **not** exercise the architecture's primary advantages (leases, fencing, authority/budget boundaries, durable recovery, duplicate-side-effect prevention), so the next experiment is a deterministic fault-injection benchmark rather than more baseline TAC tasks.
 
 The single XANXITOSPA loss (`ds-coffee-shop-database-management`) has been autopsied in `evidence/coffee-shop-autopsy-v3.json`: the arm-specific 2-point loss was semantic overreach in planning, not an authority/budget denial or runtime overhead. The actionable guard is to freeze explicit artifact contracts before applying operational heuristics.

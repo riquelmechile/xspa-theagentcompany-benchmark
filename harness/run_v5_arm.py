@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import tempfile
 from datetime import datetime, timezone
@@ -11,9 +12,11 @@ from typing import Any
 
 from harness.v5_replication import validate_manifest
 
-V4_MANIFEST = Path("manifest/fault-injection-v4-stateful.json")
-RUNTIME = Path("/home/sebastian/workspace/xspa-benchmark/runtime")
-BACKUP_DIR = Path("/home/sebastian/workspace/xspa-benchmark/infra-backups/plane-20241031-0351")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+WORK_ROOT = Path(os.environ.get("XSPA_BENCH_WORK_ROOT", REPO_ROOT.parent / "xspa-benchmark"))
+V4_MANIFEST = REPO_ROOT / "manifest" / "fault-injection-v4-stateful.json"
+RUNTIME = Path(os.environ.get("XSPA_BENCH_RUNTIME_ROOT", WORK_ROOT / "runtime"))
+BACKUP_DIR = Path(os.environ.get("XSPA_PLANE_BACKUP_DIR", WORK_ROOT / "infra-backups" / "plane-20241031-0351"))
 ROCKETCHAT_RESET_CONTAINER = "tac-v4-rc-direct-cal"
 PLANE_PROJECT = "73cb74f7-a7ac-4292-a915-e2f59a09a703"
 PLANE_ISSUE = "5d1c8695-acfd-44c2-8d2d-e41c67cdd8c0"
@@ -109,7 +112,7 @@ def main() -> int:
     parser.add_argument("--arm", choices=["direct", "xanxitospa"], required=True)
     parser.add_argument("--attempt", type=int, default=1)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--xspa-repo", default="/home/sebastian/workspace/xanxitospa")
+    parser.add_argument("--xspa-repo", default=os.environ.get("XSPA_SUT_DIR", str(REPO_ROOT.parent / "xanxitospa")))
     args = parser.parse_args()
 
     manifest = _load(Path(args.manifest))
